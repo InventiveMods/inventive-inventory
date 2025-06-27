@@ -1,8 +1,8 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui.widgets;
 
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
@@ -91,9 +91,9 @@ public class Section {
         this.iconY = middleY - 8;
 
         if (this.profile == null) {
-            context.drawTexture(RenderLayer::getGuiTextured, Textures.PLUS, iconX, iconY, 0, 0, 16, 16, 16, 16);
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, Textures.PLUS, iconX, iconY, 0, 0, 16, 16, 16, 16);
         } else if (this.profile.getDisplayStack().isEmpty()) {
-            context.drawTexture(RenderLayer::getGuiTextured, Textures.TOOLS, iconX, iconY, 0, 0, 16, 16, 16, 16);
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, Textures.TOOLS, iconX, iconY, 0, 0, 16, 16, 16, 16);
         } else context.drawItem(this.profile.getDisplayStack(), iconX, iconY);
     }
 
