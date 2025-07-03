@@ -1,10 +1,10 @@
 name: Publish
-run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} - ${{ inputs.version || github.event.head_commit.message }} on 1.21.5
+run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} - ${{ inputs.version || github.event.head_commit.message }} on 1.21.6
 
 on:
   push:
     branches:
-      - "1.21.5"
+      - "1.21.6"
   workflow_dispatch:
     inputs:
       platform:
