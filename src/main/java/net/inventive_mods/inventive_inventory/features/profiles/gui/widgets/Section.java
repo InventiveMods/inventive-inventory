@@ -1,8 +1,8 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui.widgets;
 
+import net.inventive_mods.inventive_inventory.features.profiles.gui.render_state.ProfileScreenBackgroundGuiElementRenderState;
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
@@ -33,7 +33,7 @@ public class Section {
         return MouseLocation.getHoveredProfileSection(mouseX, mouseY) == this.ID;
     }
 
-    public void drawBackground(BufferBuilder builder, boolean hovered) {
+    public void drawBackground(DrawContext context, boolean hovered) {
         int startAngle = 360 / ProfilesScreen.getSections().size() * this.ID;
         int limit = 360 / ProfilesScreen.getSections().size() + startAngle;
         int centerX = InventiveInventory.getScreen().width / 2;
@@ -66,10 +66,7 @@ public class Section {
             float nextPosInnerX = centerX + (float) Math.sin(nextAngle) * innerRadius;
             float nextPosInnerY = centerY - (float) Math.cos(nextAngle) * innerRadius;
 
-            builder.vertex(posX, posY, 0).color(color)
-                    .vertex(posInnerX, posInnerY, 0).color(color)
-                    .vertex(nextPosInnerX, nextPosInnerY, 0).color(color)
-                    .vertex(nextPosX, nextPosY, 0).color(color);
+            context.state.addSimpleElement(new ProfileScreenBackgroundGuiElementRenderState(context, posX, posY, posInnerX, posInnerY, nextPosInnerX, nextPosInnerY, nextPosX, nextPosY, color));
         }
     }
 
@@ -91,9 +88,9 @@ public class Section {
         this.iconY = middleY - 8;
 
         if (this.profile == null) {
-            context.drawTexture(RenderLayer::getGuiTextured, Textures.PLUS, iconX, iconY, 0, 0, 16, 16, 16, 16);
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, Textures.PLUS, iconX, iconY, 0, 0, 16, 16, 16, 16);
         } else if (this.profile.getDisplayStack().isEmpty()) {
-            context.drawTexture(RenderLayer::getGuiTextured, Textures.TOOLS, iconX, iconY, 0, 0, 16, 16, 16, 16);
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, Textures.TOOLS, iconX, iconY, 0, 0, 16, 16, 16, 16);
         } else context.drawItem(this.profile.getDisplayStack(), iconX, iconY);
     }
 

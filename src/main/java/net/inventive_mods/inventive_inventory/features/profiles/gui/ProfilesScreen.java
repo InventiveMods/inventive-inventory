@@ -1,9 +1,7 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui;
 
-import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.*;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -50,16 +48,18 @@ public class ProfilesScreen extends HandledScreen<ScreenHandler> {
     }
 
     @Override
+    public void renderBackground(DrawContext context, int mouseX, int mouseY, float deltaTicks) {
+    }
+
+    @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         this.mouseX = mouseX;
         this.mouseY = mouseY;
 
-        BufferBuilder builder = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-
         for (Section section : sections) {
-            section.drawBackground(builder, section.isHovered(mouseX, mouseY));
+            section.drawBackground(context, section.isHovered(mouseX, mouseY));
         }
-        RenderLayer.getGui().draw(builder.end());
+
         for (Section section : sections) {
             section.drawIcon(context);
             section.drawTooltips(context, mouseX, mouseY);
