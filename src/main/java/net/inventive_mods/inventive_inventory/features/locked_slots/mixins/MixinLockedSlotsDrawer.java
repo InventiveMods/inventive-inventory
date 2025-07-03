@@ -33,7 +33,9 @@ public abstract class MixinLockedSlotsDrawer {
     @Inject(method = "drawSlot(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/screen/slot/Slot;)V", at = @At(value = "HEAD"))
     private void onDrawItem(DrawContext context, Slot slot, CallbackInfo ci) {
         if (!InventiveInventory.getPlayer().isInCreativeMode() && LockedSlotsHandler.getLockedSlots().contains(slot.id) ) {
-            Drawer.drawSlotBackground(context, slot.x, slot.y, ConfigManager.LOCKED_SLOTS_COLOR.getValue(), ConfigManager.LOCKED_SLOT_STYLE.is(Style.OUTLINED));
+            if (!(this.focusedSlot == slot && AdvancedOperationHandler.isPressed())) {
+                Drawer.drawSlotBackground(context, slot.x, slot.y, ConfigManager.LOCKED_SLOTS_COLOR.getValue(), ConfigManager.LOCKED_SLOT_STYLE.is(Style.OUTLINED));
+            }
         }
     }
 
