@@ -1,0 +1,26 @@
+license="${mod_license}"
+issueTrackerURL="https://github.com/InventiveMods/inventive-inventory/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="Inventive Inventory"
+authors="${mod_authors}"
+description="${mod_description}"
+logoFile = "assets/inventive_inventory/icon.png"
+displayURL="https://modrinth.com/mod/inventive-inventory"
+
+[[dependencies.${mod_id}]]
+modId="neoforge"
+type="required"
+versionRange = "${neoforge_version_range}"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+type="required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "CLIENT"
+
