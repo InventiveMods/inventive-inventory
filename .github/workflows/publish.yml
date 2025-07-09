@@ -1,4 +1,81 @@
 name: Publish
+run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} (NeoForge) - ${{ inputs.version || github.event.head_commit.message }} on 1.21.6
 on:
+  push:
+    branches:
+      - "1.21.6-neoforge"
   workflow_dispatch:
+    inputs:
+      platform:
+        default: All
+        description: Platform to publish
+        required: true
+        type: choice
+        options:
+          - All
+          - Modrinth
+          - Curseforge
+      version:
+        description: Mod Version
+        required: true
 
+permissions:
+    contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JAVA_VERSION: 21
+
+    steps:
+      - name: Check Environment Variables
+        run: env
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4.1.7
+        with:
+          submodules: true
+
+      - name: Setup Java
+        uses: actions/setup-java@v4.2.2
+        with:
+          distribution: "temurin"
+          java-version: "${{ env.JAVA_VERSION }}"
+
+      - name: Read version and minecraft_version from gradle.properties
+        id: read-properties
+        run: |
+          version=$(grep '^version=' gradle.properties | cut -d'=' -f2-)
+          echo "version=$version" >> $GITHUB_ENV
+          
+      - name: Make Gradle Wrapper Executable
+        if: ${{ runner.os != 'Windows' }}
+        run: chmod +x ./gradlew
+
+      - name: Build
+        run: ./gradlew clean build
+
+      - name: Publish to Modrinth
+        if: ${{ github.event.inputs.platform == 'Modrinth' || github.event.inputs.platform == 'All' || github.event_name == 'push' }}
+
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-token: "${{ secrets.MODRINTH_TOKEN }}"
+          name: "Inventive Inventory ${{ env.version }} - NeoForge"
+          version: "${{ env.version }}"
+          version-type: release
+          changelog-file: CHANGELOG.md
+          java: "${{ env.JAVA_VERSION }}"
+
+      - name: Publish to Curseforge
+        if: ${{ github.event.inputs.platform == 'Curseforge' || github.event.inputs.platform == 'All' || github.event_name == 'push' }}
+
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-token: "${{ secrets.CURSEFORGE_TOKEN }}"
+          name: "Inventive Inventory ${{ env.version }} - NeoForge"
+          version: "${{ env.version }}"
+          version-type: release
+          changelog-file: CHANGELOG.md
+          java: "${{ env.JAVA_VERSION }}"
