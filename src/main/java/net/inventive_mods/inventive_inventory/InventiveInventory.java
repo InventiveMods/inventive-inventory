@@ -3,6 +3,7 @@ package net.inventive_mods.inventive_inventory;
 import net.inventive_mods.inventive_inventory.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -35,5 +36,9 @@ public class InventiveInventory {
 
     public static Font getFont() {
         return getMinecraft().font;
+    }
+
+    public static AbstractContainerMenu getMenu() {
+        return getMinecraft().player != null ? getMinecraft().player.containerMenu : null;
     }
 }
