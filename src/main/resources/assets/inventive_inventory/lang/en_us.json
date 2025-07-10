@@ -1,1 +1,120 @@
-{}
+{
+    "key.category.inventive_inventory.main": "Inventive Inventory",
+    "key.category.inventive_inventory.profiles": "Inventive Profiles",
+    "key.inventive_inventory.sort": "Sort Inventory",
+    "key.inventive_inventory.advanced_operation": "Advanced Operation",
+    "key.inventive_inventory.open_profiles_screen": "Open Profiles Screen",
+    "key.inventive_inventory.load_profile": "Load Profile (+ Profile Hotkey)",
+    "key.inventive_inventory.profile_0": "Profile 1",
+    "key.inventive_inventory.profile_1": "Profile 2",
+    "key.inventive_inventory.profile_2": "Profile 3",
+
+    "config.screen.title.inventive_inventory.main": "Inventive Inventory Settings",
+
+    "config.screen.tab.inventive_inventory.options": "Options",
+    "config.screen.tab.inventive_inventory.visuals": "Visuals",
+    "config.screen.tab.inventive_inventory.profiles": "Profiles",
+
+    "config.universal.button.text.inventive_inventory.universal.simple.yes": "Yes",
+    "config.universal.button.text.inventive_inventory.universal.simple.no": "No",
+
+    "config.options.label.inventive_inventory.sorting.status": "Sorting",
+    "config.options.label.inventive_inventory.sorting.mode": "Sorting Mode",
+    "config.options.label.inventive_inventory.sorting.cursor_stack_behaviour": "Cursor Stack Behaviour",
+    "config.options.label.inventive_inventory.automatic_refilling.status": "Automatic Refilling",
+    "config.options.label.inventive_inventory.automatic_refilling.mode": "Automatic Refilling Mode",
+    "config.options.label.inventive_inventory.automatic_refilling.tool_replacement_behaviour": "Tool Replacement Behaviour",
+    "config.options.label.inventive_inventory.automatic_refilling.tool_replacement_priority": "Tool Replacement Priority",
+    "config.options.label.inventive_inventory.profiles.status": "Profiles",
+    "config.options.label.inventive_inventory.profiles.fast_load": "Fast Load",
+    "config.options.label.inventive_inventory.locked_slots.pickup_into_locked_slots": "Pick-Up into Locked Slots",
+    "config.options.label.inventive_inventory.locked_slots.quick_move_into_locked_slots": "Quick Move into Locked Slots",
+    "config.options.label.inventive_inventory.universal.ignore_locked_slots": "Ignore Locked Slots",
+
+    "config.options.button.text.inventive_inventory.universal.status.enabled": "Enabled",
+    "config.options.button.text.inventive_inventory.universal.status.disabled": "Disabled",
+    "config.options.button.text.inventive_inventory.sorting.mode.name": "Name",
+    "config.options.button.text.inventive_inventory.sorting.mode.item_type": "Item Type",
+    "config.options.button.text.inventive_inventory.sorting.cursor_stack_behaviour.sort_cursor_stack": "Sort Cursor Stack",
+    "config.options.button.text.inventive_inventory.sorting.cursor_stack_behaviour.keep_cursor_stack": "Keep Cursor Stack",
+    "config.options.button.text.inventive_inventory.sorting.cursor_stack_behaviour.aok_dependent": "AOK-Dependent",
+    "config.options.button.text.inventive_inventory.sorting.cursor_stack_behaviour.aok_dependent_inverted": "AOK-Dependent Inverted",
+    "config.options.button.text.inventive_inventory.automatic_refilling.mode.automatic": "Automatic",
+    "config.options.button.text.inventive_inventory.automatic_refilling.mode.semi_automatic": "Semi Automatic",
+    "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_behaviour.keep_tool": "Keep Tool",
+    "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_behaviour.break_tool": "Break Tool",
+    "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_priority.material": "Material",
+    "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_priority.durability": "Durability",
+
+    "config.options.button.tooltip.inventive_inventory.universal.status.enabled": "Feature is enabled.",
+    "config.options.button.tooltip.inventive_inventory.universal.status.disabled": "Feature is disabled.",
+    "config.options.button.tooltip.inventive_inventory.universal.ignore_locked_slots": "Choose to ignore or include Locked Slots.",
+    "config.options.button.tooltip.inventive_inventory.sorting.mode.name": "Sort stacks in alphabetical order.",
+    "config.options.button.tooltip.inventive_inventory.sorting.mode.item_type": "Sort stacks in contextual order.",
+    "config.options.button.tooltip.inventive_inventory.sorting.cursor_stack_behaviour.sort_cursor_stack": "The stack in your cursor will also be sorted into the inventory.",
+    "config.options.button.tooltip.inventive_inventory.sorting.cursor_stack_behaviour.keep_cursor_stack": "The stack in your cursor remains.",
+    "config.options.button.tooltip.inventive_inventory.sorting.cursor_stack_behaviour.aok_dependent": "When pressing the Advanced Operation Key, the stack remains in your cursor.",
+    "config.options.button.tooltip.inventive_inventory.sorting.cursor_stack_behaviour.aok_dependent_inverted": "When pressing the Advanced Operation Key, the stack in your cursor will also be sorted into the inventory.",
+    "config.options.button.tooltip.inventive_inventory.automatic_refilling.mode.automatic": "The stack will be refilled automatically.",
+    "config.options.button.tooltip.inventive_inventory.automatic_refilling.mode.semi_automatic": "The stack will only be filled while the Advanced Operations Key is pressed.",
+    "config.options.button.tooltip.inventive_inventory.automatic_refilling.tool_replacement_behaviour.keep_tool": "Before your tool breaks, it will be replaced.",
+    "config.options.button.tooltip.inventive_inventory.automatic_refilling.tool_replacement_behaviour.break_tool": "Your tool will be replaced after it broke.",
+    "config.options.button.tooltip.inventive_inventory.automatic_refilling.tool_replacement_priority.material": "The tool made of the best material will be refilled.",
+    "config.options.button.tooltip.inventive_inventory.automatic_refilling.tool_replacement_priority.durability": "The tool with the least durability will be refilled.",
+    "config.options.button.tooltip.inventive_inventory.profiles.fast_load": "When enabled, you only need to press the profile key to load your profile.",
+    "config.options.button.tooltip.inventive_inventory.locked_slots.pickup_into_locked_slots": "Picked up items will fill Locked Slots.",
+    "config.options.button.tooltip.inventive_inventory.locked_slots.quick_move_into_locked_slots": "Quick-moved items will fill Locked Slots.",
+
+    "config.options.title.inventive_inventory.sorting": "Sorting",
+    "config.options.title.inventive_inventory.automatic_refilling": "Automatic Refilling",
+    "config.options.title.inventive_inventory.profiles": "Profiles",
+    "config.options.title.inventive_inventory.locked_slots": "Locked Slots",
+
+    "config.visuals.title.inventive_inventory.locked_slots": "Locked Slots",
+
+    "config.visuals.label.inventive_inventory.locked_slots.show_lock": "Show lock",
+    "config.visuals.label.inventive_inventory.locked_slots.style": "Style",
+    "config.visuals.label.inventive_inventory.locked_slots.color": "Color",
+    "config.visuals.label.inventive_inventory.locked_slots.hotbar_color": "Hotbar Color",
+
+    "config.visuals.button.text.inventive_inventory.locked_slots.style.filled": "Filled",
+    "config.visuals.button.text.inventive_inventory.locked_slots.style.outlined": "Outlined",
+    "config.visuals.button.text.inventive_inventory.locked_slots.color.reset": "Reset",
+
+    "config.visuals.slider.text.inventive_inventory.locked_slots.color.opacity": "Opacity: %s",
+
+    "config.visuals.button.tooltip.inventive_inventory.locked_slots.show_lock": "When enabled, a lock appears in the locked slot.",
+    "config.visuals.button.tooltip.inventive_inventory.locked_slots.style.filled": "Locked Slots are filled with the selected color.",
+    "config.visuals.button.tooltip.inventive_inventory.locked_slots.style.outlined": "Locked slot are outlined with the selected color.",
+    "config.visuals.button.tooltip.inventive_inventory.locked_slots.color.reset": "Reset the color to default.",
+
+    "config.visuals.text_field.tooltip.inventive_inventory.locked_slots.color": "Change the display color of Locked Slots.",
+
+    "config.profiles.text.inventive_inventory.no_profiles" : "You have no profiles in this world.",
+
+    "config.profiles.label.inventive_inventory.name" : "Name",
+    "config.profiles.label.inventive_inventory.key" : "Key",
+    "config.profiles.label.inventive_inventory.preview" : "Preview",
+    "config.profiles.text_field.inventive_inventory.placeholder" : "Name...",
+    "config.profiles.button.text.inventive_inventory.not_bound": "Not Bound",
+
+    "profiles.screen.tooltip.inventive_inventory.plus.1": "Create a new profile.",
+    "profiles.screen.tooltip.inventive_inventory.plus.2": "Hold ALT to give it a name.",
+    "profiles.screen.tooltip.inventive_inventory.unnamed": "Unnamed",
+    "profiles.screen.tooltip.inventive_inventory.key": "Key",
+
+    "profiles.screen.naming.label.inventive_inventory.instruction": "Name your profile:",
+    "profiles.screen.naming.text_field.inventive_inventory.placeholder": "Profile name...",
+
+    "notification.profiles.inventive_inventory.created": "Profile created!",
+    "notification.profiles.inventive_inventory.loaded": "Profile loaded!",
+    "notification.profiles.inventive_inventory.overwritten": "Profile overwritten!",
+    "notification.profiles.inventive_inventory.updated": "Profile updated!",
+    "notification.profiles.inventive_inventory.deleted": "Profile deleted!",
+
+    "error.profiles.inventive_inventory.exclusive_name": "Profile needs an exclusive name!",
+    "error.profiles.inventive_inventory.key": "Key is not available!",
+    "error.profiles.inventive_inventory.name": "Profile needs a name!",
+    "error.profiles.inventive_inventory.does_not_exist": "This profile does not exist!",
+    "error.profiles.inventive_inventory.max_amount": "Max amount of profiles reached!"
+}
