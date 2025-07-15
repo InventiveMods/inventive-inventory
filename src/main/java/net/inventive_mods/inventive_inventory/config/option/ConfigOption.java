@@ -5,7 +5,7 @@ import net.inventive_mods.inventive_inventory.config.Config;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Stylable;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
 import net.inventive_mods.inventive_inventory.util.gui.widget.TextWidget;
-import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.Nullable;
 
@@ -63,5 +63,5 @@ public abstract class ConfigOption<T> {
 
     public abstract void setValue(@Nullable String value);
 
-    public abstract AbstractButton asWidget();
+    public abstract AbstractWidget asWidget();
 }

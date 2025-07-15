@@ -3,6 +3,8 @@ package net.inventive_mods.inventive_inventory;
 import net.inventive_mods.inventive_inventory.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.multiplayer.MultiPlayerGameMode;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.ModContainer;
@@ -38,7 +40,33 @@ public class InventiveInventory {
         return getMinecraft().font;
     }
 
+    public static LocalPlayer getPlayer() {
+        return getMinecraft().player;
+    }
+
     public static AbstractContainerMenu getMenu() {
-        return getMinecraft().player != null ? getMinecraft().player.containerMenu : null;
+        return getPlayer() != null ? getPlayer().containerMenu : null;
+    }
+
+    public static MultiPlayerGameMode getGameMode() {
+        return getMinecraft().gameMode;
+    }
+
+    public static String getWorldName() {
+        String worldName = "";
+        Minecraft minecraft = getMinecraft();
+        if (minecraft.isSingleplayer() && minecraft.getSingleplayerServer() != null) {
+            worldName = minecraft.getSingleplayerServer().getWorldData().getLevelName();
+        } else {
+            if (minecraft.getConnection() != null) {
+                String address = minecraft.getConnection().getConnection().getRemoteAddress().toString();
+                if (address.contains("/")) {
+                    worldName = address.split("/")[0];
+                } else {
+                    worldName = address;
+                }
+            }
+        }
+        return worldName;
     }
 }

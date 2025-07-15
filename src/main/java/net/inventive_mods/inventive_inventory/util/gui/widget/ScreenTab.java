@@ -3,7 +3,7 @@ package net.inventive_mods.inventive_inventory.util.gui.widget;
 import net.inventive_mods.inventive_inventory.config.option.ConfigOption;
 import net.inventive_mods.inventive_inventory.util.gui.screen.TabbedScreen;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.network.chat.Component;
 
 public class ScreenTab extends ListWidget {
@@ -20,7 +20,7 @@ public class ScreenTab extends ListWidget {
         this.addEntry(Entry.create(option.createLabel(), option.asWidget()));
     }
 
-    protected void addCenteredWidget(AbstractButton widget) {
+    protected void addCenteredWidget(AbstractWidget widget) {
         this.addEntry(Entry.create(widget, null));
     }
 

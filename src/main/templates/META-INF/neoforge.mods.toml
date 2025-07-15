@@ -10,6 +10,9 @@ description="${mod_description}"
 logoFile = "assets/inventive_inventory/icon.png"
 displayURL="https://modrinth.com/mod/inventive-inventory"
 
+[[mixins]]
+config="locked_slots.mixins.json"
+
 [[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"

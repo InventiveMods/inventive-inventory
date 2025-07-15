@@ -1,6 +1,7 @@
 package net.inventive_mods.inventive_inventory.util.slot;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlots;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.InventoryMenu;
@@ -29,7 +30,7 @@ public class SlotRange extends ArrayList<Integer> {
     }
 
     public static SlotRange empty() {
-        return new SlotRange(0, 0);
+        return new SlotRange(0, -1);
     }
 
     public SlotRange append(SlotType type) {
@@ -55,6 +56,20 @@ public class SlotRange extends ArrayList<Integer> {
                 }
             }
         }
+        return this;
+    }
+
+    public SlotRange exclude(SlotType type) {
+        switch (type) {
+            case LOCKED_SLOT -> LockedSlots.get().forEach(this::remove);
+            case INVENTORY -> SlotRange.getPlayerSlots().forEach(this::remove);
+            case HOTBAR -> SlotRange.getPlayerSlots(SlotType.HOTBAR).forEach(this::remove);
+        }
+        return this;
+    }
+
+    public SlotRange exclude(Integer slot) {
+        this.remove(slot);
         return this;
     }
 

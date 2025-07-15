@@ -1,0 +1,16 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.inventive_mods.inventive_inventory.features.locked_slots.mixins",
+    "compatibilityLevel": "JAVA_21",
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "client": [
+        "MixinSlotHudRenderer",
+        "MixinSlotRenderer"
+    ],
+    "mixins": [
+        "MixinQuickMove"
+    ]
+}
