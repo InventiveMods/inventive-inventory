@@ -3,6 +3,7 @@ package net.inventive_mods.inventive_inventory;
 import net.inventive_mods.inventive_inventory.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -50,6 +51,10 @@ public class InventiveInventory {
 
     public static MultiPlayerGameMode getGameMode() {
         return getMinecraft().gameMode;
+    }
+
+    public static Screen getScreen() {
+        return getMinecraft().screen;
     }
 
     public static String getWorldName() {

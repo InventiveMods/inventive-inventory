@@ -33,6 +33,16 @@ public class InteractionHandler {
         gameMode.handleInventoryMouseClick(getContainerId(), slot, GLFW.GLFW_MOUSE_BUTTON_RIGHT, ClickType.PICKUP, player);
     }
 
+    public static void swapStacks(int slot, int target) {
+        MultiPlayerGameMode gameMode = InventiveInventory.getGameMode();
+        LocalPlayer player = InventiveInventory.getPlayer();
+        gameMode.handleInventoryMouseClick(getContainerId(), slot, GLFW.GLFW_MOUSE_BUTTON_LEFT, ClickType.PICKUP, player);
+        gameMode.handleInventoryMouseClick(getContainerId(), target, GLFW.GLFW_MOUSE_BUTTON_LEFT, ClickType.PICKUP, player);
+        if (isCursorFull()) {
+            gameMode.handleInventoryMouseClick(getContainerId(), slot, GLFW.GLFW_MOUSE_BUTTON_LEFT, ClickType.PICKUP, player);
+        }
+    }
+
     public static void dropCursor(int times) {
         MultiPlayerGameMode gameMode = InventiveInventory.getGameMode();
         LocalPlayer player = InventiveInventory.getPlayer();

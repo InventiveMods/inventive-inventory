@@ -2,7 +2,10 @@ package net.inventive_mods.inventive_inventory.config;
 
 import com.google.gson.JsonObject;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.config.enums.Status;
 import net.inventive_mods.inventive_inventory.config.enums.locked_slots.SlotStyle;
+import net.inventive_mods.inventive_inventory.config.enums.sorting.CursorStackBehaviour;
+import net.inventive_mods.inventive_inventory.config.enums.sorting.SortingMode;
 import net.inventive_mods.inventive_inventory.config.gui.ConfigScreen;
 import net.inventive_mods.inventive_inventory.config.option.ConfigOption;
 import net.inventive_mods.inventive_inventory.config.option.button.EnumButtonOption;
@@ -27,6 +30,9 @@ public class Config {
     private static final String CONFIG_FILE = "config.json";
     private static final Path CONFIG_FILE_PATH = CONFIG_PATH.resolve(CONFIG_FILE);
 
+    public static final ConfigOption<Status> SORTING_STATUS = new EnumButtonOption<>("options", "sorting.status", Status.ENABLED);
+    public static final ConfigOption<SortingMode> SORTING_MODE = new EnumButtonOption<>("options", "sorting.mode", SortingMode.NAME);
+    public static final ConfigOption<CursorStackBehaviour> CURSOR_STACK_BEHAVIOUR = new EnumButtonOption<>("options", "sorting.cursor_stack_behaviour", CursorStackBehaviour.AOK_DEPENDENT);
     public static final ConfigOption<Boolean> PICKUP_INTO_LOCKED_SLOTS = new SimpleButtonOption("options", "locked_slots.pickup_into_locked_slots", false);
     public static final ConfigOption<Boolean> QUICK_MOVE_INTO_LOCKED_SLOTS = new SimpleButtonOption("options", "locked_slots.quick_move_into_locked_slots", false);
     public static final ConfigOption<Boolean> SHOW_LOCK = new SimpleButtonOption("visuals", "locked_slots.show_lock", true);

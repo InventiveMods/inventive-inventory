@@ -13,6 +13,7 @@ import org.lwjgl.glfw.GLFW;
 public class KeyHandler {
     public static final String INVENTIVE_INVENTORY_CATEGORY = "key.category.inventive_inventory.main";
     private static final String KEY_ADVANCED_OPERATION = "key.inventive_inventory.advanced_operation";
+    private static final String KEY_SORT = "key.inventive_inventory.sort";
 
     public static KeyMapping advancedOperationKey = new KeyMapping(
             KEY_ADVANCED_OPERATION,
@@ -20,10 +21,17 @@ public class KeyHandler {
             GLFW.GLFW_KEY_LEFT_ALT,
             INVENTIVE_INVENTORY_CATEGORY
     );
+    public static KeyMapping sortKey = new KeyMapping(
+            KEY_SORT,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_R,
+            INVENTIVE_INVENTORY_CATEGORY
+    );
 
 
     @SubscribeEvent
     public static void registerKeys(RegisterKeyMappingsEvent event) {
         event.register(advancedOperationKey);
+        event.register(sortKey);
     }
 }

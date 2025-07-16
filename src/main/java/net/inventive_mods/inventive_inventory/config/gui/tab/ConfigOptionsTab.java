@@ -14,6 +14,11 @@ public class ConfigOptionsTab extends ScreenTab {
     public ConfigOptionsTab(Minecraft minecraft, int width, TabbedScreen screen) {
         super(minecraft, width, screen);
 
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".sorting"));
+        this.addConfigOption(Config.SORTING_STATUS);
+        this.addConfigOption(Config.SORTING_MODE);
+        this.addConfigOption(Config.CURSOR_STACK_BEHAVIOUR);
+
         this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".locked_slots"));
         this.addConfigOption(Config.PICKUP_INTO_LOCKED_SLOTS);
         this.addConfigOption(Config.QUICK_MOVE_INTO_LOCKED_SLOTS);

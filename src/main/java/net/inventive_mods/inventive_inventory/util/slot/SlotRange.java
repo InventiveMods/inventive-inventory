@@ -113,4 +113,8 @@ public class SlotRange extends ArrayList<Integer> {
         if (containerSlots.isEmpty()) return empty();
         return range(containerSlots.getFirst().index, containerSlots.getLast().index);
     }
+
+    public SlotRange copy() {
+        return (SlotRange) this.clone();
+    }
 }
