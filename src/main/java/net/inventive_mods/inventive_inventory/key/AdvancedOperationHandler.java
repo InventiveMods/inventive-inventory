@@ -33,4 +33,16 @@ public class AdvancedOperationHandler {
         if (KeyHandler.advancedOperationKey.isActiveAndMatches(InputConstants.getKey(event.getKeyCode(), event.getScanCode())))
             pressed = false;
     }
+
+    @SubscribeEvent
+    public static void onMouseClicked(ScreenEvent.MouseButtonPressed.Pre event) {
+        if (KeyHandler.advancedOperationKey.matchesMouse(event.getButton()))
+            pressed = true;
+    }
+
+    @SubscribeEvent
+    public static void onMouseReleased(ScreenEvent.MouseButtonReleased.Pre event) {
+        if (KeyHandler.advancedOperationKey.matchesMouse(event.getButton()))
+            pressed = false;
+    }
 }

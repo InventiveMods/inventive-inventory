@@ -28,6 +28,14 @@ public class SortingHandler {
         }
     }
 
+    @SubscribeEvent
+    public static void onMouseClicked(ScreenEvent.MouseButtonPressed.Pre event) {
+        if (InventiveInventory.getPlayer() != null && InventiveInventory.getPlayer().isCreative() || Config.SORTING_STATUS.is(Status.DISABLED))
+            return;
+        if (KeyHandler.sortKey.matchesMouse(event.getButton()))
+            sort();
+    }
+
     private static void sort() {
         SlotRange slotRange = Mouse.isOverInventory() || !ScreenCheck.isContainerScreen() ? SlotRange.getPlayerSlots().exclude(SlotType.LOCKED_SLOT) : SlotRange.getContainerSlots();
         ItemStack targetStack = InteractionHandler.getCursorStack().copy();
