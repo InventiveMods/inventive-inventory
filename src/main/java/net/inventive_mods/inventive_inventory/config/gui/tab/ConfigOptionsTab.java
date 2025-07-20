@@ -19,6 +19,11 @@ public class ConfigOptionsTab extends ScreenTab {
         this.addConfigOption(Config.SORTING_MODE);
         this.addConfigOption(Config.CURSOR_STACK_BEHAVIOUR);
 
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".profiles"));
+        this.addConfigOption(Config.PROFILES_STATUS);
+        this.addConfigOption(Config.FAST_LOAD);
+        this.addConfigOption(Config.PROFILES_IGNORE_LOCKED_SLOTS);
+
         this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".locked_slots"));
         this.addConfigOption(Config.PICKUP_INTO_LOCKED_SLOTS);
         this.addConfigOption(Config.QUICK_MOVE_INTO_LOCKED_SLOTS);

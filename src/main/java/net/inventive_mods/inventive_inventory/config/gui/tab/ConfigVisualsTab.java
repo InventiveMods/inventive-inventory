@@ -2,8 +2,8 @@ package net.inventive_mods.inventive_inventory.config.gui.tab;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.Config;
-import net.inventive_mods.inventive_inventory.config.gui.widget.ColorPickerWidget;
-import net.inventive_mods.inventive_inventory.config.gui.widget.LockedSlotWidget;
+import net.inventive_mods.inventive_inventory.config.gui.widget.locked_slots.ColorPickerWidget;
+import net.inventive_mods.inventive_inventory.config.gui.widget.locked_slots.LockedSlotWidget;
 import net.inventive_mods.inventive_inventory.util.Textures;
 import net.inventive_mods.inventive_inventory.util.gui.screen.TabbedScreen;
 import net.inventive_mods.inventive_inventory.util.gui.widget.ScreenTab;

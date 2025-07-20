@@ -1,6 +1,6 @@
 package net.inventive_mods.inventive_inventory.config.option.field;
 
-import net.inventive_mods.inventive_inventory.config.gui.widget.ColorPickerWidget;
+import net.inventive_mods.inventive_inventory.config.gui.widget.locked_slots.ColorPickerWidget;
 import net.inventive_mods.inventive_inventory.config.option.ConfigOption;
 import net.minecraft.client.gui.components.AbstractWidget;
 import org.jetbrains.annotations.Nullable;

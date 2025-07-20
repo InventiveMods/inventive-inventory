@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.config.gui.widget;
+package net.inventive_mods.inventive_inventory.config.gui.widget.locked_slots;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.option.field.ColorFieldOption;

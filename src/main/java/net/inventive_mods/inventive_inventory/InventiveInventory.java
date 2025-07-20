@@ -4,8 +4,10 @@ import net.inventive_mods.inventive_inventory.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.ModContainer;
@@ -55,6 +57,14 @@ public class InventiveInventory {
 
     public static Screen getScreen() {
         return getMinecraft().screen;
+    }
+
+    public static ClientLevel getWorld() {
+        return getMinecraft().level;
+    }
+
+    public static RegistryAccess getRegistryAccess() {
+        return getWorld().registryAccess();
     }
 
     public static String getWorldName() {

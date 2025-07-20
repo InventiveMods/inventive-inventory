@@ -17,6 +17,20 @@ public class InteractionHandler {
         return InventiveInventory.getMenu().getCarried();
     }
 
+    public static ItemStack getMainHandStack() {
+        return InventiveInventory.getPlayer().getMainHandItem();
+    }
+
+    public static ItemStack getOffHandStack() {
+        return InventiveInventory.getPlayer().getOffhandItem();
+    }
+
+    public static ItemStack getAnyHandStack() {
+        if (!ItemStack.isSameItem(getMainHandStack(), ItemStack.EMPTY)) return getMainHandStack();
+        else if (!ItemStack.isSameItem(getOffHandStack(), ItemStack.EMPTY)) return getOffHandStack();
+        else return ItemStack.EMPTY;
+    }
+
     public static boolean isCursorFull() {
         return !getCursorStack().isEmpty();
     }

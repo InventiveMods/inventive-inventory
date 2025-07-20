@@ -12,6 +12,7 @@ import net.inventive_mods.inventive_inventory.config.option.button.EnumButtonOpt
 import net.inventive_mods.inventive_inventory.config.option.button.SimpleButtonOption;
 import net.inventive_mods.inventive_inventory.config.option.field.ColorFieldOption;
 import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlotsHandler;
+import net.inventive_mods.inventive_inventory.features.profile.ProfileHandler;
 import net.inventive_mods.inventive_inventory.util.FileHandler;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.loading.FMLPaths;
@@ -33,6 +34,9 @@ public class Config {
     public static final ConfigOption<Status> SORTING_STATUS = new EnumButtonOption<>("options", "sorting.status", Status.ENABLED);
     public static final ConfigOption<SortingMode> SORTING_MODE = new EnumButtonOption<>("options", "sorting.mode", SortingMode.NAME);
     public static final ConfigOption<CursorStackBehaviour> CURSOR_STACK_BEHAVIOUR = new EnumButtonOption<>("options", "sorting.cursor_stack_behaviour", CursorStackBehaviour.AOK_DEPENDENT);
+    public static final ConfigOption<Status> PROFILES_STATUS = new EnumButtonOption<>("options", "profiles.status", Status.ENABLED);
+    public static final ConfigOption<Boolean> FAST_LOAD = new SimpleButtonOption("options", "profiles.fast_load", false);
+    public static final ConfigOption<Boolean> PROFILES_IGNORE_LOCKED_SLOTS = new SimpleButtonOption("options", "universal.ignore_locked_slots", true);
     public static final ConfigOption<Boolean> PICKUP_INTO_LOCKED_SLOTS = new SimpleButtonOption("options", "locked_slots.pickup_into_locked_slots", false);
     public static final ConfigOption<Boolean> QUICK_MOVE_INTO_LOCKED_SLOTS = new SimpleButtonOption("options", "locked_slots.quick_move_into_locked_slots", false);
     public static final ConfigOption<Boolean> SHOW_LOCK = new SimpleButtonOption("visuals", "locked_slots.show_lock", true);
@@ -44,6 +48,7 @@ public class Config {
         Files.createDirectories(CONFIG_PATH);
         FileHandler.createFile(CONFIG_FILE_PATH);
         FileHandler.createFile(LockedSlotsHandler.LOCKED_SLOTS_PATH);
+        FileHandler.createFile(ProfileHandler.PROFILES_PATH);
         initConfig();
         save();
         container.registerExtensionPoint(IConfigScreenFactory.class, (modContainer, modListScreen) -> new ConfigScreen(modListScreen));

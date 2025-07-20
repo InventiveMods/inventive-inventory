@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.config.gui.widget;
+package net.inventive_mods.inventive_inventory.config.gui.widget.locked_slots;
 
 import net.inventive_mods.inventive_inventory.config.option.ConfigOption;
 import net.inventive_mods.inventive_inventory.util.Renderer;

@@ -1,6 +1,7 @@
 package net.inventive_mods.inventive_inventory.util;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.features.profile.gui.screen.ProfilesScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -17,5 +18,9 @@ public class ScreenCheck {
         AbstractContainerMenu menu = InventiveInventory.getMenu();
         return menu instanceof ChestMenu || menu instanceof DispenserMenu
                 || menu instanceof HopperMenu || menu.slots.size() - Inventory.INVENTORY_SIZE > 10;
+    }
+
+    public static boolean isProfileScreen() {
+        return InventiveInventory.getScreen() instanceof ProfilesScreen;
     }
 }
