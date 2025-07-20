@@ -1,10 +1,10 @@
-package net.inventive_mods.inventive_inventory.features.locked_slots.mixins;
+package net.inventive_mods.inventive_inventory.feature.locked_slots.mixins;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.Config;
-import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlots;
+import net.inventive_mods.inventive_inventory.feature.locked_slots.LockedSlots;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.automatic_refilling;
+package net.inventive_mods.inventive_inventory.feature.automatic_refilling;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.Config;
@@ -6,7 +6,7 @@ import net.inventive_mods.inventive_inventory.config.enums.Status;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.AutomaticRefillingMode;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.ToolReplacementBehaviour;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.ToolReplacementPriority;
-import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlots;
+import net.inventive_mods.inventive_inventory.feature.locked_slots.LockedSlots;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 import net.inventive_mods.inventive_inventory.util.slot.SlotRange;
 import net.inventive_mods.inventive_inventory.util.slot.SlotType;

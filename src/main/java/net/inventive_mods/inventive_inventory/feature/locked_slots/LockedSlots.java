@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.locked_slots;
+package net.inventive_mods.inventive_inventory.feature.locked_slots;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

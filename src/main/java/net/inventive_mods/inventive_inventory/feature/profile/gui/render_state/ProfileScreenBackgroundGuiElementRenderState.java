@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.profile.gui.render_state;
+package net.inventive_mods.inventive_inventory.feature.profile.gui.render_state;
 
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.vertex.VertexConsumer;

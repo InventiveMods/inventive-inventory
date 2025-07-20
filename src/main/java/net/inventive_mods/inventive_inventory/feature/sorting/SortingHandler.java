@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.sorting;
+package net.inventive_mods.inventive_inventory.feature.sorting;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.inventive_mods.inventive_inventory.InventiveInventory;

@@ -1,7 +1,7 @@
 package net.inventive_mods.inventive_inventory.util.slot;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlots;
+import net.inventive_mods.inventive_inventory.feature.locked_slots.LockedSlots;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.InventoryMenu;

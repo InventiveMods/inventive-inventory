@@ -1,6 +1,6 @@
 package net.inventive_mods.inventive_inventory.util.tooltip;
 
-import net.inventive_mods.inventive_inventory.features.profile.Profile;
+import net.inventive_mods.inventive_inventory.feature.profile.Profile;
 import net.inventive_mods.inventive_inventory.key.KeyHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;

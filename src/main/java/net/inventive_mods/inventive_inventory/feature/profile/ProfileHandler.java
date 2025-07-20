@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.profile;
+package net.inventive_mods.inventive_inventory.feature.profile;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.Config;
 import net.inventive_mods.inventive_inventory.config.enums.Status;
-import net.inventive_mods.inventive_inventory.features.profile.gui.screen.ProfilesScreen;
+import net.inventive_mods.inventive_inventory.feature.profile.gui.screen.ProfilesScreen;
 import net.inventive_mods.inventive_inventory.key.KeyHandler;
 import net.inventive_mods.inventive_inventory.util.ComponentsHelper;
 import net.inventive_mods.inventive_inventory.util.FileHandler;

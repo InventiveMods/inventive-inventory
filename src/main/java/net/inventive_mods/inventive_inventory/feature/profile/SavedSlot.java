@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.profile;
+package net.inventive_mods.inventive_inventory.feature.profile;
 
 
 import net.minecraft.world.item.ItemStack;

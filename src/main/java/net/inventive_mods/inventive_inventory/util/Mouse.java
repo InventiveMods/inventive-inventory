@@ -1,7 +1,7 @@
 package net.inventive_mods.inventive_inventory.util;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profile.gui.screen.ProfilesScreen;
+import net.inventive_mods.inventive_inventory.feature.profile.gui.screen.ProfilesScreen;
 import net.inventive_mods.inventive_inventory.util.slot.SlotRange;
 import net.inventive_mods.inventive_inventory.util.slot.SlotType;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

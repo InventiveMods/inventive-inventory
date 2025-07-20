@@ -1,9 +1,9 @@
-package net.inventive_mods.inventive_inventory.features.profile.gui.widget;
+package net.inventive_mods.inventive_inventory.feature.profile.gui.widget;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profile.Profile;
-import net.inventive_mods.inventive_inventory.features.profile.gui.render_state.ProfileScreenBackgroundGuiElementRenderState;
-import net.inventive_mods.inventive_inventory.features.profile.gui.screen.ProfilesScreen;
+import net.inventive_mods.inventive_inventory.feature.profile.Profile;
+import net.inventive_mods.inventive_inventory.feature.profile.gui.render_state.ProfileScreenBackgroundGuiElementRenderState;
+import net.inventive_mods.inventive_inventory.feature.profile.gui.screen.ProfilesScreen;
 import net.inventive_mods.inventive_inventory.util.Mouse;
 import net.inventive_mods.inventive_inventory.util.Renderer;
 import net.inventive_mods.inventive_inventory.util.Textures;

@@ -1,9 +1,9 @@
-package net.inventive_mods.inventive_inventory.features.profile.gui.screen;
+package net.inventive_mods.inventive_inventory.feature.profile.gui.screen;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import net.inventive_mods.inventive_inventory.features.profile.Profile;
-import net.inventive_mods.inventive_inventory.features.profile.ProfileHandler;
-import net.inventive_mods.inventive_inventory.features.profile.gui.widget.Section;
+import net.inventive_mods.inventive_inventory.feature.profile.Profile;
+import net.inventive_mods.inventive_inventory.feature.profile.ProfileHandler;
+import net.inventive_mods.inventive_inventory.feature.profile.gui.widget.Section;
 import net.inventive_mods.inventive_inventory.key.KeyHandler;
 import net.inventive_mods.inventive_inventory.util.Mouse;
 import net.minecraft.client.gui.GuiGraphics;

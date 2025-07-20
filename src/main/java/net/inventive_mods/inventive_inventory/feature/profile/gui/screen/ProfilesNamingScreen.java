@@ -1,7 +1,7 @@
-package net.inventive_mods.inventive_inventory.features.profile.gui.screen;
+package net.inventive_mods.inventive_inventory.feature.profile.gui.screen;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profile.ProfileHandler;
+import net.inventive_mods.inventive_inventory.feature.profile.ProfileHandler;
 import net.inventive_mods.inventive_inventory.util.gui.widget.TextWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;

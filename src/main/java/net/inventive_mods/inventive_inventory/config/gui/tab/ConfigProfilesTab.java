@@ -2,8 +2,8 @@ package net.inventive_mods.inventive_inventory.config.gui.tab;
 
 import net.inventive_mods.inventive_inventory.config.gui.widget.profiles.ConfigProfileTitleWidget;
 import net.inventive_mods.inventive_inventory.config.gui.widget.profiles.ConfigProfileWidget;
-import net.inventive_mods.inventive_inventory.features.profile.Profile;
-import net.inventive_mods.inventive_inventory.features.profile.ProfileHandler;
+import net.inventive_mods.inventive_inventory.feature.profile.Profile;
+import net.inventive_mods.inventive_inventory.feature.profile.ProfileHandler;
 import net.inventive_mods.inventive_inventory.util.gui.screen.TabbedScreen;
 import net.inventive_mods.inventive_inventory.util.gui.widget.ScreenTab;
 import net.inventive_mods.inventive_inventory.util.gui.widget.TextWidget;

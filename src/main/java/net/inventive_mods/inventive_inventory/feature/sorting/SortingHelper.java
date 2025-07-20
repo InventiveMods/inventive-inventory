@@ -1,4 +1,4 @@
-package net.inventive_mods.inventive_inventory.features.sorting;
+package net.inventive_mods.inventive_inventory.feature.sorting;
 
 import net.inventive_mods.inventive_inventory.config.Config;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;

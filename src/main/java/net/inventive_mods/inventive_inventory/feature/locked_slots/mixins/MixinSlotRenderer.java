@@ -1,11 +1,11 @@
-package net.inventive_mods.inventive_inventory.features.locked_slots.mixins;
+package net.inventive_mods.inventive_inventory.feature.locked_slots.mixins;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.Config;
 import net.inventive_mods.inventive_inventory.config.enums.locked_slots.SlotStyle;
-import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlots;
+import net.inventive_mods.inventive_inventory.feature.locked_slots.LockedSlots;
 import net.inventive_mods.inventive_inventory.key.AdvancedOperationHandler;
 import net.inventive_mods.inventive_inventory.util.Renderer;
 import net.inventive_mods.inventive_inventory.util.Textures;

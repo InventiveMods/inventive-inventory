@@ -2,9 +2,9 @@ package net.inventive_mods.inventive_inventory.config.gui.widget.profiles;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.gui.tab.ConfigProfilesTab;
-import net.inventive_mods.inventive_inventory.features.profile.Profile;
-import net.inventive_mods.inventive_inventory.features.profile.ProfileHandler;
-import net.inventive_mods.inventive_inventory.features.profile.SavedSlot;
+import net.inventive_mods.inventive_inventory.feature.profile.Profile;
+import net.inventive_mods.inventive_inventory.feature.profile.ProfileHandler;
+import net.inventive_mods.inventive_inventory.feature.profile.SavedSlot;
 import net.inventive_mods.inventive_inventory.key.KeyHandler;
 import net.inventive_mods.inventive_inventory.util.Renderer;
 import net.inventive_mods.inventive_inventory.util.gui.widget.ClickableWidget;

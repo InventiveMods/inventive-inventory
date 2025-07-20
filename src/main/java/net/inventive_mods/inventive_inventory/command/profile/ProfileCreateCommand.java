@@ -6,7 +6,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profile.ProfileHandler;
+import net.inventive_mods.inventive_inventory.feature.profile.ProfileHandler;
 import net.inventive_mods.inventive_inventory.util.Notifier;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.commands.CommandSourceStack;
