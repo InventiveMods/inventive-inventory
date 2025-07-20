@@ -54,7 +54,7 @@ public class ProfileHandler {
         }
         if (KeyHandler.openProfilesScreenKey.isDown())
             InventiveInventory.getMinecraft().setScreen(new ProfilesScreen());
-        
+
     }
 
     public static void create(String name, String key) {

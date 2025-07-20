@@ -17,7 +17,7 @@ public class SlotRange extends ArrayList<Integer> {
         super(IntStream.rangeClosed(start, end).boxed().toList());
     }
 
-    private SlotRange(ArrayList<Integer> list) {
+    private SlotRange(List<Integer> list) {
         super(list);
     }
 
@@ -25,7 +25,7 @@ public class SlotRange extends ArrayList<Integer> {
         return new SlotRange(start, end);
     }
 
-    public static SlotRange of(ArrayList<Integer> list) {
+    public static SlotRange of(List<Integer> list) {
         return new SlotRange(list);
     }
 

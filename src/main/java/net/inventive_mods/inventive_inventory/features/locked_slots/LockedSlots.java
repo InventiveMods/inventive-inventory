@@ -25,7 +25,7 @@ public class LockedSlots {
 
     @SubscribeEvent
     public static void init(EntityJoinLevelEvent event) {
-        if (!event.getEntity().equals(InventiveInventory.getMinecraft().player)) return;
+        if (!event.getEntity().equals(InventiveInventory.getPlayer())) return;
         JsonElement jsonFile = FileHandler.get(LockedSlotsHandler.LOCKED_SLOTS_PATH);
         JsonArray lockedSlotsJson = new JsonArray();
         worldName = InventiveInventory.getWorldName();
@@ -40,7 +40,7 @@ public class LockedSlots {
 
     @SubscribeEvent
     public static void save(EntityLeaveLevelEvent event) {
-        if (!event.getEntity().equals(InventiveInventory.getMinecraft().player)) return;
+        if (!event.getEntity().equals(InventiveInventory.getPlayer())) return;
         JsonArray lockedSlotsJson = new JsonArray();
         for (int lockedSlot : lockedSlots) lockedSlotsJson.add(lockedSlot);
         JsonObject jsonObject = FileHandler.get(LockedSlotsHandler.LOCKED_SLOTS_PATH).isJsonObject() ? FileHandler.get(LockedSlotsHandler.LOCKED_SLOTS_PATH).getAsJsonObject() : new JsonObject();

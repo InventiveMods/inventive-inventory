@@ -31,6 +31,16 @@ public class InteractionHandler {
         else return ItemStack.EMPTY;
     }
 
+    public static int getSelectedSlot() {
+        AbstractContainerMenu menu = InventiveInventory.getMenu();
+        LocalPlayer player = InventiveInventory.getPlayer();
+        return menu.findSlot(player.getInventory(), player.getInventory().getSelectedSlot()).orElse(-1);
+    }
+
+    public static void setSelectedSlot(int slot) {
+        InventiveInventory.getPlayer().getInventory().setSelectedSlot(slot);
+    }
+
     public static boolean isCursorFull() {
         return !getCursorStack().isEmpty();
     }
