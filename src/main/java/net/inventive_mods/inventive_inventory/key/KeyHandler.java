@@ -10,7 +10,7 @@ import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
-@EventBusSubscriber(modid = InventiveInventory.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = InventiveInventory.MOD_ID, value = Dist.CLIENT)
 public class KeyHandler {
     public static final String INVENTIVE_INVENTORY_CATEGORY = "key.category.inventive_inventory.main";
     public static final String INVENTIVE_INVENTORY_PROFILES_CATEGORY = "key.category.inventive_inventory.profiles";
