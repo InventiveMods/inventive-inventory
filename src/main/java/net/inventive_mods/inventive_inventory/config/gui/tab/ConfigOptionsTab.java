@@ -19,6 +19,13 @@ public class ConfigOptionsTab extends ScreenTab {
         this.addConfigOption(Config.SORTING_MODE);
         this.addConfigOption(Config.CURSOR_STACK_BEHAVIOUR);
 
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".automatic_refilling"));
+        this.addConfigOption(Config.AUTOMATIC_REFILLING_STATUS);
+        this.addConfigOption(Config.AUTOMATIC_REFILLING_MODE);
+        this.addConfigOption(Config.TOOL_REPLACEMENT_BEHAVIOUR);
+        this.addConfigOption(Config.TOOL_REPLACEMENT_PRIORITY);
+        this.addConfigOption(Config.AUTOMATIC_REFILLING_IGNORE_LOCKED_SLOTS);
+
         this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".profiles"));
         this.addConfigOption(Config.PROFILES_STATUS);
         this.addConfigOption(Config.FAST_LOAD);
