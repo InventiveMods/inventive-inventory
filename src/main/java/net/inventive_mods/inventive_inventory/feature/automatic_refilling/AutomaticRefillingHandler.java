@@ -44,13 +44,13 @@ public class AutomaticRefillingHandler {
 
         Options options = InventiveInventory.getMinecraft().options;
         if (options.keyAttack.isDown() || options.keyUse.isDown() || options.keyDrop.isDown()) {
-            AutomaticRefillingHandler.keysPressed = true;
+            keysPressed = true;
         } else if (!options.keyAttack.isDown() && !options.keyUse.isDown() && !options.keyDrop.isDown()) {
-            AutomaticRefillingHandler.keysPressed = false;
+            keysPressed = false;
         }
 
         if (selectedSlot != InteractionHandler.getSelectedSlot()) {
-            AutomaticRefillingHandler.reset();
+            reset();
         }
 
         automaticRefilling();
@@ -64,8 +64,8 @@ public class AutomaticRefillingHandler {
         automaticRefilling();
 
         LocalPlayer player = InventiveInventory.getPlayer();
-        mainHandStack = player.getMainHandItem();
-        offHandStack = player.getOffhandItem();
+        mainHandStack = player.getMainHandItem().copy();
+        offHandStack = player.getOffhandItem().copy();
         selectedSlot = InteractionHandler.getSelectedSlot();
     }
 
@@ -77,16 +77,16 @@ public class AutomaticRefillingHandler {
     }
 
     public static void automaticRefilling() {
-        if (AutomaticRefillingMode.isValid() && Config.AUTOMATIC_REFILLING_STATUS.is(Status.ENABLED) && AutomaticRefillingHandler.shouldRun()) {
-            AutomaticRefillingHandler.runMainHand();
+        if (AutomaticRefillingMode.isValid() && Config.AUTOMATIC_REFILLING_STATUS.is(Status.ENABLED) && shouldRun()) {
+            runMainHand();
         }
-        if (AutomaticRefillingMode.isValid() && Config.AUTOMATIC_REFILLING_STATUS.is(Status.ENABLED) && AutomaticRefillingHandler.shouldRunOffHand()) {
-            AutomaticRefillingHandler.runOffHand();
+        if (AutomaticRefillingMode.isValid() && Config.AUTOMATIC_REFILLING_STATUS.is(Status.ENABLED) && shouldRunOffHand()) {
+            runOffHand();
         }
     }
 
     public static boolean shouldRun() {
-        if (!AutomaticRefillingHandler.keysPressed) return false;
+        if (!keysPressed) return false;
         if (mainHandStack.isEmpty() || ItemStack.matches(mainHandStack, InteractionHandler.getMainHandStack()) || mainHandStack.getCount() > 1)
             return false;
         return !mainHandStack.isDamageableItem() || ToolReplacementBehaviour.isValid(mainHandStack);
@@ -97,7 +97,7 @@ public class AutomaticRefillingHandler {
             runOffHand = true;
             return false;
         }
-        if (!AutomaticRefillingHandler.keysPressed) return false;
+        if (!keysPressed) return false;
         if (offHandStack.isEmpty() || ItemStack.matches(offHandStack, InteractionHandler.getOffHandStack()) || offHandStack.getCount() > 1)
             return false;
         return !offHandStack.isDamageableItem() || ToolReplacementBehaviour.isValid(offHandStack);
