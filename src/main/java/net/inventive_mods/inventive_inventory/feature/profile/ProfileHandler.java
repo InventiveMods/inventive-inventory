@@ -24,7 +24,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
-import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -171,12 +170,6 @@ public class ProfileHandler {
             JsonArray savedSlots = jsonObject.getAsJsonArray("saved_slots");
             profiles.add(new Profile(id, name, key, displayStack, savedSlots));
         }
-    }
-
-    @SubscribeEvent
-    public static void onLeave(EntityLeaveLevelEvent event) {
-        if (!event.getEntity().equals(InventiveInventory.getPlayer())) return;
-        profiles.clear();
     }
 
     private static JsonArray getJsonProfiles() {

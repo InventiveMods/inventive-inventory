@@ -21,7 +21,7 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 public class SortingHandler {
     @SubscribeEvent
     public static void onKeyPressed(ScreenEvent.KeyPressed.Pre event) {
-        if (InventiveInventory.getPlayer() != null && InventiveInventory.getPlayer().isCreative() || Config.SORTING_STATUS.is(Status.DISABLED))
+        if (InventiveInventory.getPlayer() == null || InventiveInventory.getPlayer().isCreative() || Config.SORTING_STATUS.is(Status.DISABLED))
             return;
         if (KeyHandler.sortKey.isActiveAndMatches(InputConstants.getKey(event.getKeyCode(), event.getScanCode()))) {
             sort();
@@ -30,7 +30,7 @@ public class SortingHandler {
 
     @SubscribeEvent
     public static void onMouseClicked(ScreenEvent.MouseButtonPressed.Pre event) {
-        if (InventiveInventory.getPlayer() != null && InventiveInventory.getPlayer().isCreative() || Config.SORTING_STATUS.is(Status.DISABLED))
+        if (InventiveInventory.getPlayer() == null || InventiveInventory.getPlayer().isCreative() || Config.SORTING_STATUS.is(Status.DISABLED))
             return;
         if (KeyHandler.sortKey.matchesMouse(event.getButton()))
             sort();

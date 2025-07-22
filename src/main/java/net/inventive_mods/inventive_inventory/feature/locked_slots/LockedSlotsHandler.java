@@ -7,29 +7,32 @@ import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 import net.inventive_mods.inventive_inventory.util.slot.SlotRange;
 import net.inventive_mods.inventive_inventory.util.slot.SlotType;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.neoforged.neoforge.event.entity.player.ItemEntityPickupEvent;
+import org.apache.logging.log4j.util.TriConsumer;
 import org.lwjgl.glfw.GLFW;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @EventBusSubscriber(modid = InventiveInventory.MOD_ID, value = Dist.CLIENT)
 public class LockedSlotsHandler {
     private static final String LOCKED_SLOTS_FILE = "locked_slots.json";
     public static final Path LOCKED_SLOTS_PATH = Config.CONFIG_PATH.resolve(LOCKED_SLOTS_FILE);
 
-    private static ItemStack pickUpStack = ItemStack.EMPTY;
-    private static final List<ItemStack> savedInventory = new ArrayList<>();
+    private static List<ItemStack> savedInventory = new ArrayList<>();
+    private static List<ItemStack> savedMenuInventory = new ArrayList<>();
+    private static boolean slotClicked = false;
     private static boolean onlyAdd = false;
 
     @SubscribeEvent
@@ -67,60 +70,98 @@ public class LockedSlotsHandler {
     }
 
     @SubscribeEvent
-    public static void beforeItemPickup(ItemEntityPickupEvent.Pre event) {
-        if (!event.getPlayer().equals(InventiveInventory.getPlayer()) || InventiveInventory.getPlayer().isCreative())
-            return;
-        pickUpStack = event.getItemEntity().getItem();
-        savedInventory.clear();
-        getMainSlots(InventiveInventory.getPlayer().inventoryMenu).forEach(slot -> savedInventory.add(slot.getItem().copy()));
+    public static void onMouseReleased(ScreenEvent.MouseButtonReleased.Pre event) {
+        if (event.getScreen() instanceof AbstractContainerScreen<?> && (event.getButton() == GLFW.GLFW_MOUSE_BUTTON_LEFT || event.getButton() == GLFW.GLFW_MOUSE_BUTTON_RIGHT))
+            slotClicked = true;
     }
 
     @SubscribeEvent
-    public static void onTick(ClientTickEvent.Post event) {
-        if (InventiveInventory.getPlayer() == null || InventiveInventory.getPlayer().isCreative() || Config.PICKUP_INTO_LOCKED_SLOTS.is(true))
+    public static void onStartTickEvent(ClientTickEvent.Pre event) {
+        if (InventiveInventory.getPlayer() == null || InventiveInventory.getPlayer().isCreative() || savedInventory.isEmpty() || !LockedSlots.isReady())
             return;
-        if (!pickUpStack.isEmpty() && !savedInventory.isEmpty()) {
-            List<ItemStack> inventory = new ArrayList<>();
-            getMainSlots(InventiveInventory.getPlayer().inventoryMenu).forEach(slot -> inventory.add(slot.getItem().copy()));
-            for (int i = 0; i < savedInventory.size(); i++) {
-                ItemStack savedStack = savedInventory.get(i);
-                ItemStack inventoryStack = inventory.get(i);
-                if (!ItemStack.matches(savedStack, inventoryStack)) {
-                    List<Integer> suitableSlots = SlotRange.getPlayerSlots(SlotType.HOTBAR, SlotType.INVENTORY).exclude(SlotType.LOCKED_SLOT).stream()
-                            .filter(slot -> {
-                                ItemStack stack = InteractionHandler.getStackFromSlot(slot);
-                                return stack.isEmpty() || ItemStack.isSameItem(stack, pickUpStack) && stack.getCount() < stack.getMaxStackSize();
-                            })
-                            .sorted(Comparator.comparingInt(slot -> InteractionHandler.getStackFromSlot(slot).getCount()))
-                            .toList();
-                    Integer inventorySlot = SlotRange.getPlayerSlots().append(SlotType.HOTBAR).get(i);
-                    if (!suitableSlots.isEmpty()) {
-                        InteractionHandler.leftClickStack(inventorySlot);
-                        for (int slot : suitableSlots) {
-                            ItemStack stack = InteractionHandler.getStackFromSlot(slot);
-                            while (InteractionHandler.getCursorStack().getCount() > savedStack.getCount()) {
-                                if (stack.getCount() < stack.getMaxStackSize())
-                                    InteractionHandler.rightClickStack(slot);
-                                else
-                                    break;
-                            }
-                        }
-                        InteractionHandler.leftClickStack(inventorySlot);
-                    } else {
-                        int times = inventoryStack.getCount() - savedStack.getCount();
-                        InteractionHandler.dropItem(inventorySlot, times);
-                    }
-                }
+        List<ItemStack> currentInventory = InventiveInventory.getPlayer().getInventory().getNonEquipmentItems();
+        boolean itemAddedToInventory = isItemAddedToInventory(currentInventory);
+        boolean itemQuickMoved = isItemQuickMoved(itemAddedToInventory);
+
+        if (InventiveInventory.getMinecraft().screen == null && itemAddedToInventory && Config.PICKUP_INTO_LOCKED_SLOTS.is(false)) {
+            rearrange(currentInventory, (inventorySlot, savedStack, currentStack) -> dropItems(inventorySlot, savedStack));
+        } else if (InventiveInventory.getMinecraft().screen != null) {
+            if (itemAddedToInventory && !itemQuickMoved && !slotClicked && Config.PICKUP_INTO_LOCKED_SLOTS.is(false)) {
+                rearrange(currentInventory, (inventorySlot, savedStack, currentStack) -> dropItems(inventorySlot, savedStack));
+            } else if (itemAddedToInventory && itemQuickMoved && Config.QUICK_MOVE_INTO_LOCKED_SLOTS.is(false)) {
+                rearrange(currentInventory, (inventorySlot, savedStack, currentStack) -> handleSuitableSlots(SlotRange.getContainerSlots(), currentStack, inventorySlot, savedStack));
             }
-            pickUpStack = ItemStack.EMPTY;
+        }
+        slotClicked = false;
+    }
+
+    @SubscribeEvent
+    public static void onEndTickEvent(ClientTickEvent.Post event) {
+        if (InventiveInventory.getPlayer() == null || InventiveInventory.getPlayer().isCreative() && !LockedSlots.isReady())
+            return;
+        savedInventory = InventiveInventory.getPlayer().getInventory().getNonEquipmentItems().stream().map(ItemStack::copy).toList();
+        savedMenuInventory = new ArrayList<>();
+        if (InventiveInventory.getMinecraft().screen != null) {
+            savedMenuInventory = InventiveInventory.getMenu().getItems().stream().map(ItemStack::copy).toList();
         }
     }
 
-    private static List<Slot> getMainSlots(InventoryMenu inventoryMenu) {
-        return inventoryMenu.slots.stream()
-                .filter(slot -> !inventoryMenu.getResultSlot().equals(slot))
-                .filter(slot -> !inventoryMenu.getInputGridSlots().contains(slot))
-                .filter(slot -> slot.getClass().equals(Slot.class))
+    private static boolean isItemAddedToInventory(List<ItemStack> currentInventory) {
+        Map<Item, Integer> currentCountMap = getItemCountMap(currentInventory);
+        Map<Item, Integer> savedCountMap = getItemCountMap(savedInventory);
+        return currentCountMap.entrySet().stream().anyMatch(entry -> entry.getValue() > savedCountMap.getOrDefault(entry.getKey(), 0));
+    }
+
+    private static boolean isItemQuickMoved(boolean itemAddedToInventory) {
+        List<ItemStack> currentMenuInventory = InventiveInventory.getMinecraft().screen != null ? InventiveInventory.getMenu().getItems().stream().map(ItemStack::copy).toList() : new ArrayList<>();
+        Map<Item, Integer> currentCountMap = getItemCountMap(currentMenuInventory);
+        Map<Item, Integer> savedCountMap = getItemCountMap(savedMenuInventory);
+        return itemAddedToInventory && currentCountMap.entrySet().stream().allMatch(entry -> entry.getValue().equals(savedCountMap.getOrDefault(entry.getKey(), 0)));
+    }
+
+    private static Map<Item, Integer> getItemCountMap(List<ItemStack> inventory) {
+        return inventory.stream().collect(Collectors.toMap(ItemStack::getItem, ItemStack::getCount, Integer::sum));
+    }
+
+    private static void dropItems(Integer inventorySlot, ItemStack savedStack) {
+        InteractionHandler.dropItem(inventorySlot, InteractionHandler.getStackFromSlot(inventorySlot).getCount() - savedStack.getCount());
+    }
+
+    private static void handleSuitableSlots(SlotRange slotRange, ItemStack currentStack, Integer inventorySlot, ItemStack savedStack) {
+        List<Integer> suitableSlots = slotRange.stream()
+                .filter(slot -> {
+                    ItemStack stack = InteractionHandler.getStackFromSlot(slot);
+                    return stack.isEmpty() || ItemStack.isSameItem(stack, currentStack) && stack.getCount() < stack.getMaxStackSize();
+                })
+                .sorted(Comparator.comparing((Integer slot) -> InteractionHandler.getStackFromSlot(slot).getCount(), Comparator.reverseOrder()))
                 .toList();
+        if (!suitableSlots.isEmpty()) {
+            InteractionHandler.leftClickStack(inventorySlot);
+            for (int slot : suitableSlots) {
+                ItemStack stack = InteractionHandler.getStackFromSlot(slot);
+                while (InteractionHandler.getCursorStack().getCount() > savedStack.getCount()) {
+                    if (stack.getCount() < stack.getMaxStackSize())
+                        InteractionHandler.rightClickStack(slot);
+                    else
+                        break;
+                }
+            }
+            InteractionHandler.leftClickStack(inventorySlot);
+        }
+    }
+
+    private static void rearrange(List<ItemStack> currentInventory, TriConsumer<Integer, ItemStack, ItemStack> func) {
+        List<Integer> lockedSlots = LockedSlots.get();
+        int i = 0;
+        for (int inventorySlot : SlotRange.getPlayerSlots(SlotType.HOTBAR, SlotType.INVENTORY)) {
+            ItemStack currentStack = currentInventory.get(i);
+            ItemStack savedStack = savedInventory.get(i);
+            i++;
+            if (!lockedSlots.contains(inventorySlot) || ItemStack.matches(currentStack, savedStack))
+                continue;
+            handleSuitableSlots(SlotRange.getPlayerSlots(SlotType.HOTBAR, SlotType.INVENTORY).exclude(SlotType.LOCKED_SLOT), currentStack, inventorySlot, savedStack);
+            if (InteractionHandler.getStackFromSlot(inventorySlot).getCount() > savedStack.getCount())
+                func.accept(inventorySlot, savedStack, currentStack);
+        }
     }
 }

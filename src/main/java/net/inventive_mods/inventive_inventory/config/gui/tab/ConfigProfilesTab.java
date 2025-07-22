@@ -1,5 +1,6 @@
 package net.inventive_mods.inventive_inventory.config.gui.tab;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.gui.widget.profiles.ConfigProfileTitleWidget;
 import net.inventive_mods.inventive_inventory.config.gui.widget.profiles.ConfigProfileWidget;
 import net.inventive_mods.inventive_inventory.feature.profile.Profile;
@@ -21,7 +22,7 @@ public class ConfigProfilesTab extends ScreenTab {
     public ConfigProfilesTab(Minecraft minecraft, int width, TabbedScreen screen) {
         super(minecraft, width, screen);
         availableKeys = getAvailableKeys();
-        if (ProfileHandler.getProfiles().isEmpty()) {
+        if (ProfileHandler.getProfiles().isEmpty() || InventiveInventory.getWorld() == null) {
             this.addCenteredWidget(new TextWidget(this.width, this.height, Component.translatable("config.profiles.text.inventive_inventory.no_profiles"), minecraft.font));
         } else {
             this.initTitleBar();
