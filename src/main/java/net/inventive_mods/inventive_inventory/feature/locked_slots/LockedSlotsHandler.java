@@ -55,7 +55,7 @@ public class LockedSlotsHandler {
 
     @SubscribeEvent
     public static void onDragEvent(ScreenEvent.MouseDragged.Pre event) {
-        if (!(event.getScreen() instanceof AbstractContainerScreen<?>) || !AdvancedOperationHandler.isPressed() || InventiveInventory.getPlayer().isCreative())
+        if (!(event.getScreen() instanceof AbstractContainerScreen<?>) || !AdvancedOperationHandler.isPressed() || InventiveInventory.getPlayer().isCreative() || event.getMouseButton() != GLFW.GLFW_MOUSE_BUTTON_LEFT)
             return;
         Slot slot = ((AbstractContainerScreen<?>) event.getScreen()).getSlotUnderMouse();
         if (slot != null && SlotRange.getPlayerSlots().append(SlotType.HOTBAR).contains(slot.index)) {
