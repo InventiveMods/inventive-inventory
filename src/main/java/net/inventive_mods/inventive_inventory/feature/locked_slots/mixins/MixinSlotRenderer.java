@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 @Mixin(AbstractContainerScreen.class)
 public abstract class MixinSlotRenderer {
-    @Shadow @Nullable protected Slot hoveredSlot;
+    @Shadow @Nullable public Slot hoveredSlot;
 
     @Shadow protected abstract void renderSlot(GuiGraphics guiGraphics, Slot slot);
 
@@ -45,7 +45,7 @@ public abstract class MixinSlotRenderer {
         }
     }
 
-    @WrapOperation(method = "renderContents", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;renderSlotHighlightFront(Lnet/minecraft/client/gui/GuiGraphics;)V"))
+    @WrapOperation(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;renderSlotHighlightFront(Lnet/minecraft/client/gui/GuiGraphics;)V"))
     private void onRenderSlotHighlightFront(AbstractContainerScreen instance, GuiGraphics guiGraphics, Operation<Void> original) {
         if (!InventiveInventory.getPlayer().isCreative() && this.hoveredSlot != null) {
             if (AdvancedOperationHandler.isPressed()) {
