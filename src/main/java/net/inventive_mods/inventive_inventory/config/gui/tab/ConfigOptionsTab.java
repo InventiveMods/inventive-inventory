@@ -1,0 +1,38 @@
+package net.inventive_mods.inventive_inventory.config.gui.tab;
+
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.config.Config;
+import net.inventive_mods.inventive_inventory.util.gui.screen.TabbedScreen;
+import net.inventive_mods.inventive_inventory.util.gui.widget.ScreenTab;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+
+
+public class ConfigOptionsTab extends ScreenTab {
+    private final static String TITLE_TRANSLATION_KEY = "config.options.title." + InventiveInventory.MOD_ID;
+
+    public ConfigOptionsTab(Minecraft minecraft, int width, TabbedScreen screen) {
+        super(minecraft, width, screen);
+
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".sorting"));
+        this.addConfigOption(Config.SORTING_STATUS);
+        this.addConfigOption(Config.SORTING_MODE);
+        this.addConfigOption(Config.CURSOR_STACK_BEHAVIOUR);
+
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".automatic_refilling"));
+        this.addConfigOption(Config.AUTOMATIC_REFILLING_STATUS);
+        this.addConfigOption(Config.AUTOMATIC_REFILLING_MODE);
+        this.addConfigOption(Config.TOOL_REPLACEMENT_BEHAVIOUR);
+        this.addConfigOption(Config.TOOL_REPLACEMENT_PRIORITY);
+        this.addConfigOption(Config.AUTOMATIC_REFILLING_IGNORE_LOCKED_SLOTS);
+
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".profiles"));
+        this.addConfigOption(Config.PROFILES_STATUS);
+        this.addConfigOption(Config.FAST_LOAD);
+        this.addConfigOption(Config.PROFILES_IGNORE_LOCKED_SLOTS);
+
+        this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".locked_slots"));
+        this.addConfigOption(Config.PICKUP_INTO_LOCKED_SLOTS);
+        this.addConfigOption(Config.QUICK_MOVE_INTO_LOCKED_SLOTS);
+    }
+}
