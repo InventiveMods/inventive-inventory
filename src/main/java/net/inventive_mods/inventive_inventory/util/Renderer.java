@@ -5,12 +5,9 @@ import net.inventive_mods.inventive_inventory.config.Config;
 import net.inventive_mods.inventive_inventory.config.enums.locked_slots.SlotStyle;
 import net.inventive_mods.inventive_inventory.config.option.ConfigOption;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
-import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
-import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
@@ -31,7 +28,7 @@ public class Renderer {
     }
 
     public static void renderGuiTexture(GuiGraphics guiGraphics, ResourceLocation texture, int x, int y, int size) {
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, 0, 0, size, size, size, size);
+        guiGraphics.blit(RenderType::guiTexturedOverlay, texture, x, y, 0, 0, size, size, size, size);
     }
 
     public static void renderLockedSlot(GuiGraphics guiGraphics, ResourceLocation texture, ConfigOption<Integer> option, int x, int y) {
@@ -42,14 +39,10 @@ public class Renderer {
     }
 
     public static void renderTooltip(GuiGraphics guiGraphics, List<Component> textList, int mouseX, int mouseY) {
-        guiGraphics.renderTooltip(InventiveInventory.getFont(), textList.stream().map(component -> ClientTooltipComponent.create(component.getVisualOrderText())).toList(), mouseX, mouseY, DefaultTooltipPositioner.INSTANCE, null);
+        guiGraphics.renderTooltip(InventiveInventory.getFont(), textList.stream().map(Component::getVisualOrderText).toList(), mouseX, mouseY);
     }
 
-    public static void renderItemTooltip(GuiGraphics guiGraphics, ItemStack stack, int mouseX, int mouseY) {
-        guiGraphics.setTooltipForNextFrame(InventiveInventory.getFont(), stack, mouseX, mouseY);
-    }
-
-    public static void drawProfileHotbar(GuiGraphics guiGraphics, int x, int y) {
-        guiGraphics.blit(RenderPipelines.GUI_TEXTURED, Textures.HOTBAR, x, y, 0, 0, 205, 20, 205, 20);
+    public static void renderProfileHotbar(GuiGraphics guiGraphics, int x, int y) {
+        guiGraphics.blit(RenderType::guiTextured, Textures.HOTBAR, x, y, 0, 0, 205, 20, 205, 20);
     }
 }

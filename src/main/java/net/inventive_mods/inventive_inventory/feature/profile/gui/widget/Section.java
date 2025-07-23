@@ -1,8 +1,8 @@
 package net.inventive_mods.inventive_inventory.feature.profile.gui.widget;
 
+import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.feature.profile.Profile;
-import net.inventive_mods.inventive_inventory.feature.profile.gui.render_state.ProfileScreenBackgroundGuiElementRenderState;
 import net.inventive_mods.inventive_inventory.feature.profile.gui.screen.ProfilesScreen;
 import net.inventive_mods.inventive_inventory.util.Mouse;
 import net.inventive_mods.inventive_inventory.util.Renderer;
@@ -10,7 +10,7 @@ import net.inventive_mods.inventive_inventory.util.Textures;
 import net.inventive_mods.inventive_inventory.util.tooltip.TooltipBuilder;
 import net.inventive_mods.inventive_inventory.util.tooltip.TooltipType;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
@@ -34,7 +34,7 @@ public class Section {
         return Mouse.getHoveredProfileSection(mouseX, mouseY) == this.ID;
     }
 
-    public void drawBackground(GuiGraphics guiGraphics, boolean hovered) {
+    public void drawBackground(BufferBuilder builderBuilder, boolean hovered) {
         int startAngle = 360 / ProfilesScreen.getSections().size() * this.ID;
         int limit = 360 / ProfilesScreen.getSections().size() + startAngle;
         int centerX = InventiveInventory.getScreen().width / 2;
@@ -67,7 +67,10 @@ public class Section {
             float nextPosInnerX = centerX + (float) Math.sin(nextAngle) * innerRadius;
             float nextPosInnerY = centerY - (float) Math.cos(nextAngle) * innerRadius;
 
-            guiGraphics.submitGuiElementRenderState(new ProfileScreenBackgroundGuiElementRenderState(guiGraphics, posX, posY, posInnerX, posInnerY, nextPosInnerX, nextPosInnerY, nextPosX, nextPosY, color));
+            builderBuilder.addVertex(posX, posY, 0).setColor(color)
+                    .addVertex(posInnerX, posInnerY, 0).setColor(color)
+                    .addVertex(nextPosInnerX, nextPosInnerY, 0).setColor(color)
+                    .addVertex(nextPosX, nextPosY, 0).setColor(color);
         }
     }
 
@@ -89,9 +92,9 @@ public class Section {
         this.iconY = middleY - 8;
 
         if (this.profile == null) {
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, Textures.PLUS, iconX, iconY, 0, 0, 16, 16, 16, 16);
+            guiGraphics.blit(RenderType::guiTextured, Textures.PLUS, iconX, iconY, 0, 0, 16, 16, 16, 16);
         } else if (this.profile.getDisplayStack().isEmpty()) {
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, Textures.TOOLS, iconX, iconY, 0, 0, 16, 16, 16, 16);
+            guiGraphics.blit(RenderType::guiTextured, Textures.TOOLS, iconX, iconY, 0, 0, 16, 16, 16, 16);
         } else guiGraphics.renderItem(this.profile.getDisplayStack(), iconX, iconY);
     }
 

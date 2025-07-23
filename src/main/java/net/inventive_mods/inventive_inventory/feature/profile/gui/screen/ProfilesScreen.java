@@ -1,6 +1,10 @@
 package net.inventive_mods.inventive_inventory.feature.profile.gui.screen;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.Tesselator;
+import com.mojang.blaze3d.vertex.VertexFormat;
 import net.inventive_mods.inventive_inventory.feature.profile.Profile;
 import net.inventive_mods.inventive_inventory.feature.profile.ProfileHandler;
 import net.inventive_mods.inventive_inventory.feature.profile.gui.widget.Section;
@@ -8,6 +12,7 @@ import net.inventive_mods.inventive_inventory.key.KeyHandler;
 import net.inventive_mods.inventive_inventory.util.Mouse;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import org.lwjgl.glfw.GLFW;
 
@@ -55,9 +60,13 @@ public class ProfilesScreen extends Screen {
         this.mouseX = mouseX;
         this.mouseY = mouseY;
 
+        BufferBuilder bufferBuilder = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
+
         for (Section section : sections) {
-            section.drawBackground(guiGraphics, section.isHovered(mouseX, mouseY));
+            section.drawBackground(bufferBuilder, section.isHovered(mouseX, mouseY));
         }
+
+        RenderType.gui().draw(bufferBuilder.buildOrThrow());
 
         for (Section section : sections) {
             section.drawIcon(guiGraphics);

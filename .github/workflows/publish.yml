@@ -1,9 +1,9 @@
 name: Publish
-run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} (NeoForge) - ${{ inputs.version || github.event.head_commit.message }} on 1.21.6
+run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} (NeoForge) - ${{ inputs.version || github.event.head_commit.message }} on 1.21.5
 on:
   push:
     branches:
-      - "1.21.6-neoforge"
+      - "1.21.5-neoforge"
   workflow_dispatch:
     inputs:
       platform:

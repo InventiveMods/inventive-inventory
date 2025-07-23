@@ -133,7 +133,7 @@ public class ConfigProfileWidget extends ClickableWidget {
 
         @Override
         protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-            Renderer.drawProfileHotbar(guiGraphics, this.getX(), this.getY());
+            Renderer.renderProfileHotbar(guiGraphics, this.getX(), this.getY());
 
             int slotX = this.getX() + 27;
             int slotY = this.getY() + 2;
@@ -143,7 +143,7 @@ public class ConfigProfileWidget extends ClickableWidget {
                     boolean inX = this.getX() + 2 < mouseX && mouseX < this.getX() + 2 + 16;
                     boolean inY = slotY < mouseY && mouseY < slotY + 16;
                     boolean isMouseOverItem = inX && inY;
-                    if (isMouseOverItem) Renderer.renderItemTooltip(guiGraphics, savedSlot.stack(), mouseX, mouseY);
+                    if (isMouseOverItem) guiGraphics.renderTooltip(InventiveInventory.getFont(), savedSlot.stack(), mouseX, mouseY);
                 }
                 for (int i = 0; i < 9; i++) {
                     if (savedSlot.slot() - Inventory.INVENTORY_SIZE == i) {
@@ -151,7 +151,7 @@ public class ConfigProfileWidget extends ClickableWidget {
                         boolean inX = slotX < mouseX && mouseX < slotX + 16;
                         boolean inY = slotY < mouseY && mouseY < slotY + 16;
                         boolean isMouseOverItem = inX && inY;
-                        if (isMouseOverItem) Renderer.renderItemTooltip(guiGraphics, savedSlot.stack(), mouseX, mouseY);
+                        if (isMouseOverItem) guiGraphics.renderTooltip(InventiveInventory.getFont(), savedSlot.stack(), mouseX, mouseY);
                         break;
                     }
                 }
