@@ -32,7 +32,7 @@
         "locked_slots.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.21.6 <=1.21.7",
+        "minecraft": ">=1.21.6 <=1.21.8",
         "fabric": ">=0.127.0+1.21.6",
         "fabricloader": ">=0.15.0"
     },
