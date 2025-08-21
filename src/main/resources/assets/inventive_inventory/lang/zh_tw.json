@@ -30,6 +30,9 @@
     "config.options.label.inventive_inventory.locked_slots.pickup_into_locked_slots": "Pick-Up into Locked Slots",
     "config.options.label.inventive_inventory.locked_slots.quick_move_into_locked_slots": "Quick Move into Locked Slots",
     "config.options.label.inventive_inventory.universal.ignore_locked_slots": "Ignore Locked Slots",
+    "config.options.label.inventive_inventory.item_counter.status": "Item Counter",
+    "config.options.label.inventive_inventory.item_counter.mode": "Item Counter Mode",
+    "config.options.label.inventive_inventory.item_counter.counting_mode": "Counting Mode",
 
     "config.options.button.text.inventive_inventory.universal.status.enabled": "Enabled",
     "config.options.button.text.inventive_inventory.universal.status.disabled": "Disabled",
@@ -45,6 +48,10 @@
     "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_behaviour.break_tool": "Break Tool",
     "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_priority.material": "Material",
     "config.options.button.text.inventive_inventory.automatic_refilling.tool_replacement_priority.durability": "Durability",
+    "config.options.button.text.inventive_inventory.item_counter.mode.complete_hotbar": "Complete Hotbar",
+    "config.options.button.text.inventive_inventory.item_counter.mode.only_selected_slot": "Only Selected Slot",
+    "config.options.button.text.inventive_inventory.item_counter.counting_mode.items": "Items",
+    "config.options.button.text.inventive_inventory.item_counter.counting_mode.stacks": "Stacks",
 
     "config.options.button.tooltip.inventive_inventory.universal.status.enabled": "Feature is enabled.",
     "config.options.button.tooltip.inventive_inventory.universal.status.disabled": "Feature is disabled.",
@@ -64,18 +71,25 @@
     "config.options.button.tooltip.inventive_inventory.profiles.fast_load": "When enabled, you only need to press the profile key to load your profile.",
     "config.options.button.tooltip.inventive_inventory.locked_slots.pickup_into_locked_slots": "Picked up items will fill Locked Slots.",
     "config.options.button.tooltip.inventive_inventory.locked_slots.quick_move_into_locked_slots": "Quick-moved items will fill Locked Slots.",
+    "config.options.button.tooltip.inventive_inventory.item_counter.mode.complete_hotbar": "Show the amount of items you have left in your inventory for each item in your hotbar.",
+    "config.options.button.tooltip.inventive_inventory.item_counter.mode.only_selected_slot": "Show the amount of items you have left in your inventory for the item in your selected hotbar slot.",
+    "config.options.button.tooltip.inventive_inventory.item_counter.counting_mode.items": "Count the amount of items you have left in your inventory.",
+    "config.options.button.tooltip.inventive_inventory.item_counter.counting_mode.stacks": "Count the amount of stacks you have left in your inventory. Note that it will always round the total count downwards.",
 
     "config.options.title.inventive_inventory.sorting": "Sorting",
     "config.options.title.inventive_inventory.automatic_refilling": "Automatic Refilling",
     "config.options.title.inventive_inventory.profiles": "Profiles",
     "config.options.title.inventive_inventory.locked_slots": "Locked Slots",
+    "config.options.title.inventive_inventory.item_counter": "Item Counter",
 
     "config.visuals.title.inventive_inventory.locked_slots": "Locked Slots",
+    "config.visuals.title.inventive_inventory.item_counter": "Item Counter",
 
     "config.visuals.label.inventive_inventory.locked_slots.show_lock": "Show lock",
     "config.visuals.label.inventive_inventory.locked_slots.style": "Style",
     "config.visuals.label.inventive_inventory.locked_slots.color": "Color",
     "config.visuals.label.inventive_inventory.locked_slots.hotbar_color": "Hotbar Color",
+    "config.visuals.label.inventive_inventory.item_counter.color": "Item Counter Color",
 
     "config.visuals.button.text.inventive_inventory.locked_slots.style.filled": "Filled",
     "config.visuals.button.text.inventive_inventory.locked_slots.style.outlined": "Outlined",

@@ -33,5 +33,11 @@ public class ConfigOptionsTab extends ScreenTab {
         this.addTitle(Text.translatable(TITLE_TRANSLATION_KEY + ".locked_slots"));
         this.addWidget(ConfigManager.PICKUP_INTO_LOCKED_SLOTS);
         this.addWidget(ConfigManager.QUICK_MOVE_INTO_LOCKED_SLOTS);
+
+        this.addTitle(Text.translatable(TITLE_TRANSLATION_KEY + ".item_counter"));
+        this.addWidget(ConfigManager.ITEM_COUNTER_STATUS);
+        this.addWidget(ConfigManager.ITEM_COUNTER_MODE);
+        this.addWidget(ConfigManager.ITEM_COUNTER_COUNTING_MODE);
+        this.addWidget(ConfigManager.ITEM_COUNTER_IGNORE_LOCKED_SLOTS);
     }
 }
