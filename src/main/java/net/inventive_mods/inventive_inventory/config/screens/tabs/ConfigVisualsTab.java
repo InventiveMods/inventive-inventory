@@ -1,5 +1,6 @@
 package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
+import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigItemCounterSlotWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
@@ -27,7 +28,10 @@ public class ConfigVisualsTab extends ScreenTab {
         this.addWidget(ConfigManager.LOCKED_SLOTS_HOTBAR_COLOR);
         this.addEmptyRow();
         this.addCenteredWidget(new ConfigLockedSlotWidget(Textures.HOTBAR_SLOT, ConfigManager.LOCKED_SLOTS_HOTBAR_COLOR, this.getRowWidth(), 20));
-
+        this.addTitle(Text.translatable(TITLE_TRANSLATION_KEY + ".item_counter"));
+        this.addWidget(ConfigManager.ITEM_COUNTER_COLOR);
+        this.addEmptyRow();
+        this.addCenteredWidget(new ConfigItemCounterSlotWidget(this.getRowWidth(), 20));
     }
 
     @Override
