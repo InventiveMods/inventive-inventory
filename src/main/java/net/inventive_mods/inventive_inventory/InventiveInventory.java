@@ -1,6 +1,7 @@
 package net.inventive_mods.inventive_inventory;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.inventive_mods.inventive_inventory.features.item_counter.ItemCounterHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -31,6 +32,7 @@ public class InventiveInventory implements ClientModInitializer {
             ConnectionEvents.register();
             TickEvents.register();
             CommandRegistry.register();
+            ItemCounterHandler.register();
             LOGGER.info(MOD_NAME + " initialized successfully!");
         } catch (IOException e) {
             LOGGER.error("Couldn't create config files", e);
