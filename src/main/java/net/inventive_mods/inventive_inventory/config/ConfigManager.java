@@ -7,6 +7,8 @@ import net.inventive_mods.inventive_inventory.config.enums.Status;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.AutomaticRefillingMode;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.ToolReplacementBehaviour;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.ToolReplacementPriority;
+import net.inventive_mods.inventive_inventory.config.enums.item_counter.ItemCounterCountingMode;
+import net.inventive_mods.inventive_inventory.config.enums.item_counter.ItemCounterMode;
 import net.inventive_mods.inventive_inventory.config.enums.locked_slots.Style;
 import net.inventive_mods.inventive_inventory.config.enums.sorting.CursorStackBehaviour;
 import net.inventive_mods.inventive_inventory.config.enums.sorting.SortingMode;
@@ -45,6 +47,11 @@ public class ConfigManager {
     public static final ConfigOption<Style> LOCKED_SLOT_STYLE = new EnumButtonOption<>("visuals", "locked_slots.style", Style.FILLED);
     public static final ConfigOption<Integer> LOCKED_SLOTS_COLOR = new ColorFieldOption("visuals", "locked_slots.color", 0xFF4D4D4D);
     public static final ConfigOption<Integer> LOCKED_SLOTS_HOTBAR_COLOR = new ColorFieldOption("visuals", "locked_slots.hotbar_color", 0xAA4D4D4D);
+    public static final ConfigOption<Status> ITEM_COUNTER_STATUS = new EnumButtonOption<>("options", "item_counter.status", Status.ENABLED);
+    public static final ConfigOption<ItemCounterMode> ITEM_COUNTER_MODE = new EnumButtonOption<>("options", "item_counter.mode", ItemCounterMode.ONLY_SELECTED_SLOT);
+    public static final ConfigOption<ItemCounterCountingMode> ITEM_COUNTER_COUNTING_MODE = new EnumButtonOption<>("options", "item_counter.counting_mode", ItemCounterCountingMode.ITEMS);
+    public static final ConfigOption<Boolean> ITEM_COUNTER_IGNORE_LOCKED_SLOTS = new SimpleButtonOption("options", "universal.ignore_locked_slots", true);
+    public static final ConfigOption<Integer> ITEM_COUNTER_COLOR = new ColorFieldOption("visuals", "item_counter.color", 0xFFFFFFFF);
 
     public static final String OPTION_TRANSLATION_KEY = "config.options.button.text.inventive_inventory";
     public static final String VISUALS_TRANSLATION_KEY = "config.visuals.button.text.inventive_inventory";
