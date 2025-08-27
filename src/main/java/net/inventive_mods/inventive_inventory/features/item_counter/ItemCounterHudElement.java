@@ -21,7 +21,7 @@ public class ItemCounterHudElement implements HudElement {
 
     @Override
     public void render(DrawContext context, RenderTickCounter tickCounter) {
-        if (ConfigManager.ITEM_COUNTER_STATUS.is(Status.DISABLED))
+        if (ConfigManager.ITEM_COUNTER_STATUS.is(Status.DISABLED) || (InventiveInventory.getPlayer() != null && InventiveInventory.getPlayer().isCreative()))
             return;
 
         List<ItemStack> inventory = (ConfigManager.ITEM_COUNTER_IGNORE_LOCKED_SLOTS.is(true) ? PlayerSlots.get().exclude(SlotTypes.LOCKED_SLOT) : PlayerSlots.get()).stream().map(InteractionHandler::getStackFromSlot).toList();
