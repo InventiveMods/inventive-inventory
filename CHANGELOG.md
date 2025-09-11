@@ -1,12 +1,7 @@
 # Changelog
 
-## New Features
+## Bug Fixes
 
-### Item Counter
-
-- Added a new item counter feature that allows users to keep track of the number of items in their inventory (Same items in the hotbar will not be counted).
-- The item counter can be toggled on or off in the settings menu.
-- It can be toggled between showing the total number of items or showing the total stacks of items.
-- It can be toggled between showing the counter only for the selected hotbar slot or for the complete hotbar
-- It can be toggled if items in a locked slot should be counted or not.
-- The color of the text can be customized
+- Fixed a bug where the item counter is rendered in creative mode.
+- Fixed a bug where item sorting with bundles does not work correctly
+- Fixed a bug where game crashes when opening a lectern screen

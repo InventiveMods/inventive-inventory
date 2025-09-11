@@ -2,6 +2,7 @@ package net.inventive_mods.inventive_inventory.util;
 
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
+import net.minecraft.item.BundleItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.SlotActionType;
@@ -51,22 +52,22 @@ public class InteractionHandler {
     public static void leftClickStack(int slot) {
         ClientPlayerInteractionManager manager = InventiveInventory.getInteractionManager();
         ClientPlayerEntity player = InventiveInventory.getPlayer();
-        manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.PICKUP, player);
+        int clickType = (getCursorStack().getItem() instanceof BundleItem && !getStackFromSlot(slot).isEmpty()) || (getStackFromSlot(slot).getItem() instanceof BundleItem && isCursorFull()) ? RIGHT_CLICK : LEFT_CLICK;
+        manager.clickSlot(getSyncId(), slot, clickType, SlotActionType.PICKUP, player);
     }
 
     public static void rightClickStack(int slot) {
         ClientPlayerInteractionManager manager = InventiveInventory.getInteractionManager();
         ClientPlayerEntity player = InventiveInventory.getPlayer();
-        manager.clickSlot(getSyncId(), slot, RIGHT_CLICK, SlotActionType.PICKUP, player);
+        int clickType = getCursorStack().getItem() instanceof BundleItem ? LEFT_CLICK : RIGHT_CLICK;
+        manager.clickSlot(getSyncId(), slot, clickType, SlotActionType.PICKUP, player);
     }
 
     public static void swapStacks(int slot, int target) {
-        ClientPlayerInteractionManager manager = InventiveInventory.getInteractionManager();
-        ClientPlayerEntity player = InventiveInventory.getPlayer();
-        manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.PICKUP, player);
-        manager.clickSlot(getSyncId(), target, LEFT_CLICK, SlotActionType.PICKUP, player);
+        leftClickStack(slot);
+        leftClickStack(target);
         if (isCursorFull()) {
-            manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.PICKUP, player);
+            leftClickStack(slot);
         }
     }
 
