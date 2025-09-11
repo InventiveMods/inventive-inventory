@@ -59,7 +59,8 @@ public class InteractionHandler {
     public static void rightClickStack(int slot) {
         ClientPlayerInteractionManager manager = InventiveInventory.getInteractionManager();
         ClientPlayerEntity player = InventiveInventory.getPlayer();
-        manager.clickSlot(getSyncId(), slot, RIGHT_CLICK, SlotActionType.PICKUP, player);
+        int clickType = getCursorStack().getItem() instanceof BundleItem ? LEFT_CLICK : RIGHT_CLICK;
+        manager.clickSlot(getSyncId(), slot, clickType, SlotActionType.PICKUP, player);
     }
 
     public static void swapStacks(int slot, int target) {
