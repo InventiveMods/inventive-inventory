@@ -65,4 +65,9 @@ Useful for building with many materials or just to always have some food ready.
 Works with buckets, bowls and bottles as well as tools.  
 You can press the Advanced Operation Key (Default: ALT)⚙️ to prevent the stack from refilling.⚙️  
 
+### Item Counter 🔢📊
+Keep track of your resources at a glance!  
+The Item Counter sums up all identical items in your inventory and displays the total amount (unit is items or stacks depending on config ⚙️) directly in the hotbar.  
+Perfect for builders and miners who want to know exactly how much they have left without constantly opening their inventory.
+
 **If you have more feature suggestions or found a bug, join our [Discord](https://discord.gg/uycTMfCsfc) or open an issue on the [GitHub Repository](https://github.com/InventiveMods/inventive-inventory/issues)!**
