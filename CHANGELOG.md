@@ -4,3 +4,4 @@
 
 - Fixed a bug where the item counter is rendered in creative mode.
 - Fixed a bug where item sorting with bundles does not work correctly
+- Fixed a bug where game crashes when opening a lectern screen
