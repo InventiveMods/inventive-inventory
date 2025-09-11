@@ -12,6 +12,7 @@ import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.LecternScreenHandler;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ItemCounterHudElement implements HudElement {
 
     @Override
     public void render(DrawContext context, RenderTickCounter tickCounter) {
-        if (ConfigManager.ITEM_COUNTER_STATUS.is(Status.DISABLED))
+        if (ConfigManager.ITEM_COUNTER_STATUS.is(Status.DISABLED) || (InventiveInventory.getPlayer() != null && InventiveInventory.getPlayer().isCreative()) || InventiveInventory.getScreenHandler() instanceof LecternScreenHandler)
             return;
 
         List<ItemStack> inventory = (ConfigManager.ITEM_COUNTER_IGNORE_LOCKED_SLOTS.is(true) ? PlayerSlots.get().exclude(SlotTypes.LOCKED_SLOT) : PlayerSlots.get()).stream().map(InteractionHandler::getStackFromSlot).toList();
