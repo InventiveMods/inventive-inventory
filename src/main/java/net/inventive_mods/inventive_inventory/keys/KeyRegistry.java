@@ -4,11 +4,12 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public class KeyRegistry {
-    public static final String INVENTIVE_INVENTORY_CATEGORY = "key.category.inventive_inventory.main";
-    public static final String INVENTIVE_INVENTORY_PROFILES_CATEGORY = "key.category.inventive_inventory.profiles";
+    public static final KeyBinding.Category INVENTIVE_INVENTORY_CATEGORY = KeyBinding.Category.create(Identifier.of("key.category.inventive_inventory.main"));
+    public static final KeyBinding.Category INVENTIVE_INVENTORY_PROFILES_CATEGORY = KeyBinding.Category.create(Identifier.of("key.category.inventive_inventory.profiles"));
     public static final KeyBinding[] profileKeys = new KeyBinding[3];
     private static final String KEY_SORT = "key.inventive_inventory.sort";
     private static final String KEY_ADVANCED_OPERATION = "key.inventive_inventory.advanced_operation";
@@ -57,7 +58,7 @@ public class KeyRegistry {
     @Nullable
     public static KeyBinding getByTranslationKey(String translationKey) {
         for (KeyBinding keyBinding : InventiveInventory.getClient().options.allKeys) {
-            if (keyBinding.getTranslationKey().equals(translationKey)) return keyBinding;
+            if (keyBinding.getId().equals(translationKey)) return keyBinding;
         }
         return null;
     }

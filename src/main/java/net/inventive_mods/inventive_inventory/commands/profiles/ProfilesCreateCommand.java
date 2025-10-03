@@ -51,7 +51,7 @@ public class ProfilesCreateCommand {
         if (!name.isEmpty() && ProfileHandler.isNoProfile(name)) {
             for (KeyBinding key : ProfileHandler.getAvailableProfileKeys()) {
                 if (key.getBoundKeyLocalizedText().getString().equals(keyBinding)) {
-                    ProfileHandler.create(name, key.getTranslationKey());
+                    ProfileHandler.create(name, key.getId());
                     return 1;
                 }
             }

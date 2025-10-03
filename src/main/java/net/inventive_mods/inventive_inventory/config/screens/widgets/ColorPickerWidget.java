@@ -1,11 +1,14 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.input.CharInput;
+import net.minecraft.client.input.KeyInput;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.ColorHelper;
@@ -50,22 +53,22 @@ public class ColorPickerWidget extends CustomClickableWidget {
     }
 
     @Override
-    public void onClick(double mouseX, double mouseY) {
+    public void onClick(Click click, boolean doubled) {
         this.vertical.forEachElement(element -> {
             if (element instanceof ConfigSliderWidget sliderWidget) {
-                if (mouseX >= sliderWidget.getX() && mouseX <= sliderWidget.getRight() && mouseY >= sliderWidget.getY() && mouseY <= sliderWidget.getBottom()) {
-                    sliderWidget.onClick(mouseX, mouseY);
+                if (click.x() >= sliderWidget.getX() && click.x() <= sliderWidget.getRight() && click.y() >= sliderWidget.getY() && click.y() <= sliderWidget.getBottom()) {
+                    sliderWidget.onClick(click, doubled);
                 }
             } else if (element instanceof DirectionalLayoutWidget layoutWidget) {
                 layoutWidget.forEachElement(innerElement -> {
                     if (innerElement instanceof TextFieldWidget textFieldWidget) {
-                        if (mouseX >= textFieldWidget.getX() && mouseX <= textFieldWidget.getRight() && mouseY >= textFieldWidget.getY() && mouseY <= textFieldWidget.getBottom()) {
+                        if (click.x() >= textFieldWidget.getX() && click.x() <= textFieldWidget.getRight() && click.y() >= textFieldWidget.getY() && click.y() <= textFieldWidget.getBottom()) {
                             textFieldWidget.setFocused(true);
-                            textFieldWidget.onClick(mouseX, mouseY);
+                            textFieldWidget.onClick(click, doubled);
                         } else textFieldWidget.setFocused(false);
                     } else if (innerElement instanceof ClickableWidget clickableWidget) {
-                        if (mouseX >= clickableWidget.getX() && mouseX <= clickableWidget.getRight() && mouseY >= clickableWidget.getY() && mouseY <= clickableWidget.getBottom()) {
-                            clickableWidget.onClick(mouseX, mouseY);
+                        if (click.x() >= clickableWidget.getX() && click.x() <= clickableWidget.getRight() && click.y() >= clickableWidget.getY() && click.y() <= clickableWidget.getBottom()) {
+                            clickableWidget.onClick(click, doubled);
                         }
                     }
                 });
@@ -74,23 +77,23 @@ public class ColorPickerWidget extends CustomClickableWidget {
     }
 
     @Override
-    protected void onDrag(double mouseX, double mouseY, double deltaX, double deltaY) {
+    protected void onDrag(Click click, double deltaX, double deltaY) {
         this.vertical.forEachElement(element -> {
             if (element instanceof ConfigSliderWidget sliderWidget) {
-                if (mouseX >= sliderWidget.getX() && mouseX <= sliderWidget.getRight() && mouseY >= sliderWidget.getY() && mouseY <= sliderWidget.getBottom()) {
-                    sliderWidget.onDrag(mouseX, mouseY, deltaX, deltaY);
+                if (click.x() >= sliderWidget.getX() && click.x() <= sliderWidget.getRight() && click.y() >= sliderWidget.getY() && click.y() <= sliderWidget.getBottom()) {
+                    sliderWidget.onDrag(click, deltaX, deltaY);
                 }
             }
         });
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+    public boolean keyPressed(KeyInput keyInput) {
         this.vertical.forEachElement(element -> {
            if (element instanceof DirectionalLayoutWidget layoutWidget) {
                 layoutWidget.forEachElement(innerElement -> {
                     if (innerElement instanceof TextFieldWidget textFieldWidget) {
-                        textFieldWidget.keyPressed(keyCode, scanCode, modifiers);
+                        textFieldWidget.keyPressed(keyInput);
                     }
                 });
             }
@@ -99,12 +102,12 @@ public class ColorPickerWidget extends CustomClickableWidget {
     }
 
     @Override
-    public boolean charTyped(char chr, int modifiers) {
+    public boolean charTyped(CharInput charInput) {
         this.vertical.forEachElement(element -> {
             if (element instanceof DirectionalLayoutWidget layoutWidget) {
                 layoutWidget.forEachElement(innerElement -> {
                     if (innerElement instanceof TextFieldWidget textFieldWidget) {
-                        textFieldWidget.charTyped(chr, modifiers);
+                        textFieldWidget.charTyped(charInput);
                     }
                 });
             }
@@ -115,28 +118,28 @@ public class ColorPickerWidget extends CustomClickableWidget {
     @Override
     public void playDownSound(SoundManager soundManager) {}
 
-    public boolean overSliderWidget(double mouseX, double mouseY) {
+    public boolean overSliderWidget(Click click) {
         AtomicBoolean bl = new AtomicBoolean(false);
         this.vertical.forEachElement(element -> {
             if (element instanceof ConfigSliderWidget sliderWidget) {
-                bl.set(mouseX >= sliderWidget.getX() && mouseX <= sliderWidget.getRight() && mouseY >= sliderWidget.getY() && mouseY <= sliderWidget.getBottom());
+                bl.set(click.x() >= sliderWidget.getX() && click.x() <= sliderWidget.getRight() && click.y() >= sliderWidget.getY() && click.y() <= sliderWidget.getBottom());
             }
         });
         return bl.get();
     }
 
-    public void clickSliderWidget(double mouseX, double mouseY) {
+    public void clickSliderWidget(Click click, boolean doubled) {
         this.vertical.forEachElement(element -> {
             if (element instanceof ConfigSliderWidget sliderWidget) {
-                sliderWidget.onClick(mouseX, mouseY);
+                sliderWidget.onClick(click, doubled);
             }
         });
     }
 
-    public void dragSliderWidget(double mouseX, double mouseY, double deltaX, double deltaY) {
+    public void dragSliderWidget(Click click, double deltaX, double deltaY) {
         this.vertical.forEachElement(element -> {
             if (element instanceof ConfigSliderWidget sliderWidget) {
-                sliderWidget.onDrag(mouseX, mouseY, deltaX, deltaY);
+                sliderWidget.onDrag(click, deltaX, deltaY);
             }
         });
     }

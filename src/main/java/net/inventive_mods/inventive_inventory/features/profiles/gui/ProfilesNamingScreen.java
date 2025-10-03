@@ -5,11 +5,11 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.gui.widget.TextWidget;
+import net.minecraft.client.input.KeyInput;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
-import org.lwjgl.glfw.GLFW;
 
 public class ProfilesNamingScreen extends Screen {
     private TextFieldWidget textFieldWidget;
@@ -44,9 +44,9 @@ public class ProfilesNamingScreen extends Screen {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        super.keyPressed(keyCode, scanCode, modifiers);
-        if (GLFW.GLFW_KEY_ENTER == keyCode) createProfile();
+    public boolean keyPressed(KeyInput keyInput) {
+        super.keyPressed(keyInput);
+        if (keyInput.isEnter()) createProfile();
         return true;
     }
 

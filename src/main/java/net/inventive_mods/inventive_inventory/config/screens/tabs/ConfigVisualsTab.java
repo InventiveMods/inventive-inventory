@@ -2,6 +2,7 @@ package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigItemCounterSlotWidget;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.Click;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
@@ -35,13 +36,13 @@ public class ConfigVisualsTab extends ScreenTab {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        AtomicBoolean bl = new AtomicBoolean(super.mouseClicked(mouseX, mouseY, button));
+    public boolean mouseClicked(Click click, boolean doubled) {
+        AtomicBoolean bl = new AtomicBoolean(super.mouseClicked(click, doubled));
         for (WidgetEntry entry : this.children()) {
             entry.children().forEach(element -> {
                 if (element instanceof ColorPickerWidget colorPickerWidget) {
-                    if (colorPickerWidget.overSliderWidget(mouseX, mouseY) && button == 0) {
-                        colorPickerWidget.clickSliderWidget(mouseX, mouseY);
+                    if (colorPickerWidget.overSliderWidget(click) && click.button() == 0) {
+                        colorPickerWidget.clickSliderWidget(click, doubled);
                         this.setDragging(true);
                         bl.set(true);
                     }
@@ -52,14 +53,14 @@ public class ConfigVisualsTab extends ScreenTab {
     }
 
     @Override
-    public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+    public boolean mouseDragged(Click click, double deltaX, double deltaY) {
         for (WidgetEntry entry : this.children()) {
             entry.children().forEach(element -> {
                 if (element instanceof ColorPickerWidget colorPickerWidget) {
-                    if (colorPickerWidget.overSliderWidget(mouseX, mouseY) && button == 0) colorPickerWidget.dragSliderWidget(mouseX, mouseY, deltaX, deltaY);
+                    if (colorPickerWidget.overSliderWidget(click) && click.button() == 0) colorPickerWidget.dragSliderWidget(click, deltaX, deltaY);
                 }
             });
         }
-        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+        return super.mouseDragged(click, deltaX, deltaY);
     }
 }

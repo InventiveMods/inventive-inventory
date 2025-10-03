@@ -16,11 +16,11 @@ public record ProfileScreenBackgroundGuiElementRenderState(RenderPipeline pipeli
         this(RenderPipelines.GUI, TextureSetup.empty(), context.getMatrices(), x0, y0, x1, y1, x2, y2, x3, y3, color, context.scissorStack.peekLast(), createBounds(context.getMatrices(), context.scissorStack.peekLast()));
     }
 
-    public void setupVertices(VertexConsumer vertices, float depth) {
-        vertices.vertex(this.pose(), this.x0(), this.y0(), depth).color(this.color());
-        vertices.vertex(this.pose(), this.x1(), this.y1(), depth).color(this.color());
-        vertices.vertex(this.pose(), this.x2(), this.y2(), depth).color(this.color());
-        vertices.vertex(this.pose(), this.x3(), this.y3(), depth).color(this.color());
+    public void setupVertices(VertexConsumer vertices) {
+        vertices.vertex(this.pose(), this.x0(), this.y0()).color(this.color());
+        vertices.vertex(this.pose(), this.x1(), this.y1()).color(this.color());
+        vertices.vertex(this.pose(), this.x2(), this.y2()).color(this.color());
+        vertices.vertex(this.pose(), this.x3(), this.y3()).color(this.color());
     }
 
     @Nullable
