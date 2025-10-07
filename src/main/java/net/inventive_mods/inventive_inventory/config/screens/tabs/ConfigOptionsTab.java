@@ -24,6 +24,7 @@ public class ConfigOptionsTab extends ScreenTab {
         this.addWidget(ConfigManager.TOOL_REPLACEMENT_BEHAVIOUR);
         this.addWidget(ConfigManager.TOOL_REPLACEMENT_PRIORITY);
         this.addWidget(ConfigManager.AUTOMATIC_REFILLING_IGNORE_LOCKED_SLOTS);
+        this.addWidget(ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS);
 
         this.addTitle(Text.translatable(TITLE_TRANSLATION_KEY + ".profiles"));
         this.addWidget(ConfigManager.PROFILES_STATUS);
