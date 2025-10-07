@@ -1,11 +1,14 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.gui.widget.TextWidget;
+import net.minecraft.client.input.CharInput;
+import net.minecraft.client.input.KeyInput;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.entity.player.PlayerInventory;
@@ -64,7 +67,7 @@ public class ConfigProfileWidget extends CustomClickableWidget {
     public void updateProfile() {
         String name = this.name.getText();
         KeyBinding keyBinding = KeyRegistry.getByBoundKey(this.key.getMessage().getString());
-        String key = keyBinding != null ? keyBinding.getTranslationKey() : "";
+        String key = keyBinding != null ? keyBinding.getId() : "";
         if (!name.equals(this.profile.getName()) || !key.equals(this.profile.getKey())) {
             this.profile.setName(name);
             this.profile.setKey(key);
@@ -89,16 +92,16 @@ public class ConfigProfileWidget extends CustomClickableWidget {
             }
             button.setMessage(newMessage);
             KeyBinding keyBinding = KeyRegistry.getByBoundKey(button.getMessage().getString());
-            if (keyBinding != null) this.profile.setKey(keyBinding.getTranslationKey());
+            if (keyBinding != null) this.profile.setKey(keyBinding.getId());
         };
     }
 
     @Override
-    public void onClick(double mouseX, double mouseY) {
+    public void onClick(Click click, boolean doubled) {
         this.horizontal.forEachChild(widget -> {
-            if (mouseX >= widget.getX() && mouseX <= widget.getRight() && mouseY >= widget.getY() && mouseY <= widget.getBottom()) {
+            if (click.x() >= widget.getX() && click.x() <= widget.getRight() && click.y() >= widget.getY() && click.y() <= widget.getBottom()) {
                 widget.setFocused(true);
-                widget.onClick(mouseX, mouseY);
+                widget.onClick(click, doubled);
                 if (widget instanceof ButtonWidget button) {
                     button.playDownSound(InventiveInventory.getClient().getSoundManager());
                 }
@@ -107,15 +110,15 @@ public class ConfigProfileWidget extends CustomClickableWidget {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        this.horizontal.forEachChild(widget -> widget.keyPressed(keyCode, scanCode, modifiers));
-        return super.keyPressed(keyCode, scanCode, modifiers);
+    public boolean keyPressed(KeyInput keyInput) {
+        this.horizontal.forEachChild(widget -> widget.keyPressed(keyInput));
+        return super.keyPressed(keyInput);
     }
 
     @Override
-    public boolean charTyped(char chr, int modifiers) {
-        this.horizontal.forEachChild(widget -> widget.charTyped(chr, modifiers));
-        return super.charTyped(chr, modifiers);
+    public boolean charTyped(CharInput charInput) {
+        this.horizontal.forEachChild(widget -> widget.charTyped(charInput));
+        return super.charTyped(charInput);
     }
 
     @Override

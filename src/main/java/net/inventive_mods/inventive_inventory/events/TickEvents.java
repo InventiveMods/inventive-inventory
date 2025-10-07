@@ -97,7 +97,7 @@ public class TickEvents {
                     ContextManager.setContext(Contexts.PROFILES);
                     List<Profile> profiles = ProfileHandler.getProfiles();
                     profiles.forEach(profile -> {
-                        if (profileKey.getTranslationKey().equals(profile.getKey())) ProfileHandler.load(profile);
+                        if (profileKey.getId().equals(profile.getKey())) ProfileHandler.load(profile);
                     });
                     ContextManager.setContext(Contexts.INIT);
                 }

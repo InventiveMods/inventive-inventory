@@ -1,10 +1,10 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.EmptyWidget;
-import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
@@ -17,9 +17,9 @@ public class ConfigProfileTitleWidget extends CustomClickableWidget {
         MinecraftClient client = InventiveInventory.getClient();
         String translationKey = "config.profiles.label.inventive_inventory.";
         this.horizontal.add(EmptyWidget.ofWidth(client.textRenderer.getWidth("1.")));
-        this.horizontal.add(new TextWidget(80, height, Text.translatable(translationKey + "name"), client.textRenderer).alignCenter());
-        this.horizontal.add(new TextWidget(60, height, Text.translatable(translationKey + "key"), client.textRenderer).alignCenter());
-        this.horizontal.add(new TextWidget(205, height, Text.translatable(translationKey + "preview"), client.textRenderer).alignCenter());
+        this.horizontal.add(new CenteredTextWidget(80, height, Text.translatable(translationKey + "name"), client.textRenderer));
+        this.horizontal.add(new CenteredTextWidget(60, height, Text.translatable(translationKey + "key"), client.textRenderer));
+        this.horizontal.add(new CenteredTextWidget(205, height, Text.translatable(translationKey + "preview"), client.textRenderer));
         this.horizontal.refreshPositions();
         this.width = this.horizontal.getWidth();
     }

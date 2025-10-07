@@ -27,17 +27,16 @@
     "accessWidener": "inventive_inventory.accesswidener",
     "mixins": [
         "keys.mixins.json",
-        "keys.keybindfix.mixins.json",
         "util.mouse.mixins.json",
         "locked_slots.mixins.json"
     ],
     "depends": {
-        "minecraft": ">=1.21.6 <=1.21.8",
-        "fabric": ">=0.127.0+1.21.6",
-        "fabricloader": ">=0.15.0"
+        "minecraft": "1.21.9",
+        "fabric": ">=0.133.14+1.21.9",
+        "fabricloader": ">=0.17.0"
     },
     "suggests": {
-        "modmenu": ">=15.0.0-beta.1"
+        "modmenu": ">=16.0.0-rc.1"
     },
     "custom": {
         "modmenu": {

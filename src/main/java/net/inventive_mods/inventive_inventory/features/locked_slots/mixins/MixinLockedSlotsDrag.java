@@ -1,6 +1,7 @@
 package net.inventive_mods.inventive_inventory.features.locked_slots.mixins;
 
 
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.inventive_mods.inventive_inventory.context.ContextManager;
 import net.inventive_mods.inventive_inventory.context.Contexts;
@@ -15,14 +16,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinLockedSlotsDrag {
 
     @Inject(method = "mouseDragged", at = @At("HEAD"))
-    private void onMouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY, CallbackInfoReturnable<Boolean> cir) {
+    private void onMouseDragged(Click click, double offsetX, double offsetY, CallbackInfoReturnable<Boolean> cir) {
         if (ContextManager.isLockedSlots() && MouseLocation.getHoveredSlot() != null) {
             LockedSlotsHandler.dragToggle(MouseLocation.getHoveredSlot().id);
         }
     }
 
     @Inject(method = "mouseReleased", at = @At("HEAD"))
-    private void onMouseReleased(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
+    private void onMouseReleased(Click click, CallbackInfoReturnable<Boolean> cir) {
         if (ContextManager.isLockedSlots()) ContextManager.setContext(Contexts.INIT);
     }
 }

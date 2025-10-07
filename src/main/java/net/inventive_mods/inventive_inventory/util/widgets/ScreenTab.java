@@ -18,7 +18,7 @@ public abstract class ScreenTab extends CustomListWidget {
 
     protected void addTitle(Text title) {
         if (client == null) return;
-        TextWidget text = new ConfigTextWidget(310, client.textRenderer.fontHeight, title.copy().setStyle(Style.EMPTY.withBold(true)), client.textRenderer);
+        ConfigTextWidget text = new ConfigTextWidget(310, client.textRenderer.fontHeight, title.copy().setStyle(Style.EMPTY.withBold(true)), client.textRenderer);
         this.addWidgetEntry(text, null);
     }
 

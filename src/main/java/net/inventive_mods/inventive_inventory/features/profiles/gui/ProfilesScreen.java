@@ -1,7 +1,9 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui;
 
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.input.KeyInput;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -67,11 +69,11 @@ public class ProfilesScreen extends HandledScreen<ScreenHandler> {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (InputUtil.GLFW_KEY_LEFT_ALT == keyCode) {
+    public boolean keyPressed(KeyInput keyInput) {
+        if (InputUtil.GLFW_KEY_LEFT_ALT == keyInput.key()) {
             DELETE_KEY_PRESSED = true;
             return true;
-        } else if (InputUtil.GLFW_KEY_LEFT_CONTROL == keyCode) {
+        } else if (InputUtil.GLFW_KEY_LEFT_CONTROL == keyInput.key()) {
             OVERWRITE_KEY_PRESSED = true;
             return true;
         }
@@ -79,15 +81,15 @@ public class ProfilesScreen extends HandledScreen<ScreenHandler> {
     }
 
     @Override
-    public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
-        if (KeyRegistry.openProfilesScreenKey.matchesKey(keyCode, scanCode)) {
+    public boolean keyReleased(KeyInput keyInput) {
+        if (KeyRegistry.openProfilesScreenKey.matchesKey(keyInput)) {
             return inputAction();
         }
-        if (InputUtil.GLFW_KEY_LEFT_CONTROL == keyCode) {
+        if (InputUtil.GLFW_KEY_LEFT_CONTROL == keyInput.key()) {
             OVERWRITE_KEY_PRESSED = false;
             return true;
         }
-        if (InputUtil.GLFW_KEY_LEFT_ALT == keyCode) {
+        if (InputUtil.GLFW_KEY_LEFT_ALT == keyInput.key()) {
             DELETE_KEY_PRESSED = false;
             return true;
         }
@@ -95,8 +97,8 @@ public class ProfilesScreen extends HandledScreen<ScreenHandler> {
     }
 
     @Override
-    public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        if (KeyRegistry.openProfilesScreenKey.matchesMouse(button)) {
+    public boolean mouseReleased(Click click) {
+        if (KeyRegistry.openProfilesScreenKey.matchesMouse(click)) {
             return inputAction();
         }
         return false;

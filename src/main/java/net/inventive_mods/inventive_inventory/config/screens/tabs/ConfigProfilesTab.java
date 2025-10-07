@@ -1,7 +1,8 @@
 package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
+import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.widget.TextWidget;
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
@@ -21,7 +22,7 @@ public class ConfigProfilesTab extends ScreenTab {
         super(client, width, screen);
         availableKeys = getAvailableKeys();
         if (ProfileHandler.getProfiles().isEmpty()) {
-            this.addCenteredWidget(new TextWidget(this.width, this.height, Text.translatable("config.profiles.text.inventive_inventory.no_profiles"), this.client.textRenderer));
+            this.addSpecialWidget(new CenteredTextWidget(this.width, this.height, Text.translatable("config.profiles.text.inventive_inventory.no_profiles"), this.client.textRenderer));
         } else {
             this.initTitleBar();
             this.initEntries();
@@ -29,13 +30,13 @@ public class ConfigProfilesTab extends ScreenTab {
     }
 
     private void initTitleBar() {
-        this.addCenteredWidget(new ConfigProfileTitleWidget(this.width, 20));
+        this.addSpecialWidget(new ConfigProfileTitleWidget(this.width, 20));
     }
 
     private void initEntries() {
         int i = 1;
         for (Profile profile : ProfileHandler.getProfiles()) {
-            this.addCenteredWidget(new ConfigProfileWidget(this.width, 20, i, profile, this));
+            this.addSpecialWidget(new ConfigProfileWidget(this.width, 20, i, profile, this));
             i++;
         }
     }
@@ -51,11 +52,11 @@ public class ConfigProfilesTab extends ScreenTab {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(Click click, boolean doubled) {
         this.children().forEach(widgetEntry -> widgetEntry.children().forEach(element -> {
             if (element instanceof ConfigProfileWidget widget) widget.horizontal.forEachChild(clickableWidget -> clickableWidget.setFocused(false));
         }));
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(click, doubled);
     }
 
     @Override

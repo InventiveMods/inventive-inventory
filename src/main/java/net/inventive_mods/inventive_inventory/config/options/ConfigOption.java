@@ -1,7 +1,7 @@
 package net.inventive_mods.inventive_inventory.config.options;
 
+import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
 import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
@@ -59,7 +59,7 @@ public abstract class ConfigOption<T> {
         this.setValue(this.defaultValue);
     }
 
-    public TextWidget createLabel() {
+    public CenteredTextWidget createLabel() {
         return new ConfigTextWidget(Text.translatable(this.getTranslationKey()), InventiveInventory.getClient().textRenderer);
     }
 

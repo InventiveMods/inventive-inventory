@@ -1,5 +1,6 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.widget.SliderWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.ColorHelper;
@@ -27,8 +28,8 @@ public class ConfigSliderWidget extends SliderWidget {
     }
 
     @Override
-    protected void onDrag(double mouseX, double mouseY, double deltaX, double deltaY) {
-        super.onDrag(mouseX, mouseY, deltaX, deltaY);
+    protected void onDrag(Click click, double deltaX, double deltaY) {
+        super.onDrag(click, deltaX, deltaY);
     }
 
     public void reset() {

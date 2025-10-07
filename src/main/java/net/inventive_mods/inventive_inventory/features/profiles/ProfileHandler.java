@@ -102,14 +102,14 @@ public class ProfileHandler {
     public static String getAvailableProfileKey() {
         List<KeyBinding> availableProfileKeys = getAvailableProfileKeys();
         if (availableProfileKeys.isEmpty()) return "";
-        else return availableProfileKeys.getFirst().getTranslationKey();
+        else return availableProfileKeys.getFirst().getId();
     }
 
     public static List<KeyBinding> getAvailableProfileKeys() {
         List<KeyBinding> availableProfileKeys = new ArrayList<>(Arrays.asList(KeyRegistry.profileKeys));
         for (Profile profile : profiles) {
             for (KeyBinding profileKey : KeyRegistry.profileKeys) {
-                if (profileKey.getTranslationKey().equals(profile.getKey())) availableProfileKeys.remove(profileKey);
+                if (profileKey.getId().equals(profile.getKey())) availableProfileKeys.remove(profileKey);
             }
         }
         return availableProfileKeys;
