@@ -1,7 +1,5 @@
 # Changelog
 
-## Bug Fixes
+## New Configuration Options
 
-- Fixed a bug where the item counter is rendered in creative mode.
-- Fixed a bug where item sorting with bundles does not work correctly
-- Fixed a bug where game crashes when opening a lectern screen
+- New config option `Ignore buckets` for Automatic Refilling. When enabled, Automatic Refilling will ignore buckets when refilling items. This is useful for players who use for example lava buckets in a fight.
