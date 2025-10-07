@@ -38,6 +38,7 @@ public class ConfigManager {
     public static final ConfigOption<ToolReplacementBehaviour> TOOL_REPLACEMENT_BEHAVIOUR = new EnumButtonOption<>("options", "automatic_refilling.tool_replacement_behaviour", ToolReplacementBehaviour.BREAK_TOOL);
     public static final ConfigOption<ToolReplacementPriority> TOOL_REPLACEMENT_PRIORITY = new EnumButtonOption<>("options", "automatic_refilling.tool_replacement_priority", ToolReplacementPriority.MATERIAL);
     public static final ConfigOption<Boolean> AUTOMATIC_REFILLING_IGNORE_LOCKED_SLOTS = new SimpleButtonOption("options", "universal.ignore_locked_slots", true);
+    public static final ConfigOption<Boolean> AUTOMATIC_REFILLING_IGNORE_BUCKETS = new SimpleButtonOption("options", "automatic_refilling.ignore_buckets", false);
     public static final ConfigOption<Status> PROFILES_STATUS = new EnumButtonOption<>("options", "profiles.status", Status.ENABLED);
     public static final ConfigOption<Boolean> FAST_LOAD = new SimpleButtonOption("options", "profiles.fast_load", true);
     public static final ConfigOption<Boolean> PICKUP_INTO_LOCKED_SLOTS = new SimpleButtonOption("options", "locked_slots.pickup_into_locked_slots", false);
