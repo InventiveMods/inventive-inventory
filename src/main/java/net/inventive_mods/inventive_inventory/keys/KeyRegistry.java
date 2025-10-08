@@ -8,8 +8,8 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public class KeyRegistry {
-    public static final KeyBinding.Category INVENTIVE_INVENTORY_CATEGORY = KeyBinding.Category.create(Identifier.of("key.category.inventive_inventory.main"));
-    public static final KeyBinding.Category INVENTIVE_INVENTORY_PROFILES_CATEGORY = KeyBinding.Category.create(Identifier.of("key.category.inventive_inventory.profiles"));
+    public static final KeyBinding.Category INVENTIVE_INVENTORY_CATEGORY = KeyBinding.Category.create(Identifier.of(InventiveInventory.MOD_ID, "main"));
+    public static final KeyBinding.Category INVENTIVE_INVENTORY_PROFILES_CATEGORY = KeyBinding.Category.create(Identifier.of(InventiveInventory.MOD_ID, "profiles"));
     public static final KeyBinding[] profileKeys = new KeyBinding[3];
     private static final String KEY_SORT = "key.inventive_inventory.sort";
     private static final String KEY_ADVANCED_OPERATION = "key.inventive_inventory.advanced_operation";
