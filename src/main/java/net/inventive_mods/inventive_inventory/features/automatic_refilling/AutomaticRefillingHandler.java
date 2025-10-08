@@ -21,6 +21,7 @@ import java.util.stream.Stream;
 
 public class AutomaticRefillingHandler {
     private static final List<Item> EMPTIES = List.of(Items.BUCKET, Items.GLASS_BOTTLE, Items.BOWL);
+    private static final List<Item> BUCKETS = List.of(Items.BUCKET, Items.WATER_BUCKET, Items.LAVA_BUCKET, Items.POWDER_SNOW_BUCKET, Items.MILK_BUCKET, Items.PUFFERFISH_BUCKET, Items.SALMON_BUCKET, Items.COD_BUCKET, Items.TROPICAL_FISH_BUCKET, Items.AXOLOTL_BUCKET, Items.TADPOLE_BUCKET);
     private static ItemStack mainHandStack = ItemStack.EMPTY;
     private static ItemStack offHandStack = ItemStack.EMPTY;
     public static boolean keysPressed = false;
@@ -46,6 +47,7 @@ public class AutomaticRefillingHandler {
     public static boolean shouldRun() {
         if (!AutomaticRefillingHandler.keysPressed) return false;
         if (mainHandStack.isEmpty() || ItemStack.areEqual(mainHandStack, InteractionHandler.getMainHandStack()) || mainHandStack.getCount() > 1) return false;
+        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getMainHandStack().getItem())) return false;
         return !mainHandStack.isDamageable() || ToolReplacementBehaviour.isValid(mainHandStack);
     }
 
@@ -56,6 +58,7 @@ public class AutomaticRefillingHandler {
         }
         if (!AutomaticRefillingHandler.keysPressed) return false;
         if (offHandStack.isEmpty() || ItemStack.areEqual(offHandStack, InteractionHandler.getOffHandStack()) || offHandStack.getCount() > 1) return false;
+        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getOffHandStack().getItem())) return false;
         return !offHandStack.isDamageable() || ToolReplacementBehaviour.isValid(offHandStack);
     }
 
