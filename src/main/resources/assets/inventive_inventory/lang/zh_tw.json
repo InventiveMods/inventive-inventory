@@ -25,6 +25,7 @@
     "config.options.label.inventive_inventory.automatic_refilling.mode": "Automatic Refilling Mode",
     "config.options.label.inventive_inventory.automatic_refilling.tool_replacement_behaviour": "Tool Replacement Behaviour",
     "config.options.label.inventive_inventory.automatic_refilling.tool_replacement_priority": "Tool Replacement Priority",
+    "config.options.label.inventive_inventory.automatic_refilling.ignore_buckets": "Ignore Buckets",
     "config.options.label.inventive_inventory.profiles.status": "Profiles",
     "config.options.label.inventive_inventory.profiles.fast_load": "Fast Load",
     "config.options.label.inventive_inventory.locked_slots.pickup_into_locked_slots": "Pick-Up into Locked Slots",
