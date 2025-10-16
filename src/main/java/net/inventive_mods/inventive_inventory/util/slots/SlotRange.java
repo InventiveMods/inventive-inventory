@@ -26,6 +26,10 @@ public class SlotRange extends ArrayList<Integer> {
         return new SlotRange(list);
     }
 
+    public static SlotRange empty() {
+        return new SlotRange(0, -1);
+    }
+
     public SlotRange append(SlotTypes type) {
         if (type == SlotTypes.HOTBAR) {
             ScreenHandler screenHandler = InventiveInventory.getScreenHandler();
@@ -37,6 +41,10 @@ public class SlotRange extends ArrayList<Integer> {
             if (playerSlots.stream().anyMatch(slot -> slot.getClass().equals(Slot.class))) {
                 playerSlots = playerSlots.stream().filter(slot -> slot.getClass().equals(Slot.class)).toList();
             }
+
+            if (playerSlots.isEmpty())
+                return this;
+
             int start = playerSlots.getFirst().id;
             int stop = playerSlots.getLast().id;
             IntStream.rangeClosed(start, stop).forEach(this::add);
