@@ -34,7 +34,7 @@ public class LockedSlotsHandler {
     public static boolean shouldAdd;
     public static boolean shouldInit;
     public static boolean schedulerStarted;
-    private static LockedSlots lockedSlots = new LockedSlots(List.of());
+    private static LockedSlots lockedSlots = LockedSlots.empty();
 
     public static final int HOVER_COLOR = 0x66FF0000;
     public static final int LOCKED_HOVER_COLOR = 0xFF8B0000;
