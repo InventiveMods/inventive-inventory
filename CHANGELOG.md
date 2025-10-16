@@ -1,5 +1,6 @@
 # Changelog
 
-## New Configuration Options
 
-- New config option `Ignore buckets` for Automatic Refilling. When enabled, Automatic Refilling will ignore buckets when refilling items. This is useful for players who use for example lava buckets in a fight.
+## Bug Fixes
+
+- Fixed a bug where the game crashed when opening a screen with no slots like the lectern screen for example.

@@ -14,7 +14,7 @@ public class ContainerSlots {
         if (screenHandler.getClass().getSimpleName().equals("BackpackBlockEntityMenu")) {
             containerSlots = containerSlots.stream().filter(slot -> slot.getClass().getSimpleName().equals("BackpackSlotItemHandler")).toList();
         }
-        if (containerSlots.isEmpty()) return new SlotRange(0, 0);
+        if (containerSlots.isEmpty()) return SlotRange.empty();
         return new SlotRange(containerSlots.get(0).id, containerSlots.get(containerSlots.size() - 1).id);
     }
 }
