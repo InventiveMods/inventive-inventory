@@ -3,8 +3,6 @@ package net.inventive_mods.inventive_inventory.features.locked_slots;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.context.ContextManager;
@@ -14,6 +12,8 @@ import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 import net.inventive_mods.inventive_inventory.util.ScreenCheck;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -104,7 +104,8 @@ public class LockedSlotsHandler {
 
     public static void setSavedInventory() {
         savedInventory.clear();
-        for (ItemStack stack : InventiveInventory.getPlayer().getInventory().getMainStacks()) savedInventory.add(stack.copy());
+        for (ItemStack stack : InventiveInventory.getPlayer().getInventory().getMainStacks())
+            savedInventory.add(stack.copy());
         savedInventory.add(InteractionHandler.getCursorStack().copy());
     }
 

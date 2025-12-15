@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.features.sorting;
 
-import net.minecraft.item.ItemStack;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 import net.inventive_mods.inventive_inventory.util.slots.SlotRange;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Collections;

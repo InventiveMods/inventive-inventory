@@ -1,12 +1,12 @@
 package net.inventive_mods.inventive_inventory.util;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.item.BundleItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.SlotActionType;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
 
 public class InteractionHandler {
     private static final int LEFT_CLICK = 0;
@@ -78,13 +78,15 @@ public class InteractionHandler {
             leftClickStack(slot);
             dropCursor(times);
             leftClickStack(slot);
-        } else for (; times > 0; times--) manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.THROW, player);
+        } else
+            for (; times > 0; times--) manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.THROW, player);
     }
 
     public static void dropCursor(int times) {
         ClientPlayerInteractionManager manager = InventiveInventory.getInteractionManager();
         ClientPlayerEntity player = InventiveInventory.getPlayer();
-        for (; times > 0; times--) manager.clickSlot(getSyncId(), ScreenHandler.EMPTY_SPACE_SLOT_INDEX, RIGHT_CLICK, SlotActionType.PICKUP, player);
+        for (; times > 0; times--)
+            manager.clickSlot(getSyncId(), ScreenHandler.EMPTY_SPACE_SLOT_INDEX, RIGHT_CLICK, SlotActionType.PICKUP, player);
     }
 
     public static void quickMove(int slot) {

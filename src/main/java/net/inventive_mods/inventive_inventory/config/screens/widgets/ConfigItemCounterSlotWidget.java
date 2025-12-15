@@ -25,5 +25,6 @@ public class ConfigItemCounterSlotWidget extends CustomClickableWidget {
     }
 
     @Override
-    public void playDownSound(SoundManager soundManager) {}
+    public void playDownSound(SoundManager soundManager) {
+    }
 }

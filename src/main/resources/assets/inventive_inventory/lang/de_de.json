@@ -8,16 +8,12 @@
     "key.inventive_inventory.profile_0": "Profil 1",
     "key.inventive_inventory.profile_1": "Profil 2",
     "key.inventive_inventory.profile_2": "Profil 3",
-
     "config.screen.title.inventive_inventory.main": "Inventive Inventory Einstellungen",
-
     "config.screen.tab.inventive_inventory.options": "Optionen",
     "config.screen.tab.inventive_inventory.visuals": "Visuelles",
     "config.screen.tab.inventive_inventory.profiles": "Profile",
-
     "config.universal.button.text.inventive_inventory.universal.simple.yes": "Ja",
     "config.universal.button.text.inventive_inventory.universal.simple.no": "Nein",
-
     "config.options.label.inventive_inventory.sorting.status": "Sortieren",
     "config.options.label.inventive_inventory.sorting.mode": "Sortiermodus",
     "config.options.label.inventive_inventory.sorting.cursor_stack_behaviour": "Verhalten des Cursor-Stacks",
@@ -34,7 +30,6 @@
     "config.options.label.inventive_inventory.item_counter.status": "Item Counter",
     "config.options.label.inventive_inventory.item_counter.mode": "Item Counter Mode",
     "config.options.label.inventive_inventory.item_counter.counting_mode": "Counting Mode",
-
     "config.options.button.text.inventive_inventory.universal.status.enabled": "Aktiviert",
     "config.options.button.text.inventive_inventory.universal.status.disabled": "Deaktiviert",
     "config.options.button.text.inventive_inventory.sorting.mode.name": "Name",
@@ -53,7 +48,6 @@
     "config.options.button.text.inventive_inventory.item_counter.mode.only_selected_slot": "Only Selected Slot",
     "config.options.button.text.inventive_inventory.item_counter.counting_mode.items": "Items",
     "config.options.button.text.inventive_inventory.item_counter.counting_mode.stacks": "Stacks",
-
     "config.options.button.tooltip.inventive_inventory.universal.status.enabled": "Funktion ist aktiviert.",
     "config.options.button.tooltip.inventive_inventory.universal.status.disabled": "Funktion ist deaktiviert.",
     "config.options.button.tooltip.inventive_inventory.universal.ignore_locked_slots": "Wähle, ob gesperrte Slots ignoriert oder einbezogen werden sollen.",
@@ -76,60 +70,44 @@
     "config.options.button.tooltip.inventive_inventory.item_counter.mode.only_selected_slot": "Show the amount of items you have left in your inventory for the item in your selected hotbar slot.",
     "config.options.button.tooltip.inventive_inventory.item_counter.counting_mode.items": "Count the amount of items you have left in your inventory.",
     "config.options.button.tooltip.inventive_inventory.item_counter.counting_mode.stacks": "Count the amount of stacks you have left in your inventory. Note that it will always round the total count downwards.",
-
     "config.options.title.inventive_inventory.sorting": "Sortieren",
     "config.options.title.inventive_inventory.automatic_refilling": "Automatisches Nachfüllen",
     "config.options.title.inventive_inventory.profiles": "Profile",
     "config.options.title.inventive_inventory.locked_slots": "Gesperrte Slots",
     "config.options.title.inventive_inventory.item_counter": "Item Counter",
-
     "config.visuals.title.inventive_inventory.locked_slots": "Gesperrte Slots",
     "config.visuals.title.inventive_inventory.item_counter": "Item Counter",
-
     "config.visuals.label.inventive_inventory.locked_slots.show_lock": "Schloss anzeigen",
     "config.visuals.label.inventive_inventory.locked_slots.style": "Stil",
     "config.visuals.label.inventive_inventory.locked_slots.color": "Farbe",
     "config.visuals.label.inventive_inventory.locked_slots.hotbar_color": "Hotbar Farbe",
     "config.visuals.label.inventive_inventory.item_counter.color": "Item Counter Color",
-
     "config.visuals.button.text.inventive_inventory.locked_slots.style.filled": "Ausgefüllt",
     "config.visuals.button.text.inventive_inventory.locked_slots.style.outlined": "Umrandet",
     "config.visuals.button.text.inventive_inventory.locked_slots.color.reset": "Zurücksetzen",
-
     "config.visuals.slider.text.inventive_inventory.locked_slots.color.opacity": "Deckkraft: %s",
-
     "config.visuals.button.tooltip.inventive_inventory.locked_slots.show_lock": "Wenn aktiviert, erscheint ein Schloss im gesperrten Slot.",
     "config.visuals.button.tooltip.inventive_inventory.locked_slots.style.filled": "Gesperrte Slots sind mit der ausgewählten Farbe gefüllt.",
     "config.visuals.button.tooltip.inventive_inventory.locked_slots.style.outlined": "Gesperrte Slots sind mit der ausgewählten Farbe umrandet.",
     "config.visuals.button.tooltip.inventive_inventory.locked_slots.color.reset": "Farbe auf Standard zurücksetzen.",
-
     "config.visuals.text_field.tooltip.inventive_inventory.locked_slots.color": "Ändere die Anzeigefarbe der gesperrten Slots.",
-
     "config.profiles.text.inventive_inventory.no_profiles": "Du hast keine Profile in dieser Welt.",
-
     "config.profiles.label.inventive_inventory.name": "Name",
     "config.profiles.label.inventive_inventory.key": "Taste",
     "config.profiles.label.inventive_inventory.preview": "Vorschau",
-
     "config.profiles.text_field.inventive_inventory.placeholder": "Name...",
-
     "config.profiles.button.text.inventive_inventory.not_bound": "Nicht gebunden",
-
     "profiles.screen.tooltip.inventive_inventory.plus.1": "Erstelle ein neues Profil.",
     "profiles.screen.tooltip.inventive_inventory.plus.2": "Halte ALT gedrückt, um einen Namen zu vergeben.",
     "profiles.screen.tooltip.inventive_inventory.unnamed": "Unbenannt",
     "profiles.screen.tooltip.inventive_inventory.key": "Taste",
-
     "profiles.screen.naming.label.inventive_inventory.instruction": "Benenne das Profil:",
-
     "profiles.screen.naming.text_field.inventive_inventory.placeholder": "Profilname...",
-
     "notification.profiles.inventive_inventory.created": "Profil erstellt!",
     "notification.profiles.inventive_inventory.loaded": "Profil geladen!",
     "notification.profiles.inventive_inventory.overwritten": "Profil überschrieben!",
     "notification.profiles.inventive_inventory.updated": "Profil aktualisiert!",
     "notification.profiles.inventive_inventory.deleted": "Profil gelöscht!",
-
     "error.profiles.inventive_inventory.exclusive_name": "Profil benötigt einen eindeutigen Namen!",
     "error.profiles.inventive_inventory.key": "Taste ist nicht verfügbar!",
     "error.profiles.inventive_inventory.name": "Profil benötigt einen Namen!",

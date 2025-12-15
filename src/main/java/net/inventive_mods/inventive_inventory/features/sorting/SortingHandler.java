@@ -1,6 +1,5 @@
 package net.inventive_mods.inventive_inventory.features.sorting;
 
-import net.minecraft.item.ItemStack;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.Status;
@@ -14,6 +13,7 @@ import net.inventive_mods.inventive_inventory.util.slots.ContainerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotRange;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
+import net.minecraft.item.ItemStack;
 
 public class SortingHandler {
 
