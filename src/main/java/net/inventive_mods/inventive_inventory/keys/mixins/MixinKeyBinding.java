@@ -61,4 +61,9 @@ public class MixinKeyBinding {
             AutomaticRefillingHandler.keysPressed = false;
         }
     }
+
+    @Inject(method = "reset", at = @At("HEAD"))
+    private static void onReset(CallbackInfo ci) {
+        AutomaticRefillingHandler.keysPressed = false;
+    }
 }
