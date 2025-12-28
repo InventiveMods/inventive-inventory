@@ -9,6 +9,7 @@ import net.inventive_mods.inventive_inventory.context.ContextManager;
 import net.inventive_mods.inventive_inventory.context.Contexts;
 import net.inventive_mods.inventive_inventory.util.FileHandler;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;
+import net.inventive_mods.inventive_inventory.util.ItemStackUtils;
 import net.inventive_mods.inventive_inventory.util.ScreenCheck;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
@@ -152,7 +153,7 @@ public class LockedSlotsHandler {
             List<Integer> suitableSlots = PlayerSlots.get(SlotTypes.HOTBAR).append(SlotTypes.INVENTORY).exclude(SlotTypes.LOCKED_SLOT).stream()
                     .filter(slot -> {
                         ItemStack stack = InteractionHandler.getStackFromSlot(slot);
-                        return stack.isEmpty() || ItemStack.areItemsEqual(stack, currentStack) && stack.getCount() < stack.getMaxCount();
+                        return stack.isEmpty() || ItemStackUtils.areEqualWithoutCount(stack, currentStack) && stack.getCount() < stack.getMaxCount();
                     })
                     .sorted(Comparator.comparing((Integer slot) -> InteractionHandler.getStackFromSlot(slot).getCount(), Comparator.reverseOrder()))
                     .toList();
