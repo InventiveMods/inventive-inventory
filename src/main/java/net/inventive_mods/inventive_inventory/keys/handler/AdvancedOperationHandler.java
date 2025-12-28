@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.keys.handler;
 
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.util.InputUtil;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.Window;
 import org.lwjgl.glfw.GLFW;
 

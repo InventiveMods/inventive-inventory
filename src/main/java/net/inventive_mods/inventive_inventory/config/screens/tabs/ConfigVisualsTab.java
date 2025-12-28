@@ -1,16 +1,16 @@
 package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
-import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigItemCounterSlotWidget;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.Click;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ColorPickerWidget;
+import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigItemCounterSlotWidget;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigLockedSlotWidget;
 import net.inventive_mods.inventive_inventory.util.Textures;
 import net.inventive_mods.inventive_inventory.util.widgets.ScreenTab;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.Click;
+import net.minecraft.text.Text;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -57,7 +57,8 @@ public class ConfigVisualsTab extends ScreenTab {
         for (WidgetEntry entry : this.children()) {
             entry.children().forEach(element -> {
                 if (element instanceof ColorPickerWidget colorPickerWidget) {
-                    if (colorPickerWidget.overSliderWidget(click) && click.button() == 0) colorPickerWidget.dragSliderWidget(click, deltaX, deltaY);
+                    if (colorPickerWidget.overSliderWidget(click) && click.button() == 0)
+                        colorPickerWidget.dragSliderWidget(click, deltaX, deltaY);
                 }
             });
         }

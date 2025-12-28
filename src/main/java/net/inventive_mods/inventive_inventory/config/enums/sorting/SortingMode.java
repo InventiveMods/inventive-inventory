@@ -1,14 +1,14 @@
 package net.inventive_mods.inventive_inventory.config.enums.sorting;
 
+import net.inventive_mods.inventive_inventory.config.ConfigManager;
+import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
+import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.inventive_mods.inventive_inventory.config.ConfigManager;
-import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
-import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 
 import java.util.Comparator;
 import java.util.stream.Collectors;
@@ -42,7 +42,6 @@ public enum SortingMode implements Translatable {
                     return "";
                 });
     }
-
 
 
     @Override

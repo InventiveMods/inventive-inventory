@@ -1,14 +1,14 @@
 package net.inventive_mods.inventive_inventory.util.widgets;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
+import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
+import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigTextWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
-import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
-import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigTextWidget;
 
 public abstract class ScreenTab extends CustomListWidget {
 
@@ -38,5 +38,6 @@ public abstract class ScreenTab extends CustomListWidget {
         this.addWidgetEntry(textWidget, textWidget);
     }
 
-    protected void onClose() {}
+    protected void onClose() {
+    }
 }

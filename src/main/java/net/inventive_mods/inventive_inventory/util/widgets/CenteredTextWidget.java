@@ -31,7 +31,7 @@ public class CenteredTextWidget extends AbstractTextWidget {
         TextRenderer textRenderer = this.getTextRenderer();
         int width = this.getWidth();
         int textWidth = textRenderer.getWidth(text);
-        int x = this.getX() + Math.round(0.5f * (float)(width - textWidth));
+        int x = this.getX() + Math.round(0.5f * (float) (width - textWidth));
         int y = this.getY();
         int height = this.getHeight();
         int finalY = y + (height - 9) / 2;
