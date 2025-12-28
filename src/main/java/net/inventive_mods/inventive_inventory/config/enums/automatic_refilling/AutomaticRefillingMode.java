@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.config.enums.automatic_refilling;
 
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
 import net.inventive_mods.inventive_inventory.keys.handler.AdvancedOperationHandler;
+import net.minecraft.text.Text;
 
 public enum AutomaticRefillingMode implements Translatable {
     AUTOMATIC("automatic"),

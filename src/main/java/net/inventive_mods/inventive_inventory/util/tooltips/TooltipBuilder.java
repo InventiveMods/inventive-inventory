@@ -1,5 +1,7 @@
 package net.inventive_mods.inventive_inventory.util.tooltips;
 
+import net.inventive_mods.inventive_inventory.features.profiles.Profile;
+import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -7,8 +9,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.inventive_mods.inventive_inventory.features.profiles.Profile;
-import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,8 @@ public class TooltipBuilder {
     private static void addKey(Profile profile, List<Text> textList) {
         if (profile.getKey() != null) {
             KeyBinding keyBinding = KeyRegistry.getByTranslationKey(profile.getKey());
-            if (keyBinding != null) textList.add(Text.of(Text.translatable(TOOLTIP_TRANSLATION_KEY + "key").getString() + ": " + keyBinding.getBoundKeyLocalizedText().getString()));
+            if (keyBinding != null)
+                textList.add(Text.of(Text.translatable(TOOLTIP_TRANSLATION_KEY + "key").getString() + ": " + keyBinding.getBoundKeyLocalizedText().getString()));
         }
     }
 }

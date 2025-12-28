@@ -35,7 +35,7 @@ public class MixinKeyBinding {
         profileKeys.removeAll(ProfileHandler.getAvailableProfileKeys());
         List<KeyBinding> list = KEY_TO_BINDINGS.get(key);
         if (list != null && !list.isEmpty()) {
-            for(KeyBinding keyBinding : list) {
+            for (KeyBinding keyBinding : list) {
                 if (profileKeys.contains(keyBinding)) {
                     if (KeyRegistry.loadProfileKey.isPressed() || ConfigManager.FAST_LOAD.is(true)) {
                         ci.cancel();
@@ -60,5 +60,10 @@ public class MixinKeyBinding {
         } else if (!options.attackKey.isPressed() && !options.useKey.isPressed() && !options.dropKey.isPressed()) {
             AutomaticRefillingHandler.keysPressed = false;
         }
+    }
+
+    @Inject(method = "reset", at = @At("HEAD"))
+    private static void onReset(CallbackInfo ci) {
+        AutomaticRefillingHandler.keysPressed = false;
     }
 }

@@ -1,13 +1,13 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
+import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.EmptyWidget;
 import net.minecraft.text.Text;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
 
 public class ConfigProfileTitleWidget extends CustomClickableWidget {
     private final DirectionalLayoutWidget horizontal = DirectionalLayoutWidget.horizontal().spacing(10);

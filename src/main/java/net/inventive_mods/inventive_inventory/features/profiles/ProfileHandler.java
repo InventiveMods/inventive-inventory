@@ -3,11 +3,6 @@ package net.inventive_mods.inventive_inventory.features.profiles;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.Status;
@@ -19,6 +14,11 @@ import net.inventive_mods.inventive_inventory.util.Notifier;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotRange;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
+import net.minecraft.client.option.KeyBinding;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -33,7 +33,8 @@ public class ProfileHandler {
     private static final List<Profile> profiles = new ArrayList<>();
 
     public static void create(String name, String key) {
-        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED)) return;
+        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED))
+            return;
         Profile profile = new Profile(profiles.size(), name, key, createSavedSlots());
         if (profiles.size() < MAX_PROFILES) {
             profiles.add(profile);
@@ -45,7 +46,8 @@ public class ProfileHandler {
     }
 
     public static void load(Profile profile) {
-        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED)) return;
+        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED))
+            return;
         SlotRange slotRange = PlayerSlots.get(SlotTypes.INVENTORY, SlotTypes.HOTBAR, SlotTypes.OFFHAND);
         slotRange = ConfigManager.PROFILES_IGNORE_LOCKED_SLOTS.is(true) ? slotRange.exclude(SlotTypes.LOCKED_SLOT) : slotRange;
         for (SavedSlot savedSlot : profile.getSavedSlots()) {
@@ -63,7 +65,8 @@ public class ProfileHandler {
     }
 
     public static void overwrite(Profile profile) {
-        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED)) return;
+        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED))
+            return;
         Profile newProfile = new Profile(profile.getId(), profile.getName(), profile.getKey(), createSavedSlots());
         profiles.set(profile.getId(), newProfile);
         save();
@@ -71,7 +74,8 @@ public class ProfileHandler {
     }
 
     public static void update(Profile profile) {
-        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED)) return;
+        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED))
+            return;
         Profile newProfile = new Profile(profile.getId(), profile.getName(), profile.getKey(), profile.getSavedSlots(), profile.getDisplayStack());
         profiles.set(profile.getId(), newProfile);
         save();
@@ -79,7 +83,8 @@ public class ProfileHandler {
     }
 
     public static void delete(Profile profile) {
-        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED)) return;
+        if (InventiveInventory.getPlayer().isInCreativeMode() || ConfigManager.PROFILES_STATUS.is(Status.DISABLED))
+            return;
         profiles.remove(profile.getId());
         for (int i = 0; i < profiles.size(); i++) {
             profiles.get(i).setId(i);
