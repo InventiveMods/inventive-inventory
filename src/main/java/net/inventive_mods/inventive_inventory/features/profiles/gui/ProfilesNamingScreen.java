@@ -1,5 +1,7 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
@@ -8,8 +10,6 @@ import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.input.KeyInput;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
 
 public class ProfilesNamingScreen extends Screen {
     private TextFieldWidget textFieldWidget;
@@ -18,7 +18,7 @@ public class ProfilesNamingScreen extends Screen {
         super(Text.of("TextFieldScreen"));
         int width = InventiveInventory.getClient().getWindow().getScaledWidth();
         int height = InventiveInventory.getClient().getWindow().getScaledHeight();
-        this.init(InventiveInventory.getClient(), width, height);
+        this.init(width, height);
     }
 
     @Override

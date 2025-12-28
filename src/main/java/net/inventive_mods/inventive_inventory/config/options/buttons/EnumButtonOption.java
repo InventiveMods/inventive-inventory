@@ -1,14 +1,12 @@
 package net.inventive_mods.inventive_inventory.config.options.buttons;
 
-import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.CyclingButtonWidget;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
 import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
+import net.minecraft.client.gui.tooltip.Tooltip;
+import net.minecraft.client.gui.widget.CyclingButtonWidget;
+import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Arrays;
 
 public class EnumButtonOption<E extends Enum<E>> extends ConfigOption<E> {
     private final Class<E> enumClass;
@@ -40,10 +38,10 @@ public class EnumButtonOption<E extends Enum<E>> extends ConfigOption<E> {
 
     @Override
     public CyclingButtonWidget<?> asWidget() {
-        return CyclingButtonWidget.builder(ConfigOption::getValueAsText)
+        return CyclingButtonWidget.builder(ConfigOption::getValueAsText, this.getValue())
                 .tooltip(value -> Tooltip.of(Text.translatable("config." + this.tab + ".button.tooltip." + InventiveInventory.MOD_ID + "." + ((Translatable) value).getTranslationKey())))
                 .omitKeyText()
-                .values(Arrays.stream(this.enumClass.getEnumConstants()).toArray()).initially(this.getValue())
+                .values(this.enumClass.getEnumConstants())
                 .build(Text.empty(), (button, value) -> this.cycle());
     }
 

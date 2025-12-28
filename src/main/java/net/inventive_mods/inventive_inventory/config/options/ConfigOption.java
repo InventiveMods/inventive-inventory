@@ -1,13 +1,13 @@
 package net.inventive_mods.inventive_inventory.config.options;
 
-import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
-import net.minecraft.client.gui.widget.ClickableWidget;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Stylable;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigTextWidget;
+import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
+import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -19,7 +19,8 @@ public abstract class ConfigOption<T> {
     private T value;
 
     public static Text getValueAsText(Object value) {
-        if (value instanceof Boolean) return (Boolean) value ? Text.translatable(SIMPLE_TRANSLATION_KEY + "yes") : Text.translatable(SIMPLE_TRANSLATION_KEY + "no");
+        if (value instanceof Boolean)
+            return (Boolean) value ? Text.translatable(SIMPLE_TRANSLATION_KEY + "yes") : Text.translatable(SIMPLE_TRANSLATION_KEY + "no");
         else if (value instanceof Enum<?>) {
             Text text = Text.empty();
             if (value instanceof Translatable) text = ((Translatable) value).getButtonText();
@@ -39,7 +40,7 @@ public abstract class ConfigOption<T> {
     }
 
     public String getTranslationKey() {
-        return "config." + this.tab +  ".label." + InventiveInventory.MOD_ID + "." + this.key;
+        return "config." + this.tab + ".label." + InventiveInventory.MOD_ID + "." + this.key;
     }
 
     public T getDefaultValue() {

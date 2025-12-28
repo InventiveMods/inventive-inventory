@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.config.enums;
 
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Stylable;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 public enum Status implements Stylable, Translatable {
     ENABLED("enabled", Formatting.GREEN),

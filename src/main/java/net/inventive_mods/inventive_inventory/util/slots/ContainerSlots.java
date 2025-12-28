@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.util.slots;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
 
 import java.util.List;
 

@@ -2,10 +2,6 @@ package net.inventive_mods.inventive_inventory.features.locked_slots.mixins;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.slot.Slot;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.locked_slots.Style;
@@ -15,6 +11,10 @@ import net.inventive_mods.inventive_inventory.util.Drawer;
 import net.inventive_mods.inventive_inventory.util.Textures;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.slot.Slot;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,23 +26,26 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class MixinLockedSlotsDrawer {
 
     @Shadow
-    protected abstract void drawSlot(DrawContext context, Slot slot);
+    protected abstract void drawSlot(DrawContext context, Slot slot, int mouseX, int mouseY);
 
-    @Shadow @Nullable protected Slot focusedSlot;
+    @Shadow
+    @Nullable
+    protected Slot focusedSlot;
 
-    @Inject(method = "drawSlot(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/screen/slot/Slot;)V", at = @At(value = "HEAD"))
-    private void onDrawItem(DrawContext context, Slot slot, CallbackInfo ci) {
-        if (!InventiveInventory.getPlayer().isInCreativeMode() && LockedSlotsHandler.getLockedSlots().contains(slot.id) ) {
+    @Inject(method = "drawSlot", at = @At(value = "HEAD"))
+    private void onDrawItem(DrawContext context, Slot slot, int mouseX, int mouseY, CallbackInfo ci) {
+        if (!InventiveInventory.getPlayer().isInCreativeMode() && LockedSlotsHandler.getLockedSlots().contains(slot.id)) {
             if (!(this.focusedSlot == slot && AdvancedOperationHandler.isPressed())) {
                 Drawer.drawSlotBackground(context, slot.x, slot.y, ConfigManager.LOCKED_SLOTS_COLOR.getValue(), ConfigManager.LOCKED_SLOT_STYLE.is(Style.OUTLINED));
             }
         }
     }
 
-    @Inject(method = "drawSlot(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/screen/slot/Slot;)V", at = @At(value = "TAIL"))
-    private void afterDrawItem(DrawContext context, Slot slot, CallbackInfo ci) {
-        if (!InventiveInventory.getPlayer().isInCreativeMode() && LockedSlotsHandler.getLockedSlots().contains(slot.id) ) {
-            if (ConfigManager.SHOW_LOCK.is(true)) Drawer.drawTexture(context, Textures.LOCK, slot.x + 11, slot.y - 2, 8);
+    @Inject(method = "drawSlot", at = @At(value = "TAIL"))
+    private void afterDrawItem(DrawContext context, Slot slot, int mouseX, int mouseY, CallbackInfo ci) {
+        if (!InventiveInventory.getPlayer().isInCreativeMode() && LockedSlotsHandler.getLockedSlots().contains(slot.id)) {
+            if (ConfigManager.SHOW_LOCK.is(true))
+                Drawer.drawTexture(context, Textures.LOCK, slot.x + 11, slot.y - 2, 8);
         }
     }
 
@@ -53,16 +56,17 @@ public abstract class MixinLockedSlotsDrawer {
             if (AdvancedOperationHandler.isPressed()) {
                 if (LockedSlotsHandler.getLockedSlots().contains(slot.id)) {
                     Drawer.drawSlotBackground(context, slot.x, slot.y, LockedSlotsHandler.LOCKED_HOVER_COLOR, false);
-                    this.drawSlot(context, slot);
+                    this.drawSlot(context, slot, 0, 0);
                     return;
                 } else if (PlayerSlots.get().append(SlotTypes.HOTBAR).exclude(SlotTypes.LOCKED_SLOT).contains(slot.id)) {
                     Drawer.drawSlotBackground(context, slot.x, slot.y, LockedSlotsHandler.HOVER_COLOR, false);
-                    this.drawSlot(context, slot);
+                    this.drawSlot(context, slot, 0, 0);
                     return;
                 }
             } else if (LockedSlotsHandler.getLockedSlots().contains(slot.id)) {
                 original.call(instance, context);
-                if (ConfigManager.SHOW_LOCK.is(true)) Drawer.drawTexture(context, Textures.LOCK, slot.x + 11, slot.y - 2, 8);
+                if (ConfigManager.SHOW_LOCK.is(true))
+                    Drawer.drawTexture(context, Textures.LOCK, slot.x + 11, slot.y - 2, 8);
                 return;
             }
         }

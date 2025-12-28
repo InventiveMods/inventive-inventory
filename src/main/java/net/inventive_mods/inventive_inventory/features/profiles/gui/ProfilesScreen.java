@@ -1,5 +1,11 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.features.profiles.Profile;
+import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
+import net.inventive_mods.inventive_inventory.features.profiles.gui.widgets.Section;
+import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
+import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
 import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -7,12 +13,6 @@ import net.minecraft.client.input.KeyInput;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profiles.Profile;
-import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
-import net.inventive_mods.inventive_inventory.features.profiles.gui.widgets.Section;
-import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
-import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
 
 import java.util.ArrayList;
 import java.util.List;

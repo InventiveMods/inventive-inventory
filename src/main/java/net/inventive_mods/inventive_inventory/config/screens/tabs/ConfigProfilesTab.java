@@ -1,16 +1,16 @@
 package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
-import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.Click;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigProfileTitleWidget;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigProfileWidget;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
 import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
+import net.inventive_mods.inventive_inventory.util.widgets.CenteredTextWidget;
 import net.inventive_mods.inventive_inventory.util.widgets.ScreenTab;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.Click;
+import net.minecraft.client.option.KeyBinding;
+import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,8 @@ public class ConfigProfilesTab extends ScreenTab {
     @Override
     public boolean mouseClicked(Click click, boolean doubled) {
         this.children().forEach(widgetEntry -> widgetEntry.children().forEach(element -> {
-            if (element instanceof ConfigProfileWidget widget) widget.horizontal.forEachChild(clickableWidget -> clickableWidget.setFocused(false));
+            if (element instanceof ConfigProfileWidget widget)
+                widget.horizontal.forEachChild(clickableWidget -> clickableWidget.setFocused(false));
         }));
         return super.mouseClicked(click, doubled);
     }

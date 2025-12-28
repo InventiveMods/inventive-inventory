@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.keys;
 
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
