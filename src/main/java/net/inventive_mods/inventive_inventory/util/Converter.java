@@ -3,6 +3,8 @@ package net.inventive_mods.inventive_inventory.util;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.features.profiles.SavedSlot;
 import net.minecraft.component.ComponentMap;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ItemEnchantmentsComponent;
@@ -17,8 +19,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.profiles.SavedSlot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,8 +75,8 @@ public class Converter {
                     enchantmentBuilder.add(enchantmentRegistry.getEntry(enchantment), enchantmentObject.get("lvl").getAsInt());
                 }
                 componentBuilder.add(DataComponentTypes.ENCHANTMENTS, enchantmentBuilder.build());
-                }
             }
+        }
 
         if (stackJson.getAsJsonObject("components").has("potion")) {
             Optional<Registry<Potion>> opt = InventiveInventory.getRegistryManager().getOptional(RegistryKeys.POTION);

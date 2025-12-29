@@ -1,5 +1,13 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.config.screens.tabs.ConfigProfilesTab;
+import net.inventive_mods.inventive_inventory.features.profiles.Profile;
+import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
+import net.inventive_mods.inventive_inventory.features.profiles.SavedSlot;
+import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
+import net.inventive_mods.inventive_inventory.util.Drawer;
+import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -11,14 +19,6 @@ import net.minecraft.client.sound.SoundManager;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.text.Text;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.config.screens.tabs.ConfigProfilesTab;
-import net.inventive_mods.inventive_inventory.features.profiles.Profile;
-import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
-import net.inventive_mods.inventive_inventory.features.profiles.SavedSlot;
-import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
-import net.inventive_mods.inventive_inventory.util.Drawer;
-import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
 
 import java.util.List;
 
@@ -129,6 +129,7 @@ public class ConfigProfileWidget extends CustomClickableWidget {
             super(205, 20);
             this.savedSlots = savedSlots;
         }
+
         @Override
         protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
             Drawer.drawProfileHotbar(context, this.getX(), this.getY());
@@ -141,7 +142,8 @@ public class ConfigProfileWidget extends CustomClickableWidget {
                     boolean inX = this.getX() + 2 < mouseX && mouseX < this.getX() + 2 + 16;
                     boolean inY = slotY < mouseY && mouseY < slotY + 16;
                     boolean isMouseOverItem = inX && inY;
-                    if (isMouseOverItem) context.drawItemTooltip(InventiveInventory.getClient().textRenderer, savedSlot.stack(), mouseX, mouseY);
+                    if (isMouseOverItem)
+                        context.drawItemTooltip(InventiveInventory.getClient().textRenderer, savedSlot.stack(), mouseX, mouseY);
                 }
                 for (int i = 0; i < 9; i++) {
                     if (savedSlot.slot() - PlayerInventory.MAIN_SIZE == i) {
@@ -149,7 +151,8 @@ public class ConfigProfileWidget extends CustomClickableWidget {
                         boolean inX = slotX < mouseX && mouseX < slotX + 16;
                         boolean inY = slotY < mouseY && mouseY < slotY + 16;
                         boolean isMouseOverItem = inX && inY;
-                        if (isMouseOverItem) context.drawItemTooltip(InventiveInventory.getClient().textRenderer, savedSlot.stack(), mouseX, mouseY);
+                        if (isMouseOverItem)
+                            context.drawItemTooltip(InventiveInventory.getClient().textRenderer, savedSlot.stack(), mouseX, mouseY);
                         break;
                     }
                 }

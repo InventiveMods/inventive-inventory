@@ -1,8 +1,6 @@
 package net.inventive_mods.inventive_inventory.events;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.option.KeyBinding;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.Status;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.AutomaticRefillingMode;
@@ -16,6 +14,8 @@ import net.inventive_mods.inventive_inventory.features.profiles.gui.ProfilesScre
 import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 import net.inventive_mods.inventive_inventory.keys.handler.AdvancedOperationHandler;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.KeyBinding;
 
 import java.util.List;
 

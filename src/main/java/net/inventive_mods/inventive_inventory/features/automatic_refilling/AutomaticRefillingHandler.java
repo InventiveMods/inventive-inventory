@@ -1,10 +1,5 @@
 package net.inventive_mods.inventive_inventory.features.automatic_refilling;
 
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.screen.PlayerScreenHandler;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.ToolReplacementBehaviour;
 import net.inventive_mods.inventive_inventory.config.enums.automatic_refilling.ToolReplacementPriority;
@@ -13,6 +8,11 @@ import net.inventive_mods.inventive_inventory.util.InteractionHandler;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotRange;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.screen.PlayerScreenHandler;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -46,8 +46,10 @@ public class AutomaticRefillingHandler {
 
     public static boolean shouldRun() {
         if (!AutomaticRefillingHandler.keysPressed) return false;
-        if (mainHandStack.isEmpty() || ItemStack.areEqual(mainHandStack, InteractionHandler.getMainHandStack()) || mainHandStack.getCount() > 1) return false;
-        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getMainHandStack().getItem())) return false;
+        if (mainHandStack.isEmpty() || ItemStack.areEqual(mainHandStack, InteractionHandler.getMainHandStack()) || mainHandStack.getCount() > 1)
+            return false;
+        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getMainHandStack().getItem()))
+            return false;
         return !mainHandStack.isDamageable() || ToolReplacementBehaviour.isValid(mainHandStack);
     }
 
@@ -57,8 +59,10 @@ public class AutomaticRefillingHandler {
             return false;
         }
         if (!AutomaticRefillingHandler.keysPressed) return false;
-        if (offHandStack.isEmpty() || ItemStack.areEqual(offHandStack, InteractionHandler.getOffHandStack()) || offHandStack.getCount() > 1) return false;
-        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getOffHandStack().getItem())) return false;
+        if (offHandStack.isEmpty() || ItemStack.areEqual(offHandStack, InteractionHandler.getOffHandStack()) || offHandStack.getCount() > 1)
+            return false;
+        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getOffHandStack().getItem()))
+            return false;
         return !offHandStack.isDamageable() || ToolReplacementBehaviour.isValid(offHandStack);
     }
 
@@ -109,7 +113,8 @@ public class AutomaticRefillingHandler {
                         }
                         return ItemStack.areItemsEqual(stack, handStack) &&
                                 ((ConfigManager.TOOL_REPLACEMENT_BEHAVIOUR.is(ToolReplacementBehaviour.KEEP_TOOL) && stack.getMaxDamage() - stack.getDamage() > 1) || ConfigManager.TOOL_REPLACEMENT_BEHAVIOUR.is(ToolReplacementBehaviour.BREAK_TOOL));
-                    } return ItemStack.areItemsEqual(handStack, stack);
+                    }
+                    return ItemStack.areItemsEqual(handStack, stack);
                 });
 
         if (handStack.isDamageable()) {

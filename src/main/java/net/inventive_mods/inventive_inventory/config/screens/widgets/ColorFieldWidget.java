@@ -1,10 +1,10 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.config.options.fields.ColorFieldOption;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.ColorHelper;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.config.options.fields.ColorFieldOption;
 
 public class ColorFieldWidget extends TextFieldWidget {
     private final ColorFieldOption option;
