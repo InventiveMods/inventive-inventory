@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.config.options.buttons;
 
-import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.CyclingButtonWidget;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
 import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
+import net.minecraft.client.gui.tooltip.Tooltip;
+import net.minecraft.client.gui.widget.CyclingButtonWidget;
+import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;

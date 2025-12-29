@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.config.enums.automatic_refilling;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 
 public enum ToolReplacementBehaviour implements Translatable {
     KEEP_TOOL("keep_tool"),

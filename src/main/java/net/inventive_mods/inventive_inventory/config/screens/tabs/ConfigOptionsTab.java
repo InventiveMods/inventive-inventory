@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
 import net.inventive_mods.inventive_inventory.util.widgets.ScreenTab;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.Text;
 
 public class ConfigOptionsTab extends ScreenTab {
     private final static String TITLE_TRANSLATION_KEY = "config.options.title." + InventiveInventory.MOD_ID;
