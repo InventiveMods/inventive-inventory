@@ -1,10 +1,10 @@
 package net.inventive_mods.inventive_inventory.config.screens;
 
-import net.minecraft.client.gui.screen.Screen;
 import net.inventive_mods.inventive_inventory.config.screens.tabs.ConfigOptionsTab;
 import net.inventive_mods.inventive_inventory.config.screens.tabs.ConfigProfilesTab;
 import net.inventive_mods.inventive_inventory.config.screens.tabs.ConfigVisualsTab;
 import net.inventive_mods.inventive_inventory.util.widgets.TabbedScreen;
+import net.minecraft.client.gui.screen.Screen;
 
 
 public class ConfigScreen extends TabbedScreen {

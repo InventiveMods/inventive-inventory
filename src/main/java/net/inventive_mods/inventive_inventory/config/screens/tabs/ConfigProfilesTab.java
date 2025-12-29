@@ -1,15 +1,15 @@
 package net.inventive_mods.inventive_inventory.config.screens.tabs;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.widget.TextWidget;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigProfileTitleWidget;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ConfigProfileWidget;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
 import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
 import net.inventive_mods.inventive_inventory.util.widgets.ScreenTab;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.widget.TextWidget;
+import net.minecraft.client.option.KeyBinding;
+import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,21 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui;
 
 import com.mojang.blaze3d.vertex.VertexFormat;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.*;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
 import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
 import net.inventive_mods.inventive_inventory.features.profiles.gui.widgets.Section;
 import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.render.BufferBuilder;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.Tessellator;
+import net.minecraft.client.render.VertexFormats;
+import net.minecraft.client.util.InputUtil;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;

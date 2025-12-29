@@ -3,13 +3,13 @@ package net.inventive_mods.inventive_inventory.util.widgets;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.gui.widget.ElementListWidget;
-import net.inventive_mods.inventive_inventory.config.screens.ConfigScreen;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
