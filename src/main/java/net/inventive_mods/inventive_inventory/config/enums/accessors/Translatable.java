@@ -4,5 +4,6 @@ import net.minecraft.text.Text;
 
 public interface Translatable {
     Text getButtonText();
+
     String getTranslationKey();
 }
