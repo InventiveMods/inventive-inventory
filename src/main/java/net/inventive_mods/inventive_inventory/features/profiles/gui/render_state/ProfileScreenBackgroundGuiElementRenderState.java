@@ -11,7 +11,11 @@ import net.minecraft.client.texture.TextureSetup;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix3x2f;
 
-public record ProfileScreenBackgroundGuiElementRenderState(RenderPipeline pipeline, TextureSetup textureSetup, Matrix3x2f pose, float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3, int color, @Nullable ScreenRect scissorArea, @Nullable ScreenRect bounds) implements SimpleGuiElementRenderState {
+public record ProfileScreenBackgroundGuiElementRenderState(RenderPipeline pipeline, TextureSetup textureSetup,
+                                                           Matrix3x2f pose, float x0, float y0, float x1, float y1,
+                                                           float x2, float y2, float x3, float y3, int color,
+                                                           @Nullable ScreenRect scissorArea,
+                                                           @Nullable ScreenRect bounds) implements SimpleGuiElementRenderState {
     public ProfileScreenBackgroundGuiElementRenderState(DrawContext context, float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3, int color) {
         this(RenderPipelines.GUI, TextureSetup.empty(), context.getMatrices(), x0, y0, x1, y1, x2, y2, x3, y3, color, context.scissorStack.peekLast(), createBounds(context.getMatrices(), context.scissorStack.peekLast()));
     }

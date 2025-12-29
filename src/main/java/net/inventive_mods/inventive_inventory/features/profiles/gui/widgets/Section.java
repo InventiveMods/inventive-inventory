@@ -1,16 +1,16 @@
 package net.inventive_mods.inventive_inventory.features.profiles.gui.widgets;
 
-import net.inventive_mods.inventive_inventory.features.profiles.gui.render_state.ProfileScreenBackgroundGuiElementRenderState;
-import net.minecraft.client.gl.RenderPipelines;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
 import net.inventive_mods.inventive_inventory.features.profiles.gui.ProfilesScreen;
+import net.inventive_mods.inventive_inventory.features.profiles.gui.render_state.ProfileScreenBackgroundGuiElementRenderState;
 import net.inventive_mods.inventive_inventory.util.Textures;
 import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
 import net.inventive_mods.inventive_inventory.util.tooltips.TooltipBuilder;
 import net.inventive_mods.inventive_inventory.util.tooltips.TooltipType;
+import net.minecraft.client.gl.RenderPipelines;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.text.Text;
 
 import java.util.List;
 
