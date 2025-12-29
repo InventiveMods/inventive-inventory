@@ -4,10 +4,10 @@ import com.llamalad7.mixinextras.sugar.Local;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.automatic_refilling.AutomaticRefillingHandler;
+import net.inventive_mods.inventive_inventory.keys.keybindfix.KeybindFixer;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.inventive_mods.inventive_inventory.keys.keybindfix.KeybindFixer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -62,5 +62,10 @@ public abstract class MixinKeyBinding {
     @Inject(method = "<init>(Ljava/lang/String;Lnet/minecraft/client/util/InputUtil$Type;ILjava/lang/String;)V", at = @At(value = "TAIL"))
     private void putToMultiMap(String translationKey, InputUtil.Type type, int code, String category, CallbackInfo ci) {
         KeybindFixer.putKey(boundKey, (KeyBinding) (Object) this);
+    }
+
+    @Inject(method = "reset", at = @At(value = "HEAD"))
+    private static void onReset(CallbackInfo ci) {
+        AutomaticRefillingHandler.keysPressed = false;
     }
 }

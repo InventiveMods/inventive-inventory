@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.keys.mixins;
 
 
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.inventive_mods.inventive_inventory.context.ContextManager;
 import net.inventive_mods.inventive_inventory.features.sorting.SortingHandler;
 import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 import net.inventive_mods.inventive_inventory.keys.handler.AdvancedOperationHandler;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

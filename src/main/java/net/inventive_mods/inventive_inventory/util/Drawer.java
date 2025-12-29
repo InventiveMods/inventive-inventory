@@ -1,14 +1,14 @@
 package net.inventive_mods.inventive_inventory.util;
 
 import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.config.enums.item_counter.ItemCounterCountingMode;
-import net.minecraft.item.ItemStack;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.util.Identifier;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
+import net.inventive_mods.inventive_inventory.config.enums.item_counter.ItemCounterCountingMode;
 import net.inventive_mods.inventive_inventory.config.enums.locked_slots.Style;
 import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 
 public class Drawer {
 
