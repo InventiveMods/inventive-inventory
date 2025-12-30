@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.util.mouse.mixins;
 
+import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.screen.slot.Slot;
-import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

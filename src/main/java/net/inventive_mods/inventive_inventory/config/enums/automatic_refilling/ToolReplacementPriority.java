@@ -1,8 +1,8 @@
 package net.inventive_mods.inventive_inventory.config.enums.automatic_refilling;
 
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.config.enums.accessors.Translatable;
+import net.minecraft.text.Text;
 
 public enum ToolReplacementPriority implements Translatable {
     MATERIAL("material"),

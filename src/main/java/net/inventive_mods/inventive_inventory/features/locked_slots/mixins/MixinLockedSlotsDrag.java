@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.features.locked_slots.mixins;
 
 
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.inventive_mods.inventive_inventory.context.ContextManager;
 import net.inventive_mods.inventive_inventory.context.Contexts;
 import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlotsHandler;
 import net.inventive_mods.inventive_inventory.util.mouse.MouseLocation;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

@@ -1,5 +1,8 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.config.options.fields.ColorFieldOption;
+import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -9,9 +12,6 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.ColorHelper;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.config.options.fields.ColorFieldOption;
-import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -26,14 +26,14 @@ public class ColorPickerWidget extends CustomClickableWidget {
         horizontal.add(colorField);
         horizontal.add(
                 ButtonWidget.builder(Text.translatable("config.visuals.button.text.inventive_inventory.locked_slots.color.reset"),
-                        button -> {
-                            colorField.reset();
-                            sliderWidget.reset();
-                            super.playDownSound(InventiveInventory.getClient().getSoundManager());
-                        })
-                .tooltip(Tooltip.of(Text.translatable("config.visuals.button.tooltip.inventive_inventory.locked_slots.color.reset")))
-                .size(50, 20)
-                .build()
+                                button -> {
+                                    colorField.reset();
+                                    sliderWidget.reset();
+                                    super.playDownSound(InventiveInventory.getClient().getSoundManager());
+                                })
+                        .tooltip(Tooltip.of(Text.translatable("config.visuals.button.tooltip.inventive_inventory.locked_slots.color.reset")))
+                        .size(50, 20)
+                        .build()
         );
         this.vertical.add(horizontal);
         this.vertical.add(sliderWidget);
@@ -45,7 +45,8 @@ public class ColorPickerWidget extends CustomClickableWidget {
         this.vertical.setPosition(this.getX(), this.getY());
         this.vertical.forEachElement(widget -> {
             if (widget instanceof ClickableWidget) ((ClickableWidget) widget).render(context, mouseX, mouseY, delta);
-            else if (widget instanceof DirectionalLayoutWidget) widget.forEachChild(innerWidget -> innerWidget.render(context, mouseX, mouseY, delta));
+            else if (widget instanceof DirectionalLayoutWidget)
+                widget.forEachChild(innerWidget -> innerWidget.render(context, mouseX, mouseY, delta));
         });
     }
 
@@ -87,7 +88,7 @@ public class ColorPickerWidget extends CustomClickableWidget {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         this.vertical.forEachElement(element -> {
-           if (element instanceof DirectionalLayoutWidget layoutWidget) {
+            if (element instanceof DirectionalLayoutWidget layoutWidget) {
                 layoutWidget.forEachElement(innerElement -> {
                     if (innerElement instanceof TextFieldWidget textFieldWidget) {
                         textFieldWidget.keyPressed(keyCode, scanCode, modifiers);
@@ -113,7 +114,8 @@ public class ColorPickerWidget extends CustomClickableWidget {
     }
 
     @Override
-    public void playDownSound(SoundManager soundManager) {}
+    public void playDownSound(SoundManager soundManager) {
+    }
 
     public boolean overSliderWidget(double mouseX, double mouseY) {
         AtomicBoolean bl = new AtomicBoolean(false);

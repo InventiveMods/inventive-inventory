@@ -1,7 +1,12 @@
 package net.inventive_mods.inventive_inventory;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.inventive_mods.inventive_inventory.commands.CommandRegistry;
+import net.inventive_mods.inventive_inventory.config.ConfigManager;
+import net.inventive_mods.inventive_inventory.events.ConnectionEvents;
+import net.inventive_mods.inventive_inventory.events.TickEvents;
 import net.inventive_mods.inventive_inventory.features.item_counter.ItemCounterHandler;
+import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -9,11 +14,6 @@ import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.screen.ScreenHandler;
-import net.inventive_mods.inventive_inventory.commands.CommandRegistry;
-import net.inventive_mods.inventive_inventory.config.ConfigManager;
-import net.inventive_mods.inventive_inventory.events.ConnectionEvents;
-import net.inventive_mods.inventive_inventory.events.TickEvents;
-import net.inventive_mods.inventive_inventory.keys.KeyRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
