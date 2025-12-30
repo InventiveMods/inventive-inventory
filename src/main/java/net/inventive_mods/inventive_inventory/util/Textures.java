@@ -1,7 +1,7 @@
 package net.inventive_mods.inventive_inventory.util;
 
-import net.minecraft.util.Identifier;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.minecraft.util.Identifier;
 
 public class Textures {
     public static final Identifier LOCK = Identifier.of(InventiveInventory.MOD_ID, "textures/gui/lock.png");

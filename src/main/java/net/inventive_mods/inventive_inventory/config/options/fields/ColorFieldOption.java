@@ -1,8 +1,8 @@
 package net.inventive_mods.inventive_inventory.config.options.fields;
 
-import net.minecraft.client.gui.widget.ClickableWidget;
 import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
 import net.inventive_mods.inventive_inventory.config.screens.widgets.ColorPickerWidget;
+import net.minecraft.client.gui.widget.ClickableWidget;
 import org.jetbrains.annotations.Nullable;
 
 public class ColorFieldOption extends ConfigOption<Integer> {
