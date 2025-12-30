@@ -1,6 +1,10 @@
 package net.inventive_mods.inventive_inventory.util;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 
 import java.io.FileNotFoundException;
