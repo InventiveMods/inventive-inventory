@@ -1,12 +1,12 @@
 package net.inventive_mods.inventive_inventory.util.slots;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
+import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlotsHandler;
+import net.inventive_mods.inventive_inventory.util.ScreenCheck;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
-import net.inventive_mods.inventive_inventory.features.locked_slots.LockedSlotsHandler;
-import net.inventive_mods.inventive_inventory.util.ScreenCheck;
 
 import java.util.ArrayList;
 import java.util.List;

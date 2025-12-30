@@ -1,9 +1,9 @@
 package net.inventive_mods.inventive_inventory.util;
 
+import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.inventive_mods.inventive_inventory.InventiveInventory;
 
 public class Notifier {
     public static final Style style = Style.EMPTY.withBold(true);
