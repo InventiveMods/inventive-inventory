@@ -1,9 +1,10 @@
 package net.inventive_mods.inventive_inventory.features.sorting;
 
-import net.minecraft.item.ItemStack;
 import net.inventive_mods.inventive_inventory.config.ConfigManager;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;
+import net.inventive_mods.inventive_inventory.util.ItemStackUtils;
 import net.inventive_mods.inventive_inventory.util.slots.SlotRange;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,9 +22,9 @@ class SortingHelper {
             if (!stack.isEmpty() && stack.getCount() < stack.getMaxCount()) {
                 for (int followingSlot : followingSlots) {
                     ItemStack followingStack = InteractionHandler.getStackFromSlot(followingSlot);
-                    if (ItemStack.areItemsEqual(stack, followingStack) && followingStack.getCount() < followingStack.getMaxCount()) {
+                    if (ItemStackUtils.areEqualWithoutCount(stack, followingStack) && followingStack.getCount() < followingStack.getMaxCount()) {
                         InteractionHandler.swapStacks(followingSlot, slot);
-                    } else if (ItemStack.areItemsEqual(stack, InteractionHandler.getCursorStack())) {
+                    } else if (ItemStackUtils.areEqualWithoutCount(stack, InteractionHandler.getCursorStack())) {
                         InteractionHandler.leftClickStack(slot);
                     }
                 }
@@ -32,7 +33,7 @@ class SortingHelper {
         if (InteractionHandler.isCursorFull()) {
             if (emptySlot != null) {
                 InteractionHandler.leftClickStack(emptySlot);
-            } else if (ItemStack.areItemsEqual(InteractionHandler.getStackFromSlot(slotRange.get(slotRange.size() - 1)), InteractionHandler.getCursorStack())) {
+            } else if (ItemStackUtils.areEqualWithoutCount(InteractionHandler.getStackFromSlot(slotRange.get(slotRange.size() - 1)), InteractionHandler.getCursorStack())) {
                 InteractionHandler.leftClickStack(slotRange.get(slotRange.size() - 1));
             }
         }
@@ -42,9 +43,9 @@ class SortingHelper {
         List<Integer> sortedSlots = new ArrayList<>(getSortedSlots(inventorySlots));
         for (int i = 0; i < sortedSlots.size(); i++) {
             if (sortedSlots.get(i).equals(inventorySlots.get(i))) continue;
-            if (ItemStack.areItemsEqual(InteractionHandler.getStackFromSlot(sortedSlots.get(i)), InteractionHandler.getCursorStack())) {
+            if (ItemStackUtils.areEqualWithoutCount(InteractionHandler.getStackFromSlot(sortedSlots.get(i)), InteractionHandler.getCursorStack())) {
                 for (int slot : inventorySlots) {
-                    if (!ItemStack.areItemsEqual(InteractionHandler.getStackFromSlot(slot), InteractionHandler.getCursorStack()) && slot != sortedSlots.get(i)) {
+                    if (!ItemStackUtils.areEqualWithoutCount(InteractionHandler.getStackFromSlot(slot), InteractionHandler.getCursorStack()) && slot != sortedSlots.get(i)) {
                         InteractionHandler.leftClickStack(slot);
                         InteractionHandler.swapStacks(sortedSlots.get(i), inventorySlots.get(i));
                         InteractionHandler.leftClickStack(slot);
@@ -128,7 +129,7 @@ class SortingHelper {
 
     private static List<Integer> findSameStacks(SlotRange slotRange, ItemStack targetStack) {
         return new ArrayList<>(slotRange.stream()
-                .filter(slot -> ItemStack.areItemsEqual(InteractionHandler.getStackFromSlot(slot), targetStack))
+                .filter(slot -> ItemStackUtils.areEqualWithoutCount(InteractionHandler.getStackFromSlot(slot), targetStack))
                 .toList());
     }
 }
