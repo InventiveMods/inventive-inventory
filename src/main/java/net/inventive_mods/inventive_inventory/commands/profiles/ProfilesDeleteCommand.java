@@ -7,12 +7,12 @@ import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
-import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.text.Text;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.Profile;
 import net.inventive_mods.inventive_inventory.features.profiles.ProfileHandler;
 import net.inventive_mods.inventive_inventory.util.Notifier;
+import net.minecraft.command.CommandRegistryAccess;
+import net.minecraft.text.Text;
 
 import java.util.concurrent.CompletableFuture;
 

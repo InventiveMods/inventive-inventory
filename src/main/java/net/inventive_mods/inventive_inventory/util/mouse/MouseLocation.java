@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.util.mouse;
 
-import net.minecraft.screen.slot.Slot;
 import net.inventive_mods.inventive_inventory.InventiveInventory;
 import net.inventive_mods.inventive_inventory.features.profiles.gui.ProfilesScreen;
 import net.inventive_mods.inventive_inventory.util.ScreenCheck;
 import net.inventive_mods.inventive_inventory.util.slots.PlayerSlots;
 import net.inventive_mods.inventive_inventory.util.slots.SlotTypes;
+import net.minecraft.screen.slot.Slot;
 
 public class MouseLocation {
     private static Slot hoveredSlot;
