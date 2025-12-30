@@ -1,11 +1,11 @@
 package net.inventive_mods.inventive_inventory.config.screens.widgets;
 
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.sound.SoundManager;
-import net.minecraft.util.Identifier;
 import net.inventive_mods.inventive_inventory.config.options.ConfigOption;
 import net.inventive_mods.inventive_inventory.util.Drawer;
 import net.inventive_mods.inventive_inventory.util.widgets.CustomClickableWidget;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.sound.SoundManager;
+import net.minecraft.util.Identifier;
 
 public class ConfigLockedSlotWidget extends CustomClickableWidget {
     private final Identifier texture;
