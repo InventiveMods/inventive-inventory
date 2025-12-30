@@ -2,9 +2,9 @@ package net.inventive_mods.inventive_inventory.features.profiles;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.item.ItemStack;
 import net.inventive_mods.inventive_inventory.util.Converter;
 import net.inventive_mods.inventive_inventory.util.InteractionHandler;
+import net.minecraft.item.ItemStack;
 
 import java.util.List;
 

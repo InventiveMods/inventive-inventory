@@ -46,8 +46,10 @@ public class AutomaticRefillingHandler {
 
     public static boolean shouldRun() {
         if (!AutomaticRefillingHandler.keysPressed) return false;
-        if (mainHandStack.isEmpty() || ItemStack.areEqual(mainHandStack, InteractionHandler.getMainHandStack()) || mainHandStack.getCount() > 1) return false;
-        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getMainHandStack().getItem())) return false;
+        if (mainHandStack.isEmpty() || ItemStack.areEqual(mainHandStack, InteractionHandler.getMainHandStack()) || mainHandStack.getCount() > 1)
+            return false;
+        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getMainHandStack().getItem()))
+            return false;
         return !mainHandStack.isDamageable() || ToolReplacementBehaviour.isValid(mainHandStack);
     }
 
@@ -57,8 +59,10 @@ public class AutomaticRefillingHandler {
             return false;
         }
         if (!AutomaticRefillingHandler.keysPressed) return false;
-        if (offHandStack.isEmpty() || ItemStack.areEqual(offHandStack, InteractionHandler.getOffHandStack()) || offHandStack.getCount() > 1) return false;
-        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getOffHandStack().getItem())) return false;
+        if (offHandStack.isEmpty() || ItemStack.areEqual(offHandStack, InteractionHandler.getOffHandStack()) || offHandStack.getCount() > 1)
+            return false;
+        if (ConfigManager.AUTOMATIC_REFILLING_IGNORE_BUCKETS.is(true) && BUCKETS.contains(InteractionHandler.getOffHandStack().getItem()))
+            return false;
         return !offHandStack.isDamageable() || ToolReplacementBehaviour.isValid(offHandStack);
     }
 
@@ -103,7 +107,8 @@ public class AutomaticRefillingHandler {
                     if (handStack.isDamageable()) {
                         return stack.getItem().getClass().equals(handStack.getItem().getClass()) &&
                                 ((ConfigManager.TOOL_REPLACEMENT_BEHAVIOUR.is(ToolReplacementBehaviour.KEEP_TOOL) && stack.getMaxDamage() - stack.getDamage() > 1) || ConfigManager.TOOL_REPLACEMENT_BEHAVIOUR.is(ToolReplacementBehaviour.BREAK_TOOL));
-                    } return ItemStack.areItemsEqual(handStack, stack);
+                    }
+                    return ItemStack.areItemsEqual(handStack, stack);
                 });
 
         if (handStack.isDamageable()) {
