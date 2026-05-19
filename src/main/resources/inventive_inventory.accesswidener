@@ -1,5 +1,1 @@
-accessWidener v2 named
-extendable method net/minecraft/client/gui/widget/TextFieldWidget onChanged (Ljava/lang/String;)V
-accessible field net/minecraft/client/gui/widget/ThreePartsLayoutWidget body Lnet/minecraft/client/gui/widget/SimplePositioningWidget;
-accessible field net/minecraft/client/gui/widget/SimplePositioningWidget elements Ljava/util/List;
-accessible method net/minecraft/client/gui/widget/SliderWidget setValue (D)V
+accessWidener v2 official
