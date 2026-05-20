@@ -10,4 +10,4 @@ pluginManagement {
 }
 
 // Should match your modid
-rootProject.name = 'inventive_inventory'
+rootProject.name = 'inventive-inventory'

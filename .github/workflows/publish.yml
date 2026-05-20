@@ -27,7 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      JAVA_VERSION: 21
+      JAVA_VERSION: 25
     
     steps:
       - name: Check Environment Variables

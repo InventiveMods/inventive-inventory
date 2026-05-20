@@ -1,8 +1,7 @@
 {
     "required": true,
-    "minVersion": "0.8",
     "package": "net.inventive_mods.inventive_inventory.features.locked_slots.mixins",
-    "compatibilityLevel": "JAVA_21",
+    "compatibilityLevel": "JAVA_25",
     "injectors": {
         "defaultRequire": 1
     },
@@ -15,5 +14,8 @@
     "mixins": [
         "MixinItemPickup",
         "MixinItemQuickMove"
-    ]
+    ],
+    "overwrites": {
+        "requireAnnotations": true
+    }
 }

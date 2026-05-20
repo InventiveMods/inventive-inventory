@@ -6,11 +6,6 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
-
-loom {
-    accessWidenerPath = file("src/main/resources/inventive_inventory.accesswidener")
-}
-
 repositories {
     // Add repositories to retrieve artifacts from in here.
     maven {
@@ -19,9 +14,23 @@ repositories {
     }
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/inventive-inventory.accesswidener")
+    splitEnvironmentSourceSets()
+
+    mods {
+        "inventive-inventory" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+
+}
+
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // Fabric API. This is technically optional, but you probably want it anyway.
@@ -42,7 +51,7 @@ processResources {
 
 def targetJavaVersion = 25
 tasks.withType(JavaCompile).configureEach {
-    it.options.release.set(targetJavaVersion)
+    it.options.release = targetJavaVersion
 }
 
 java {

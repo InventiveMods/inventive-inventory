@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "inventive_inventory",
+    "id": "inventive-inventory",
     "version": "${version}",
     "name": "Inventive Inventory",
     "description": "Experience seamless inventory management in Minecraft with Inventive Inventory, your one-stop solution for sorting, auto-refilling, profiles and slot-locking.",
@@ -14,26 +14,31 @@
         "issues": "https://github.com/InventiveMods/inventive-inventory/issues"
     },
     "license": "MIT",
-    "icon": "assets/inventive_inventory/icon.png",
-    "environment": "client",
+    "icon": "assets/inventive-inventory/icon.png",
+    "environment": "*",
     "entrypoints": {
+        "main": [
+            "net.inventive_mods.InventiveInventory"
+        ],
         "client": [
-            "net.inventive_mods.inventive_inventory.InventiveInventory"
+            "net.inventive_mods.client.InventiveInventoryClient"
         ],
         "modmenu": [
-            "net.inventive_mods.inventive_inventory.integrations.ModMenuIntegration"
+            "net.inventive_mods.client.integrations.ModMenuIntegration"
         ]
     },
-    "accessWidener": "inventive_inventory.accesswidener",
+    "accessWidener": "inventive-inventory.accesswidener",
     "mixins": [
-        "keys.mixins.json",
-        "util.mouse.mixins.json",
-        "locked_slots.mixins.json"
+        {
+            "config": "inventive-inventory.client.mixins.json",
+            "environment": "client"
+        }
     ],
     "depends": {
-        "minecraft": "26.1.2",
-        "fabric": ">=0.145.4+26.1.2",
-        "fabricloader": ">=0.17.3"
+        "fabricloader": ">=0.19.2",
+        "minecraft": "~26.1.2",
+        "java": ">=25",
+        "fabric-api": "*"
     },
     "suggests": {
         "modmenu": ">=18.0.0-alpha.8"
