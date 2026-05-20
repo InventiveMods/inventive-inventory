@@ -2,6 +2,7 @@ package net.inventive_mods.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.inventive_mods.client.commands.CommandRegistry;
+import net.inventive_mods.client.config.ConfigManager;
 import net.inventive_mods.client.events.ConnectionEvents;
 import net.inventive_mods.client.events.TickEvents;
 import net.inventive_mods.client.features.item_counter.ItemCounterHandler;
@@ -15,27 +16,29 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class InventiveInventoryClient implements ClientModInitializer {
-	public static final String MOD_ID = "inventive-inventory";
-	public static final String MOD_NAME = "Inventive Inventory";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+import java.io.IOException;
 
-	@Override
-	public void onInitializeClient() {
-//        try {
-//            ConfigManager.init();
-        KeyRegistry.register();
-        ConnectionEvents.register();
-        TickEvents.register();
-        CommandRegistry.register();
-        ItemCounterHandler.register();
-		LOGGER.info(MOD_NAME + " initialized successfully!");
-//        } catch (IOException e) {
-//            LOGGER.error("Couldn't create config files", e);
-//            LOGGER.error(MOD_NAME + " could not be initialized correctly!");
-//            LOGGER.error("DELETE THE " + InventiveInventoryClient.MOD_ID + " CONFIG DIRECTORY!");
-//        }
-	}
+public class InventiveInventoryClient implements ClientModInitializer {
+    public static final String MOD_ID = "inventive-inventory";
+    public static final String MOD_NAME = "Inventive Inventory";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+
+    @Override
+    public void onInitializeClient() {
+        try {
+            ConfigManager.init();
+            KeyRegistry.register();
+            ConnectionEvents.register();
+            TickEvents.register();
+            CommandRegistry.register();
+            ItemCounterHandler.register();
+            LOGGER.info(MOD_NAME + " initialized successfully!");
+        } catch (IOException e) {
+            LOGGER.error("Couldn't create config files", e);
+            LOGGER.error(MOD_NAME + " could not be initialized correctly!");
+            LOGGER.error("DELETE THE " + InventiveInventoryClient.MOD_ID + " CONFIG DIRECTORY!");
+        }
+    }
 
     public static Minecraft getClient() {
         return Minecraft.getInstance();
