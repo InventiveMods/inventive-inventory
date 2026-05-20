@@ -1,6 +1,6 @@
 {
     "required": true,
-    "package": "net.inventive_mods.inventive_inventory.features.locked_slots.mixins",
+    "package": "net.inventive_mods.client.features.locked_slots.mixins",
     "compatibilityLevel": "JAVA_25",
     "injectors": {
         "defaultRequire": 1

@@ -1,58 +1,66 @@
 {
-    "schemaVersion": 1,
-    "id": "inventive-inventory",
-    "version": "${version}",
-    "name": "Inventive Inventory",
-    "description": "Experience seamless inventory management in Minecraft with Inventive Inventory, your one-stop solution for sorting, auto-refilling, profiles and slot-locking.",
-    "authors": [
-        "Strobel273",
-        "LU_XD"
-    ],
-    "contact": {
-        "homepage": "https://modrinth.com/mod/inventive-inventory",
-        "sources": "https://github.com/InventiveMods/inventive-inventory",
-        "issues": "https://github.com/InventiveMods/inventive-inventory/issues"
-    },
-    "license": "MIT",
-    "icon": "assets/inventive-inventory/icon.png",
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "net.inventive_mods.InventiveInventory"
-        ],
-        "client": [
-            "net.inventive_mods.client.InventiveInventoryClient"
-        ],
-        "modmenu": [
-            "net.inventive_mods.client.integrations.ModMenuIntegration"
-        ]
-    },
-    "accessWidener": "inventive-inventory.accesswidener",
-    "mixins": [
-        {
-            "config": "inventive-inventory.client.mixins.json",
-            "environment": "client"
-        }
-    ],
-    "depends": {
-        "fabricloader": ">=0.19.2",
-        "minecraft": "~26.1.2",
-        "java": ">=25",
-        "fabric-api": "*"
-    },
-    "suggests": {
-        "modmenu": ">=18.0.0-alpha.8"
-    },
-    "custom": {
-        "modmenu": {
-            "links": {
-                "modmenu.donate": "https://paypal.me/strobel273",
-                "modmenu.discord": "https://discord.gg/uycTMfCsfc"
-            }
-        },
-        "mc-publish": {
-            "modrinth": "bUHfVbsa",
-            "curseforge": 1087663
-        }
-    }
+	"schemaVersion": 1,
+	"id": "inventive-inventory",
+	"version": "${version}",
+	"name": "Inventive Inventory",
+	"description": "Experience seamless inventory management in Minecraft with Inventive Inventory, your one-stop solution for sorting, auto-refilling, profiles and slot-locking.",
+	"authors": [
+		"Strobel273",
+		"LU_XD"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/inventive-inventory",
+		"sources": "https://github.com/InventiveMods/inventive-inventory",
+		"issues": "https://github.com/InventiveMods/inventive-inventory/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/inventive-inventory/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.inventive_mods.InventiveInventory"
+		],
+		"client": [
+			"net.inventive_mods.client.InventiveInventoryClient"
+		],
+		"modmenu": [
+			"net.inventive_mods.client.integrations.ModMenuIntegration"
+		]
+	},
+	"accessWidener": "inventive-inventory.accesswidener",
+	"mixins": [
+		{
+			"config": "keys.mixins.json",
+			"environment": "client"
+		},
+		{
+			"config": "locked_slots.mixins.json",
+			"environment": "client"
+		},
+		{
+			"config": "util.mouse.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": ">=18.0.0-alpha.8"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.donate": "https://paypal.me/strobel273",
+				"modmenu.discord": "https://discord.gg/uycTMfCsfc"
+			}
+		},
+		"mc-publish": {
+			"modrinth": "bUHfVbsa",
+			"curseforge": 1087663
+		}
+	}
 }

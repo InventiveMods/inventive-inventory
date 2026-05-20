@@ -1,12 +1,13 @@
 {
     "required": true,
-    "package": "net.inventive_mods.inventive_inventory.util.mouse.mixins",
+    "package": "net.inventive_mods.client.keys.mixins",
     "compatibilityLevel": "JAVA_25",
     "injectors": {
         "defaultRequire": 1
     },
     "client": [
-        "MixinMouseHandler"
+        "MixinKeyBinding",
+        "MixinKeyInputHandler"
     ],
     "overwrites": {
         "requireAnnotations": true
