@@ -23,8 +23,8 @@ public class ProfilesScreen extends Screen {
     public static final int DELETE_COLOR = 0x7FE4080A;
     public static final int OVERWRITE_COLOR = 0x7FFFDE59;
     private static final List<Section> sections = new ArrayList<>();
-    public static boolean DELETE_KEY_PRESSED;
-    public static boolean OVERWRITE_KEY_PRESSED;
+    public static boolean DELETE_KEY_PRESSED = false;
+    public static boolean OVERWRITE_KEY_PRESSED = false;
     private int mouseX;
     private int mouseY;
 
@@ -36,8 +36,6 @@ public class ProfilesScreen extends Screen {
             if (sections.size() <= ProfileHandler.MAX_PROFILES) sections.add(new Section(sections.size(), profile));
         }
         if (sections.size() < ProfileHandler.MAX_PROFILES) sections.add(new Section(sections.size(), null));
-        DELETE_KEY_PRESSED = false;
-        OVERWRITE_KEY_PRESSED = false;
     }
 
     public static List<Section> getSections() {
