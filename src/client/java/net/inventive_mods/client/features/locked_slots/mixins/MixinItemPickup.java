@@ -13,7 +13,7 @@ public class MixinItemPickup {
 
     @SuppressWarnings("UnresolvedLocalCapture")
     @ModifyExpressionValue(method = "getSlotWithRemainingSpace", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Inventory;hasRemainingSpaceForItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z"))
-    private boolean canStackAddMoreAndIsNotLockedSlot(boolean original, @Local int i) {
+    private boolean canStackAddMoreAndIsNotLockedSlot(boolean original, @Local(name = "i") int i) {
         if (ConfigManager.PICKUP_INTO_LOCKED_SLOTS.is(false)) {
             return original && !LockedSlotsHandler.getLockedSlots().contains(i);
         }
@@ -21,7 +21,7 @@ public class MixinItemPickup {
     }
 
     @ModifyExpressionValue(method = "getFreeSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z"))
-    private boolean stackIsEmptyAndNotLockedSlot(boolean original, @Local int i) {
+    private boolean stackIsEmptyAndNotLockedSlot(boolean original, @Local(name = "i") int i) {
         if (ConfigManager.PICKUP_INTO_LOCKED_SLOTS.is(false)) {
             return original && !LockedSlotsHandler.getLockedSlots().contains(i);
         }
