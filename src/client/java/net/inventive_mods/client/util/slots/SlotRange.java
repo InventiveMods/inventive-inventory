@@ -3,6 +3,7 @@ package net.inventive_mods.client.util.slots;
 import net.inventive_mods.client.InventiveInventoryClient;
 import net.inventive_mods.client.features.locked_slots.LockedSlotsHandler;
 import net.inventive_mods.client.util.ScreenCheck;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.inventory.Slot;
@@ -33,8 +34,8 @@ public class SlotRange extends ArrayList<Integer> {
         if (type == SlotTypes.HOTBAR) {
             AbstractContainerMenu menu = InventiveInventoryClient.getMenu();
             List<Slot> playerSlots = menu.slots.stream()
-//                    .filter(slot -> slot.container instanceof PlayerInventory)
-                    .filter(slot -> InventoryMenu.isHotbarSlot(slot.index))
+                    .filter(slot -> slot.container instanceof Inventory)
+                    .filter(slot -> Inventory.isHotbarSlot(slot.getContainerSlot()))
                     .toList();
 
             if (playerSlots.stream().anyMatch(slot -> slot.getClass().equals(Slot.class))) {
