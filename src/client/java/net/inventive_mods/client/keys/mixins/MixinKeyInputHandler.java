@@ -17,21 +17,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AbstractContainerScreen.class)
 public class MixinKeyInputHandler {
     @Inject(method = "keyPressed", at = @At("HEAD"))
-    private void onKeyPressed(KeyEvent input, CallbackInfoReturnable<Boolean> cir) {
-        if (KeyRegistry.advancedOperationKey.matches(input)) {
+    private void onKeyPressed(KeyEvent event, CallbackInfoReturnable<Boolean> cir) {
+        if (KeyRegistry.advancedOperationKey.matches(event)) {
             AdvancedOperationHandler.setPressed(true);
         }
-        if (KeyRegistry.sortKey.matches(input) && ContextManager.isInit()) {
+        if (KeyRegistry.sortKey.matches(event) && ContextManager.isInit()) {
             SortingHandler.sort();
         }
     }
 
     @Inject(method = "checkHotbarMouseClicked(Lnet/minecraft/client/input/MouseButtonEvent;)V", at = @At("HEAD"))
-    private void onMouseClick(MouseButtonEvent click, CallbackInfo ci) {
-        if (KeyRegistry.advancedOperationKey.matchesMouse(click)) {
+    private void onMouseClick(MouseButtonEvent event, CallbackInfo ci) {
+        if (KeyRegistry.advancedOperationKey.matchesMouse(event)) {
             AdvancedOperationHandler.setPressed(true);
         }
-        if (KeyRegistry.sortKey.matchesMouse(click) && ContextManager.isInit()) {
+        if (KeyRegistry.sortKey.matchesMouse(event) && ContextManager.isInit()) {
             SortingHandler.sort();
         }
     }
