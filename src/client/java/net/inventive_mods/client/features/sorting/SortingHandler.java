@@ -18,9 +18,14 @@ import net.minecraft.world.item.ItemStack;
 public class SortingHandler {
 
     public static void sort() {
-        if (InventiveInventoryClient.getPlayer().isCreative() || ConfigManager.SORTING_STATUS.is(Status.DISABLED)) return;
+        if (InventiveInventoryClient.getPlayer().isCreative() || ConfigManager.SORTING_STATUS.is(Status.DISABLED))
+            return;
         ContextManager.setContext(Contexts.SORTING);
         SlotRange slotRange = MouseLocation.isOverInventory() || !ScreenCheck.isContainer() ? PlayerSlots.get().exclude(SlotTypes.LOCKED_SLOT) : ContainerSlots.get();
+        if (slotRange.isEmpty()) {
+            ContextManager.setContext(Contexts.INIT);
+            return;
+        }
         ItemStack targetStack = InteractionHandler.getCursorStack().copy();
 
         SortingHelper.mergeItemStacks(slotRange);
