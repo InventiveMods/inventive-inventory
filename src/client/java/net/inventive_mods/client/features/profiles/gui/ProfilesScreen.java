@@ -1,24 +1,22 @@
 package net.inventive_mods.client.features.profiles.gui;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import net.inventive_mods.client.InventiveInventoryClient;
 import net.inventive_mods.client.features.profiles.Profile;
 import net.inventive_mods.client.features.profiles.ProfileHandler;
 import net.inventive_mods.client.features.profiles.gui.widgets.Section;
 import net.inventive_mods.client.keys.KeyRegistry;
 import net.inventive_mods.client.util.mouse.MouseLocation;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfilesScreen extends AbstractContainerScreen<AbstractContainerMenu> {
+public class ProfilesScreen extends Screen {
     public static final int RADIUS = 60;
     public static final int COLOR = 0x7F000000;
     public static final int HOVER_COLOR = 0x3FFFFFFF;
@@ -31,7 +29,7 @@ public class ProfilesScreen extends AbstractContainerScreen<AbstractContainerMen
     private int mouseY;
 
     public ProfilesScreen() {
-        super(InventiveInventoryClient.getMenu(), InventiveInventoryClient.getPlayer().getInventory(), Component.literal("Profile Screen"));
+        super(Component.literal("Profile Screen"));
         this.minecraft.setOverlay(null);
         sections.clear();
         for (Profile profile : ProfileHandler.getProfiles()) {
