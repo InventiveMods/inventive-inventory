@@ -17,7 +17,7 @@ import net.minecraft.network.chat.Component;
 import java.util.concurrent.CompletableFuture;
 
 public class ProfilesCreateCommand {
-    private final static String ERROR_TRANSLATION_KEY = "error.profiles.inventive-inventory.";
+    private final static String ERROR_TRANSLATION_KEY = "error.profiles." + InventiveInventoryClient.MOD_ID + ".";
 
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandBuildContext ignored) {
         dispatcher.register(ClientCommands.literal(InventiveInventoryClient.MOD_ID)

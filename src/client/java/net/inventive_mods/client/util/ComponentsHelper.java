@@ -4,6 +4,8 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
 
+import java.util.Objects;
+
 public class ComponentsHelper {
 
     public static boolean arePotionsEqual(ItemStack stack, ItemStack otherStack) {
@@ -16,8 +18,8 @@ public class ComponentsHelper {
     }
 
     public static boolean areCustomNamesEqual(ItemStack stack, ItemStack otherStack) {
-        var customName = stack.get(DataComponents.CUSTOM_NAME);
-        return customName != null && customName.equals(otherStack.get(DataComponents.CUSTOM_NAME));
+        var customName = stack.getCustomName();
+        return Objects.equals(customName, otherStack.getCustomName());
     }
 
     public static boolean areEnchantmentsEqual(ItemStack stack, ItemStack otherStack) {

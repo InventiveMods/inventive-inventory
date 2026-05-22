@@ -1,1 +1,5 @@
 accessWidener v2 official
+extendable method net/minecraft/client/gui/components/EditBox onValueChange (Ljava/lang/String;)V
+accessible field net/minecraft/client/gui/layouts/GridLayout children Ljava/util/List;
+accessible class net/minecraft/client/gui/layouts/GridLayout$ChildContainer
+accessible method net/minecraft/client/gui/components/OptionsList$Entry <init> (Ljava/util/List;Lnet/minecraft/client/gui/screens/Screen;)V

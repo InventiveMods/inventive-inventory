@@ -42,7 +42,7 @@ public class EnumButtonOption<E extends Enum<E>> extends ConfigOption<E> {
                 .withTooltip(value -> Tooltip.create(Component.translatable("config." + this.tab + ".button.tooltip." + InventiveInventoryClient.MOD_ID + "." + ((Translatable) value).getTranslationKey())))
                 .displayOnlyValue()
                 .withValues(this.enumClass.getEnumConstants())
-                .create(Component.empty(), (button, value) -> this.cycle());
+                .create(Component.empty(), (_, _) -> this.cycle());
     }
 
 }

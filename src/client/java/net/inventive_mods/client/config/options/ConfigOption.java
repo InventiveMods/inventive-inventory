@@ -4,6 +4,7 @@ import net.inventive_mods.client.InventiveInventoryClient;
 import net.inventive_mods.client.config.ConfigManager;
 import net.inventive_mods.client.config.enums.accessors.Stylable;
 import net.inventive_mods.client.config.enums.accessors.Translatable;
+import net.inventive_mods.client.config.screens.widgets.ConfigTextWidget;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.Nullable;
@@ -58,9 +59,9 @@ public abstract class ConfigOption<T> {
         this.setValue(this.defaultValue);
     }
 
-//    public StringWidget createLabel() {
-//        return new ConfigTextWidget(Component.translatable(this.getTranslationKey()), InventiveInventoryClient.getClient().font);
-//    }
+    public ConfigTextWidget createLabel() {
+        return new ConfigTextWidget(Component.translatable(this.getTranslationKey()), InventiveInventoryClient.getClient().font);
+    }
 
     public abstract void setValue(@Nullable String value);
 

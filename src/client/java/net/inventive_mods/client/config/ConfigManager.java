@@ -54,8 +54,8 @@ public class ConfigManager {
     public static final ConfigOption<Boolean> ITEM_COUNTER_IGNORE_LOCKED_SLOTS = new SimpleButtonOption("options", "universal.ignore_locked_slots", true);
     public static final ConfigOption<Integer> ITEM_COUNTER_COLOR = new ColorFieldOption("visuals", "item_counter.color", 0xFFFFFFFF);
 
-    public static final String OPTION_TRANSLATION_KEY = "config.options.button.text." + InventiveInventoryClient.MOD_ID + ".";
-    public static final String VISUALS_TRANSLATION_KEY = "config.visuals.button.text." + InventiveInventoryClient.MOD_ID + ".";
+    public static final String OPTION_TRANSLATION_KEY = "config.options.button.text." + InventiveInventoryClient.MOD_ID;
+    public static final String VISUALS_TRANSLATION_KEY = "config.visuals.button.text." + InventiveInventoryClient.MOD_ID;
 
     private static final String CONFIG_FILE = "config.json";
     private static final Path CONFIG_FILE_PATH = CONFIG_PATH.resolve(CONFIG_FILE);

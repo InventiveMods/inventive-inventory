@@ -34,7 +34,7 @@ public class TooltipBuilder {
 
     private static List<Component> buildItem(Profile profile) {
         List<Component> textList = new ArrayList<>();
-        addTitle(Component.literal(profile.getDisplayStack().getDisplayName().getString()), ChatFormatting.AQUA, textList);
+        addTitle(profile.getDisplayStack().getItemName(), ChatFormatting.AQUA, textList);
         if (profile.getDisplayStack().isEnchanted()) {
             for (Holder<Enchantment> entry : profile.getDisplayStack().getEnchantments().keySet()) {
                 textList.add(Enchantment.getFullname(entry, EnchantmentHelper.getItemEnchantmentLevel(entry, profile.getDisplayStack())));

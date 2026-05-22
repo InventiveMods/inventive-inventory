@@ -59,15 +59,15 @@ public class KeyRegistry {
     @Nullable
     public static KeyMapping getByTranslationKey(String translationKey) {
         for (KeyMapping keyMapping : InventiveInventoryClient.getClient().options.keyMappings) {
-            if (keyMapping.equals(translationKey)) return keyMapping;
+            if (keyMapping.getName().equals(translationKey)) return keyMapping;
         }
         return null;
     }
 
     @Nullable
     public static KeyMapping getByBoundKey(String boundKey) {
-        for (KeyMapping keyBinding : profileKeys) {
-            if (keyBinding.getTranslatedKeyMessage().getString().equals(boundKey)) return keyBinding;
+        for (KeyMapping keyMapping : profileKeys) {
+            if (keyMapping.getTranslatedKeyMessage().getString().equals(boundKey)) return keyMapping;
         }
         return null;
     }

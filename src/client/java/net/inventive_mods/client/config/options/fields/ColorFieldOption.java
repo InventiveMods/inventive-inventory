@@ -1,6 +1,7 @@
 package net.inventive_mods.client.config.options.fields;
 
 import net.inventive_mods.client.config.options.ConfigOption;
+import net.inventive_mods.client.config.screens.widgets.ColorPickerWidget;
 import net.minecraft.client.gui.components.AbstractWidget;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,7 +17,6 @@ public class ColorFieldOption extends ConfigOption<Integer> {
 
     @Override
     public AbstractWidget asWidget() {
-//        return new ColorPickerWidget(this);
-        return null;
+        return new ColorPickerWidget(this);
     }
 }
