@@ -68,7 +68,7 @@ public class InventiveInventoryClient implements ClientModInitializer {
     public static String getWorldName() {
         String worldName = "";
         if (InventiveInventoryClient.getClient().isSingleplayer() && InventiveInventoryClient.getClient().getSingleplayerServer() != null) {
-            worldName = InventiveInventoryClient.getClient().getSingleplayerServer().name();
+            worldName = InventiveInventoryClient.getClient().getSingleplayerServer().getWorldData().getLevelName();
         } else {
             if (InventiveInventoryClient.getClient().getCurrentServer() != null) {
                 String address = InventiveInventoryClient.getClient().getCurrentServer().ip;
