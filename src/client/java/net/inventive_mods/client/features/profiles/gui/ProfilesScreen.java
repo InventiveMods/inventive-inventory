@@ -121,4 +121,9 @@ public class ProfilesScreen extends Screen {
         DELETE_KEY_PRESSED = false;
         OVERWRITE_KEY_PRESSED = false;
     }
+
+    @Override
+    public boolean isPauseScreen() {
+        return false;
+    }
 }
