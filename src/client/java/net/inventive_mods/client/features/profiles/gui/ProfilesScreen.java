@@ -32,6 +32,8 @@ public class ProfilesScreen extends Screen {
         super(Component.literal("Profile Screen"));
         this.minecraft.setOverlay(null);
         sections.clear();
+        System.out.println("DELETE: " + DELETE_KEY_PRESSED);
+        System.out.println("OVERWRITE: " + OVERWRITE_KEY_PRESSED);
         for (Profile profile : ProfileHandler.getProfiles()) {
             if (sections.size() <= ProfileHandler.MAX_PROFILES) sections.add(new Section(sections.size(), profile));
         }
@@ -113,5 +115,12 @@ public class ProfilesScreen extends Screen {
         }
         this.onClose();
         return true;
+    }
+    
+    @Override
+    public void onClose() {
+        super.onClose();
+        DELETE_KEY_PRESSED = false;
+        OVERWRITE_KEY_PRESSED = false;
     }
 }
