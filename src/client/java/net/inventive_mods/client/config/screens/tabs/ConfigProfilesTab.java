@@ -24,7 +24,7 @@ public class ConfigProfilesTab extends ScreenTab {
         super(client, width, screen);
         availableKeys = getAvailableKeys();
         if (ProfileHandler.getProfiles().isEmpty()) {
-            this.addSpecialWidget(new CenteredTextWidget(this.width, this.height, Component.translatable("config.profiles.text."  + InventiveInventoryClient.MOD_ID + ".no_profiles"), InventiveInventoryClient.getClient().font));
+            this.addCenteredWidget(new CenteredTextWidget(this.getRowWidth(), this.getHeight(), Component.translatable("config.profiles.text." + InventiveInventoryClient.MOD_ID + ".no_profiles"), this.minecraft.font));
         } else {
             this.initTitleBar();
             this.initEntries();
@@ -32,13 +32,13 @@ public class ConfigProfilesTab extends ScreenTab {
     }
 
     private void initTitleBar() {
-        this.addCenteredWidget(new ConfigProfileTitleWidget(this.width, 20));
+        this.addCenteredWidget(new ConfigProfileTitleWidget(0, 20));
     }
 
     private void initEntries() {
         int i = 1;
         for (Profile profile : ProfileHandler.getProfiles()) {
-            this.addCenteredWidget(new ConfigProfileWidget(this.width, 20, i, profile, this));
+            this.addCenteredWidget(new ConfigProfileWidget(0, 20, i, profile, this));
             i++;
         }
     }
