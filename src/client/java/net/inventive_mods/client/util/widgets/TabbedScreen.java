@@ -36,7 +36,7 @@ public abstract class TabbedScreen extends OptionsSubScreen {
         for (int i = 0; i < this.tabEntries.size(); i++) {
             int index = i;
             TabEntry entry = this.tabEntries.get(i);
-            Button button = Button.builder(Component.translatable("config.screen.tab." + InventiveInventoryClient.MOD_ID + entry.translationKey()), _ -> {
+            Button button = Button.builder(Component.translatable("config.screen.tab." + InventiveInventoryClient.MOD_ID + "." + entry.translationKey()), _ -> {
                 this.activeTabIndex = index;
                 this.rebuildWidgets();
             }).build();
