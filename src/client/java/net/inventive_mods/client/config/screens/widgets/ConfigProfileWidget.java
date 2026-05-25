@@ -133,7 +133,6 @@ public class ConfigProfileWidget extends BaseWidget {
         protected void extractWidgetRenderState(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
             Drawer.drawProfileHotbar(graphics, this.getX(), this.getY());
 
-            int slotX = this.getX() + 27;
             int slotY = this.getY() + 2;
             for (SavedSlot savedSlot : this.savedSlots) {
                 if (savedSlot.slot() == InventoryMenu.SHIELD_SLOT) {
@@ -146,6 +145,7 @@ public class ConfigProfileWidget extends BaseWidget {
                 }
                 for (int i = 0; i < 9; i++) {
                     if (savedSlot.slot() - Inventory.INVENTORY_SIZE == i) {
+                        int slotX = this.getX() + 27 + 20 * i;
                         graphics.item(savedSlot.stack(), slotX, slotY);
                         boolean inX = slotX < mouseX && mouseX < slotX + 16;
                         boolean inY = slotY < mouseY && mouseY < slotY + 16;
@@ -155,7 +155,6 @@ public class ConfigProfileWidget extends BaseWidget {
                         break;
                     }
                 }
-                slotX += 20;
             }
         }
     }
