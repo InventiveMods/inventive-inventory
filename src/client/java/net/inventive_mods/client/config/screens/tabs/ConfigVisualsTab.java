@@ -22,16 +22,16 @@ public class ConfigVisualsTab extends ScreenTab {
         super(client, width, screen);
 
         this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".locked_slots"));
-        this.addWidget(ConfigManager.SHOW_LOCK);
-        this.addWidget(ConfigManager.LOCKED_SLOT_STYLE);
-        this.addWidget(ConfigManager.LOCKED_SLOTS_COLOR);
+        this.addOption(ConfigManager.SHOW_LOCK);
+        this.addOption(ConfigManager.LOCKED_SLOT_STYLE);
+        this.addOption(ConfigManager.LOCKED_SLOTS_COLOR);
         this.addEmptyRow();
         this.addCenteredWidget(new ConfigLockedSlotWidget(Textures.SLOT, ConfigManager.LOCKED_SLOTS_COLOR, this.getRowWidth(), 20));
-        this.addWidget(ConfigManager.LOCKED_SLOTS_HOTBAR_COLOR);
+        this.addOption(ConfigManager.LOCKED_SLOTS_HOTBAR_COLOR);
         this.addEmptyRow();
         this.addCenteredWidget(new ConfigLockedSlotWidget(Textures.HOTBAR_SLOT, ConfigManager.LOCKED_SLOTS_HOTBAR_COLOR, this.getRowWidth(), 20));
         this.addTitle(Component.translatable(TITLE_TRANSLATION_KEY + ".item_counter"));
-        this.addWidget(ConfigManager.ITEM_COUNTER_COLOR);
+        this.addOption(ConfigManager.ITEM_COUNTER_COLOR);
         this.addEmptyRow();
         this.addCenteredWidget(new ConfigItemCounterSlotWidget(this.getRowWidth(), 20));
     }
