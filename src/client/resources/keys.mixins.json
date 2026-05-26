@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "package": "net.inventive_mods.client.keys.mixins",
+    "compatibilityLevel": "JAVA_25",
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "client": [
+        "MixinKeyBinding",
+        "MixinKeyInputHandler"
+    ],
+    "overwrites": {
+        "requireAnnotations": true
+    }
+}

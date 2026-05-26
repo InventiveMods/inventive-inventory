@@ -1,0 +1,21 @@
+{
+    "required": true,
+    "package": "net.inventive_mods.client.features.locked_slots.mixins",
+    "compatibilityLevel": "JAVA_25",
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "client": [
+        "MixinLockedSlotsDrag",
+        "MixinLockedSlotsDrawer",
+        "MixinLockedSlotsInGameHudDrawer",
+        "MixinLockedSlotsToggle"
+    ],
+    "mixins": [
+        "MixinItemPickup",
+        "MixinItemQuickMove"
+    ],
+    "overwrites": {
+        "requireAnnotations": true
+    }
+}

@@ -1,10 +1,10 @@
 name: Publish
-run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} - ${{ inputs.version || github.event.head_commit.message }} on 1.21.11
+run-name: Deployed by ${{ github.actor }} on ${{ inputs.platform || 'All' }} - ${{ inputs.version || github.event.head_commit.message }} on ~26.1
 
 on:
   push:
     branches:
-      - "1.21.11"
+      - "26.1"
   workflow_dispatch:
     inputs:
       platform:
@@ -27,7 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      JAVA_VERSION: 21
+      JAVA_VERSION: 25
     
     steps:
       - name: Check Environment Variables
@@ -47,7 +47,7 @@ jobs:
       - name: Read version and minecraft_version from gradle.properties
         id: read-properties
         run: | 
-          version=$(grep '^version=' gradle.properties | cut -d'=' -f2-)
+          version=$(grep '^mod_version=' gradle.properties | cut -d'=' -f2-)
           echo "version=$version" >> $GITHUB_ENV
 
       - name: Make Gradle Wrapper Executable
