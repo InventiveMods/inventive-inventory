@@ -15,7 +15,7 @@ public class ConfigCommand {
                 .then(ClientCommands.literal("config")
                         .executes(context -> {
                             Minecraft client = context.getSource().getClient();
-                            client.schedule(() -> client.setScreen(new ConfigScreen(null)));
+                            client.schedule(() -> client.gui.setScreen(new ConfigScreen(null)));
                             return 1;
                         }))
         );

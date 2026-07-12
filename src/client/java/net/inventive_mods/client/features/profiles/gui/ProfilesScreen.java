@@ -30,7 +30,7 @@ public class ProfilesScreen extends Screen {
 
     public ProfilesScreen() {
         super(Component.literal("Profile Screen"));
-        this.minecraft.setOverlay(null);
+        this.minecraft.gui.setOverlay(null);
         sections.clear();
         for (Profile profile : ProfileHandler.getProfiles()) {
             if (sections.size() <= ProfileHandler.MAX_PROFILES) sections.add(new Section(sections.size(), profile));
@@ -99,7 +99,7 @@ public class ProfilesScreen extends Screen {
             Profile profile = sections.get(section).getProfile();
             if (profile == null) {
                 if (DELETE_KEY_PRESSED) {
-                    minecraft.schedule(() -> minecraft.setScreen(new ProfilesNamingScreen()));
+                    minecraft.schedule(() -> minecraft.gui.setScreen(new ProfilesNamingScreen()));
                 } else {
                     ProfileHandler.create("", ProfileHandler.getAvailableProfileKey());
                 }
