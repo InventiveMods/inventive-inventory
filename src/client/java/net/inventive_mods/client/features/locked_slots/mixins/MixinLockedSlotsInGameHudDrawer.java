@@ -10,19 +10,19 @@ import net.inventive_mods.client.features.locked_slots.LockedSlotsHandler;
 import net.inventive_mods.client.util.Drawer;
 import net.inventive_mods.client.util.Textures;
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.Hud;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(Gui.class)
+@Mixin(Hud.class)
 public abstract class MixinLockedSlotsInGameHudDrawer {
 
-    @WrapOperation(method = "extractItemHotbar", at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraft/client/gui/Gui;extractSlot(Lnet/minecraft/client/gui/GuiGraphicsExtractor;IILnet/minecraft/client/DeltaTracker;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;I)V"))
-    private void onRenderHotbar(Gui instance, GuiGraphicsExtractor graphics, int x, int y, DeltaTracker deltaTracker, Player player, ItemStack itemStack, int seed, Operation<Void> original, @Local(name = "i") int i) {
+    @WrapOperation(method = "extractItemHotbar", at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraft/client/gui/Hud;extractSlot(Lnet/minecraft/client/gui/GuiGraphicsExtractor;IILnet/minecraft/client/DeltaTracker;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;I)V"))
+    private void onRenderHotbar(Hud instance, GuiGraphicsExtractor graphics, int x, int y, DeltaTracker deltaTracker, Player player, ItemStack itemStack, int seed, Operation<Void> original, @Local(name = "i") int i) {
         if (!InventiveInventoryClient.getPlayer().isCreative() && LockedSlotsHandler.getLockedSlots().unadjust().contains(i + Inventory.INVENTORY_SIZE - Inventory.SELECTION_SIZE)) {
             Drawer.drawSlotBackground(graphics, x, y, ConfigManager.LOCKED_SLOTS_HOTBAR_COLOR.getValue(), ConfigManager.LOCKED_SLOT_STYLE.is(Style.OUTLINED));
             original.call(instance, graphics, x, y, deltaTracker, player, itemStack, seed);

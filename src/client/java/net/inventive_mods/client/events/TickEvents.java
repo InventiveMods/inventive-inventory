@@ -48,14 +48,14 @@ public class TickEvents {
 
     private static void checkKeys(Minecraft client) {
         if (client.player == null || client.player.isCreative()) return;
-        if (client.screen == null) {
+        if (client.gui.screen() == null) {
             AdvancedOperationHandler.setPressed(KeyRegistry.advancedOperationKey.isDown());
         }
         if (AutomaticRefillingHandler.getSelectedSlot() != InteractionHandler.getSelectedSlot()) {
             AutomaticRefillingHandler.reset();
         }
         if (KeyRegistry.openProfilesScreenKey.isDown() && ConfigManager.PROFILES_STATUS.is(Status.ENABLED)) {
-            client.setScreen(new ProfilesScreen());
+            client.gui.setScreen(new ProfilesScreen());
         }
     }
 

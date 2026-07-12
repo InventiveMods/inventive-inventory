@@ -10,6 +10,7 @@ import net.inventive_mods.client.keys.KeyRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
+import net.minecraft.client.server.IntegratedServer;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -49,7 +50,7 @@ public class InventiveInventoryClient implements ClientModInitializer {
     }
 
     public static Screen getScreen() {
-        return getClient().screen;
+        return getClient().gui.screen();
     }
 
     public static MultiPlayerGameMode getGameMode() {
@@ -67,15 +68,20 @@ public class InventiveInventoryClient implements ClientModInitializer {
 
     public static String getWorldName() {
         String worldName = "";
-        if (InventiveInventoryClient.getClient().isSingleplayer() && InventiveInventoryClient.getClient().getSingleplayerServer() != null) {
-            worldName = InventiveInventoryClient.getClient().getSingleplayerServer().getWorldData().getLevelName();
+        if (isSingleplayer() && getClient().getSingleplayerServer() != null) {
+            worldName = getClient().getSingleplayerServer().getWorldData().getLevelName();
         } else {
-            if (InventiveInventoryClient.getClient().getCurrentServer() != null) {
-                String address = InventiveInventoryClient.getClient().getCurrentServer().ip;
+            if (getClient().getCurrentServer() != null) {
+                String address = getClient().getCurrentServer().ip;
                 if (address.contains("/")) worldName = address.split("/")[0];
                 else worldName = address;
             }
         }
         return worldName;
+    }
+
+    public static boolean isSingleplayer() {
+        IntegratedServer singleplayerServer = getClient().getSingleplayerServer();
+        return singleplayerServer != null && !singleplayerServer.isPublished();
     }
 }

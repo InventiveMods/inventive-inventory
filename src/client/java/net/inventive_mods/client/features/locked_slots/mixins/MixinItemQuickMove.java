@@ -15,7 +15,7 @@ public class MixinItemQuickMove {
 
     @ModifyExpressionValue(method = "moveItemStackTo", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z", ordinal = 1))
     private boolean isEmptyAndLockedSlot(boolean original, @Local(name = "destSlot") int destSlot) {
-        if (InventiveInventoryClient.getClient().isSingleplayer() && ConfigManager.QUICK_MOVE_INTO_LOCKED_SLOTS.is(false)) {
+        if (InventiveInventoryClient.isSingleplayer() && ConfigManager.QUICK_MOVE_INTO_LOCKED_SLOTS.is(false)) {
             return original || LockedSlotsHandler.getLockedSlots().contains(destSlot);
         }
         return original;
@@ -23,7 +23,7 @@ public class MixinItemQuickMove {
 
     @ModifyExpressionValue(method = "moveItemStackTo", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z", ordinal = 3))
     private boolean notEmptyAndLockedSlot(boolean original, @Local(name = "destSlot") int destSlot) {
-        if (InventiveInventoryClient.getClient().isSingleplayer() && ConfigManager.QUICK_MOVE_INTO_LOCKED_SLOTS.is(false)) {
+        if (InventiveInventoryClient.isSingleplayer() && ConfigManager.QUICK_MOVE_INTO_LOCKED_SLOTS.is(false)) {
             return original && !LockedSlotsHandler.getLockedSlots().contains(destSlot);
         }
         return original;
@@ -31,7 +31,7 @@ public class MixinItemQuickMove {
 
     @ModifyExpressionValue(method = "doClick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/inventory/Slot;hasItem()Z", ordinal = 3))
     private boolean preventPickupAll(boolean original, @Local(name = "target") Slot target) {
-        if (InventiveInventoryClient.getClient().isSingleplayer()) {
+        if (InventiveInventoryClient.isSingleplayer()) {
             return original && !LockedSlotsHandler.getLockedSlots().contains(target.index);
         }
         return original;

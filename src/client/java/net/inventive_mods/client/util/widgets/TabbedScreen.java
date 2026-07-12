@@ -62,7 +62,7 @@ public abstract class TabbedScreen extends OptionsSubScreen {
     @Override
     public void onClose() {
         this.tabEntries.forEach(tabEntry -> tabEntry.tab().onClose());
-        this.minecraft.setScreen(this.lastScreen);
+        this.minecraft.gui.setScreen(this.lastScreen);
     }
 
     private record TabEntry(String translationKey, ScreenTab tab) {
