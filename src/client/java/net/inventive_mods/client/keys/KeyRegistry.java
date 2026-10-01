@@ -6,7 +6,6 @@ import net.inventive_mods.client.InventiveInventoryClient;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.Nullable;
-import org.lwjgl.glfw.GLFW;
 
 public class KeyRegistry {
     public static final KeyMapping.Category INVENTIVE_INVENTORY_CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath(InventiveInventoryClient.MOD_ID, "main"));
@@ -24,33 +23,33 @@ public class KeyRegistry {
     public static void register() {
         sortKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 KEY_SORT,
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_R,
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_R,
                 INVENTIVE_INVENTORY_CATEGORY
         ));
         advancedOperationKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 KEY_ADVANCED_OPERATION,
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_LEFT_ALT,
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_LALT,
                 INVENTIVE_INVENTORY_CATEGORY
         ));
         openProfilesScreenKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 KEY_OPEN_PROFILES_SCREEN,
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_V,
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_V,
                 INVENTIVE_INVENTORY_PROFILES_CATEGORY
         ));
         loadProfileKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 KEY_LOAD_PROFILE,
-                InputConstants.Type.KEYSYM,
-                GLFW.GLFW_KEY_LEFT_ALT,
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_LALT,
                 INVENTIVE_INVENTORY_PROFILES_CATEGORY
         ));
         for (int i = 0; i < profileKeys.length; i++) {
             profileKeys[i] = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                     "key." + InventiveInventoryClient.MOD_ID + ".profile_" + i,
-                    InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_1 + i,
+                    InputConstants.Type.KEYBOARD,
+                    InputConstants.KEY_1 + i,
                     INVENTIVE_INVENTORY_PROFILES_CATEGORY
             ));
         }
