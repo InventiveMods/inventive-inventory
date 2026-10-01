@@ -1,7 +1,7 @@
 package net.inventive_mods.client.features.profiles.gui.render_state;
 
-import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.renderpearl.api.pipeline.RenderPipeline;
 import net.inventive_mods.client.InventiveInventoryClient;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;

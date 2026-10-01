@@ -1,6 +1,7 @@
 package net.inventive_mods.client.keys.mixins;
 
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.inventive_mods.client.context.ContextManager;
 import net.inventive_mods.client.features.sorting.SortingHandler;
 import net.inventive_mods.client.keys.KeyRegistry;
@@ -26,8 +27,8 @@ public class MixinKeyInputHandler {
         }
     }
 
-    @Inject(method = "checkHotbarMouseClicked(Lnet/minecraft/client/input/MouseButtonEvent;)V", at = @At("HEAD"))
-    private void onMouseClick(MouseButtonEvent event, CallbackInfo ci) {
+    @Inject(method = "mouseClicked", at = @At("HEAD"))
+    private void onMouseClick(MouseButtonEvent event, boolean doubleClick, CallbackInfoReturnable<Boolean> cir) {
         if (KeyRegistry.advancedOperationKey.matchesMouse(event)) {
             AdvancedOperationHandler.setPressed(true);
         }
@@ -39,6 +40,14 @@ public class MixinKeyInputHandler {
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTick(CallbackInfo ci) {
         if (AdvancedOperationHandler.isReleased()) {
+            AdvancedOperationHandler.setPressed(false);
+        }
+    }
+
+    @Inject(method = "mouseReleased", at = @At("HEAD"))
+    private void onMouseReleased(MouseButtonEvent event, CallbackInfoReturnable<Boolean> cir) {
+        System.out.println("AdvancedOperationHandler: isReleased() called, event: " + event);
+        if (KeyRegistry.advancedOperationKey.matchesMouse(event)) {
             AdvancedOperationHandler.setPressed(false);
         }
     }
